@@ -74,6 +74,8 @@ html {
   border-bottom: 1px solid #FAFAFA;
   border-right: 1px solid #FAFAFA;
 }
+.gradebook-user-label {
+}
 .gradebook-user-label.gradebook-cell-highlight {
   box-shadow: none;
 }
@@ -376,4 +378,46 @@ html {
   position: absolute;
   z-index: 2;
   box-shadow: 0 -4px #FFF; /* just to cover the shadow from the fixed column group */
+}
+.gradebook-header-cell {
+  position: relative;
+}
+.context-menu-toggle {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 14px;
+  height: 14px;
+  display: none;
+}
+.context-menu-toggle:after {
+  transition: border-color 0.25s;
+
+  border-left: 8px solid transparent;
+  border-right: 0px solid transparent;
+  border-bottom: 8px solid #DDD;
+  content: "";
+  width: 0;
+  height: 0;
+  position: absolute;
+  right: 3px;
+  bottom: 3px;
+}
+.gradebook-header-cell:hover .context-menu-toggle:after {
+  transition: border-color 0.25s;
+
+  border-bottom-color: #AAA;
+}
+.gradebook-header-cell:hover .context-menu-toggle:hover:after {
+  transition: border-color 0.25s;
+
+  border-bottom-color: #666;
+}
+/*.gradebook-cell-item,
+.gradebook-user-label,
+.gradebook-header-cell {
+  transition: background-color 0.25s;
+} -- MAKES EVERYTHING SEEM A LITTLE LAGGY */
+.gradebook-item-cell:hover {
+  border-color: #F0f0f0;
 }
