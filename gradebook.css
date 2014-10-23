@@ -221,12 +221,12 @@ html {
 
 .gradebook-fixed-header.gradebook-fixed-columns-header {
   position: absolute;
-  top: 33px;
+  top: 31px;
   left: 0;
 }
 .gradebook-fixed-header.gradebook-gradeitem-columns-header {
   position: absolute;
-  top: 33px;
+  top: 31px;
   right: 0;
 }
 
