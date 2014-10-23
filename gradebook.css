@@ -143,6 +143,7 @@ html {
   background-color: #FFF !important;
 }
 
+.gradebook-column.gradebook-column-highlight .gradebook-cell-active,
 .gradebook-column.gradebook-column-highlight .gradebook-cell-active input,
 .gradebook-cell.gradebook-item-cell:focus input {
   background-color: #FFF !important;
@@ -335,7 +336,6 @@ html {
 }
 .gradebook-cell-item-saved,
 .gradebook-cell-item-saved input,
-
 .gradebook-cell-active.gradebook-cell-item-saved,
 .gradebook-cell-active.gradebook-cell-item-saved input,
 .gradebook-column.gradebook-column-highlight .gradebook-cell-active.gradebook-cell-item-saved,
