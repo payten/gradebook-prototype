@@ -93,6 +93,11 @@ GradebookItemCell.prototype.onBlur = function(event) {
 GradebookItemCell.prototype.enterEditMode = function(withValue) {
   var self = this;
 
+  // Cannot edit while saving
+  if (self.$cell.hasClass("gradebook-cell-item-saving")) {
+    return;
+  }
+
   self.$cell.addClass("gradebook-cell-active");
   //self.$input.data("orig-value", self.$input.val());
 

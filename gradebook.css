@@ -334,7 +334,14 @@ html {
   top: 5px;
 }
 .gradebook-cell-item-saved,
-.gradebook-cell-item-saved input {
+.gradebook-cell-item-saved input,
+
+.gradebook-cell-active.gradebook-cell-item-saved,
+.gradebook-cell-active.gradebook-cell-item-saved input,
+.gradebook-column.gradebook-column-highlight .gradebook-cell-active.gradebook-cell-item-saved,
+.gradebook-column.gradebook-column-highlight .gradebook-cell-active.gradebook-cell-item-saved input,
+.gradebook-cell.gradebook-item-cell.gradebook-cell-item-saved:focus,
+.gradebook-cell.gradebook-item-cell.gradebook-cell-item-saved:focus input {
   position: relative;
   background-color: #efe !important;
 }
