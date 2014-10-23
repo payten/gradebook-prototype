@@ -227,6 +227,7 @@ GradebookSpreadsheet.prototype.initCategories = function() {
 
 GradebookSpreadsheet.prototype.initFixedTableHeader = function() {
   var self = this;
+
   var $fixedHeaderLeft = $("<div>").
                               addClass("gradebook-fixed-header").
                               addClass("gradebook-fixed-columns-header");
@@ -274,13 +275,16 @@ GradebookSpreadsheet.prototype.initFixedTableHeader = function() {
 
   self.$spreadsheet.find(".gradebook-gradeitem-columns").prepend($fixedHeaderRight);
 
+  var $toolbar = $("#gradebookToolbar");
   $(document).on("scroll", function() {
     if (self.$spreadsheet.position().top < document.body.scrollTop) {
-      $fixedHeaderLeft.css("top", document.body.scrollTop - self.$spreadsheet.position().top + "px");
-      $fixedHeaderRight.css("top", document.body.scrollTop - self.$spreadsheet.position().top + "px");
+      $fixedHeaderLeft.css("top", document.body.scrollTop - self.$spreadsheet.position().top + $toolbar.outerHeight() + "px");
+      $fixedHeaderRight.css("top", document.body.scrollTop - self.$spreadsheet.position().top + $toolbar.outerHeight() + "px");
+      $toolbar.css("top", document.body.scrollTop + "px");
     } else {
-      $fixedHeaderLeft.css("top", 0);
-      $fixedHeaderRight.css("top", 0);
+      $toolbar.css("top", "");
+      $fixedHeaderLeft.css("top", $toolbar.outerHeight());
+      $fixedHeaderRight.css("top", $toolbar.outerHeight());
     }
   });
 };

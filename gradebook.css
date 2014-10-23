@@ -26,6 +26,7 @@ html {
 .gradebook-wrapper {
   width: 100%;
   overflow: auto;
+  background: #fafafa;
 }
 
 #studentFilter, #sectionFilter, #gradeFilter {
@@ -200,7 +201,7 @@ html {
 
 .gradebook-fixed-columns {
   position: absolute;
-  box-shadow: 1px 0 2px #CCC;
+  box-shadow: 1px 0 4px #DDD;
 }
 .gradebook-gradeitem-columns {
   margin-left: 420px;
@@ -218,12 +219,12 @@ html {
 
 .gradebook-fixed-header.gradebook-fixed-columns-header {
   position: absolute;
-  top: 0;
+  top: 33px;
   left: 0;
 }
 .gradebook-fixed-header.gradebook-gradeitem-columns-header {
   position: absolute;
-  top: 0;
+  top: 33px;
   right: 0;
 }
 
@@ -235,7 +236,7 @@ html {
   position: relative;
 }
 .gradebook-column-group {
-  padding-top: 52px;
+  padding-top: 84px;
 }
 #qtip-addGradeItemPopup {
   position: fixed;
@@ -265,13 +266,12 @@ html {
   display: table-cell;
   text-align: center;
   padding: 4px 0;
-  border-radius: 10px 10px 0 0;
   text-shadow: 1px 1px 1px #FFF;
   font-weight: 400;
 }
 #gradebookFilters {
   float: right;
-  margin: 24px;
+  margin-right: 10px;
 }
 .gradebook-fixed-header.gradebook-fixed-columns-header {
   padding-top: 23px;
@@ -280,11 +280,9 @@ html {
 .hide-categories .gradebook-fixed-header.gradebook-fixed-columns-header {
   padding-top: 0;
 }
-.hide-categories .gradebook-column-group {
-  padding-top: 52px;
-}
+.hide-categories .gradebook-column-group,
 .gradebook-column-group {
-  padding-top: 75px;
+  padding-top: 84px;
 }
 .gradebook-filter-label, .gradebook-filter {
   display: inline-block;
@@ -293,8 +291,8 @@ html {
   margin-right: 10px;
 }
 .gradebook-filter {
-  padding: 4px 8px;
-  border: 1px solid #EEE;
+  padding: 0 8px;
+  line-height: 30px;
 }
 .gradebook-category-weighting {
   display: inline-block;
@@ -367,4 +365,15 @@ html {
   position: absolute;
   right: 8px;
   top: 5px;
+}
+
+#gradebookToolbar {
+  width: 100%;
+  height: 30px;
+  overflow: hidden;
+  background-color: #f6f6f6;
+  border-bottom: 1px solid #DDD;
+  position: absolute;
+  z-index: 2;
+  box-shadow: 0 -4px #FFF; /* just to cover the shadow from the fixed column group */
 }

@@ -21,18 +21,17 @@
 
   <a href="javascript:void(0);" class="button" id="addGradeItem">Add Grade Item</a>
 
-  <div id="gradebookFilters">
-    <div class="gradebook-filter-label">
-      View Options:
-    </div>
-    <div class="gradebook-filter">
-      <input id="gradebookCategoryToggle" type="checkbox"/> <label for="gradebookCategoryToggle">Toggle Categories</label>
-    </div>
-  </div>
-
   <div id="gradebookSpreadsheet">
     <div class="gradebook-wrapper">
       <div style="width:1500px;" class="gradebook-table">
+      <div id="gradebookToolbar">
+        <div id="gradebookFilters">
+          <div class="gradebook-filter">
+            <input id="gradebookCategoryToggle" type="checkbox"/> 
+            <label for="gradebookCategoryToggle">Toggle Categories</label>
+          </div>
+        </div>
+      </div>
         <div class="gradebook-column-group gradebook-fixed-columns">
           <div style="width:180px;" class="gradebook-column gradebook-column-students">
             <div class="gradebook-header-cell sort-asc">
