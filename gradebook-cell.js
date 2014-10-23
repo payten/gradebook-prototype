@@ -113,8 +113,8 @@ GradebookItemCell.prototype.enterEditMode = function(withValue) {
   }
 
   self.$input.one("blur", function(event) {
-    self.$input.data("valid", self.$input[0].validity.valid);
     self.exitEditMode();
+    self.save();
   });
   self.$input.on("keydown", function(event) {
     // return 13
@@ -122,7 +122,7 @@ GradebookItemCell.prototype.enterEditMode = function(withValue) {
       event.preventDefault();
       event.stopPropagation();
 
-      self.$input.blur();
+      self.exitEditMode();
       self.callbacks.onInputReturn(event, self.$cell);
       self.save();
 
@@ -135,7 +135,7 @@ GradebookItemCell.prototype.enterEditMode = function(withValue) {
 
       self.undo();
 
-      self.$input.blur();
+      self.exitEditMode();
       self.$cell.focus();
 
       return false;
@@ -145,7 +145,7 @@ GradebookItemCell.prototype.enterEditMode = function(withValue) {
       event.preventDefault();
       event.stopPropagation();
 
-      self.$input.blur();
+      self.exitEditMode();
       self.callbacks.onInputTab(event, self.$cell);
       self.save();
       
@@ -156,6 +156,7 @@ GradebookItemCell.prototype.enterEditMode = function(withValue) {
 
 
 GradebookItemCell.prototype.exitEditMode = function() {
+  this.$input.data("valid", this.$input[0].validity.valid);
   this.$input.attr("disabled","disabled").attr("tabindex", "-1");
   this.$cell.removeClass("gradebook-cell-active");
   this.$input.off("keyup");
