@@ -233,12 +233,8 @@ html {
 .gradebook-column-group.gradebook-fixed-columns {
   z-index: 1;
 }
-
 .gradebook-column-group.gradebook-gradeitem-columns {
   position: relative;
-}
-.gradebook-column-group {
-  padding-top: 84px;
 }
 #qtip-addGradeItemPopup {
   position: fixed;
@@ -282,9 +278,11 @@ html {
 .hide-categories .gradebook-fixed-header.gradebook-fixed-columns-header {
   padding-top: 0;
 }
-.hide-categories .gradebook-column-group,
-.gradebook-column-group {
+.hide-categories .gradebook-column-group {
   padding-top: 84px;
+}
+.gradebook-column-group {
+  padding-top: 107px;
 }
 .gradebook-filter-label, .gradebook-filter {
   display: inline-block;
