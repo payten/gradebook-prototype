@@ -321,3 +321,43 @@ html {
 .gradebook-header-cell .gradebook-header-label:hover:after {
   color: #BF3B3B !important;
 }
+.gradebook-cell-item-saving {
+  position: relative;
+}
+.gradebook-cell-item-saving:after {
+  font-family: 'nyu-classes-icons';
+  content: '\e073';
+  color: #999;
+  z-index: 1;
+  position: absolute;
+  right: 8px;
+  top: 5px;
+}
+.gradebook-cell-item-saved,
+.gradebook-cell-item-saved input {
+  position: relative;
+  background-color: #efe !important;
+}
+.gradebook-cell-item-saved:after {
+  font-family: 'nyu-classes-icons';
+  content: '\e047';
+  color: #999;
+  z-index: 1;
+  position: absolute;
+  right: 8px;
+  top: 5px;
+}
+.gradebook-cell-item-error,
+.gradebook-cell-item-error input {
+  position: relative;
+  background-color: #fee !important;
+}
+.gradebook-cell-item-error:after {
+  font-family: 'nyu-classes-icons';
+  content: '\e01c';
+  color: #BF3B3B;
+  z-index: 1;
+  position: absolute;
+  right: 8px;
+  top: 5px;
+}

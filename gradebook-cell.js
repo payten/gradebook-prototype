@@ -94,7 +94,7 @@ GradebookItemCell.prototype.enterEditMode = function(withValue) {
   var self = this;
 
   self.$cell.addClass("gradebook-cell-active");
-  self.$input.data("orig-value", self.$input.val());
+  //self.$input.data("orig-value", self.$input.val());
 
   if (withValue != null) {
     this.$input.val(withValue);
@@ -108,6 +108,7 @@ GradebookItemCell.prototype.enterEditMode = function(withValue) {
   }
 
   self.$input.one("blur", function(event) {
+    self.$input.data("valid", self.$input[0].validity.valid);
     self.exitEditMode();
   });
   self.$input.on("keydown", function(event) {
@@ -118,7 +119,7 @@ GradebookItemCell.prototype.enterEditMode = function(withValue) {
 
       self.$input.blur();
       self.callbacks.onInputReturn(event, self.$cell);
-      self.$input.removeData("orig-value");
+      self.save();
 
       return false;
 
@@ -141,6 +142,7 @@ GradebookItemCell.prototype.enterEditMode = function(withValue) {
 
       self.$input.blur();
       self.callbacks.onInputTab(event, self.$cell);
+      self.save();
       
       return false;
     }
@@ -157,6 +159,7 @@ GradebookItemCell.prototype.exitEditMode = function() {
 
 
 GradebookItemCell.prototype.undo = function() {
+  this.$cell.removeClass("gradebook-cell-item-error");
   this.$input.val(this.$input.data("orig-value"));
 };
 
@@ -166,8 +169,50 @@ GradebookItemCell.prototype.clear = function() {
 };
 
 
+GradebookItemCell.prototype._validate = function() {
+  // basic validate of value, NaN, within range etc.
+  var value = this.$input.val();
+
+  if (value == "" && !this.$input.data("valid")) {
+    return false;
+  }
+
+  if (value == "") {
+    return true;
+  }
+
+  if (parseFloat(value) > parseInt(this.$input.attr("max"))) {
+    return false;
+  } else if (parseFloat(value) < parseInt(this.$input.attr("min"))) {
+    return false;
+  }
+
+  return true;
+};
+
+
 GradebookItemCell.prototype.save = function() {
+  var self = this;
   
+  if (self.$input.val() == self.$input.data("orig-value")) {
+    return;
+  };
+  
+  self.$cell.removeClass("gradebook-cell-item-error").addClass("gradebook-cell-item-saving");
+  setTimeout(function() {
+    self.$cell.removeClass("gradebook-cell-item-saving");
+    if (self._validate()) {
+      self.$cell.addClass("gradebook-cell-item-saved");
+      self.$input.data("orig-value", self.$input.val());
+      setTimeout(function() {
+        self.$cell.removeClass("gradebook-cell-item-saved");
+      }, 3000);
+    } else {
+      self.$cell.addClass("gradebook-cell-item-error");
+    }
+
+  }, 2000);
+
 };
 
 
