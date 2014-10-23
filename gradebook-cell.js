@@ -166,6 +166,8 @@ GradebookItemCell.prototype.undo = function() {
 
 GradebookItemCell.prototype.clear = function() {
   this.$input.val("");
+  this.$input.data("valid", true);
+  this.save();
 };
 
 
@@ -173,7 +175,7 @@ GradebookItemCell.prototype._validate = function() {
   // basic validate of value, NaN, within range etc.
   var value = this.$input.val();
 
-  if (value == "" && !this.$input.data("valid")) {
+  if (value == "" && !(this.$input.data("valid") == true)) {
     return false;
   }
 
