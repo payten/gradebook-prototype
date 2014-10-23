@@ -118,8 +118,7 @@ GradebookItemCell.prototype.enterEditMode = function(withValue) {
 
       self.$input.blur();
       self.callbacks.onInputReturn(event, self.$cell);
-
-      self.$input.removeData("orig-value", self.$input.val());
+      self.$input.removeData("orig-value");
 
       return false;
 
@@ -128,7 +127,7 @@ GradebookItemCell.prototype.enterEditMode = function(withValue) {
       event.preventDefault();
       event.stopPropagation();
 
-      self.$input.val(self.$input.data("orig-value"));
+      self.undo();
 
       self.$input.blur();
       self.$cell.focus();
@@ -158,12 +157,12 @@ GradebookItemCell.prototype.exitEditMode = function() {
 
 
 GradebookItemCell.prototype.undo = function() {
-  
+  this.$input.val(this.$input.data("orig-value"));
 };
 
 
 GradebookItemCell.prototype.clear = function() {
-  
+  this.$input.val("");
 };
 
 

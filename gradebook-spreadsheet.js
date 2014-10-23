@@ -43,7 +43,7 @@ GradebookSpreadsheet.prototype.onKeydown = function(event) {
     // DEL 8
     } else if (event.keyCode == 8) {
       event.preventDefault();
-      this.getCellModel($eventTarget).enterEditMode();
+      this.getCellModel($eventTarget).clear();
     }
   }
 };
