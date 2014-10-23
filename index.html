@@ -1,0 +1,1924 @@
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="lib/tool_base.css"/>
+  <link rel="stylesheet" type="text/css" href="lib/tool.css"/>
+  <link rel="stylesheet" type="text/css" href="lib/jquery.qtip-latest.min.css"/>
+  <link rel="stylesheet" type="text/css" href="gradebook.css"/>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script src="lib/jquery.qtip-latest.min.js"></script>
+  <script src="gradebook-cell.js"></script>
+  <script src="gradebook-spreadsheet.js"></script>
+  <script src="gradebook.js"></script>
+</head>
+<body>
+<div class="portletBody">
+  <ul class="navIntraTool actionToolBar">
+    <li class="firstToolBarItem"><span class="current">Grades</span></li>
+    <li><span><a href="settings.html">Settings</a></span></li>
+    <li><span><a href="import.html">Import / Export</a></span></li>
+    <li><span><a href="permissions.html">Permissions</a></span></li>
+  </ul>
+
+  <a href="javascript:void(0);" class="button" id="addGradeItem">Add Grade Item</a>
+
+  <div id="gradebookFilters">
+    <div class="gradebook-filter-label">
+      View Options:
+    </div>
+    <div class="gradebook-filter">
+      <input id="gradebookCategoryToggle" type="checkbox"/> <label for="gradebookCategoryToggle">Toggle Categories</label>
+    </div>
+  </div>
+
+  <div id="gradebookSpreadsheet">
+    <div class="gradebook-wrapper">
+      <div style="width:1500px;" class="gradebook-table">
+        <div class="gradebook-column-group gradebook-fixed-columns">
+          <div style="width:180px;" class="gradebook-column gradebook-column-students">
+            <div class="gradebook-header-cell sort-asc">
+              <span class="gradebook-header-label">Students</span>
+              <input type="text" id="studentFilter" placeholder="Filter Students"/>
+            </div>
+            <div class="gradebook-cell gradebook-user-label"><span class="first-name">Anjelica</span><span class="last-name">Baez</span><span class="netid">ab8222</span></div>
+            <div class="gradebook-cell gradebook-user-label"><span class="first-name">Asuncion</span><span class="last-name">Elrod</span><span class="netid">ae8891</span></div>
+            <div class="gradebook-cell gradebook-user-label"><span class="first-name">Ardelia</span><span class="last-name">Loftin</span><span class="netid">al2098</span></div>
+            <div class="gradebook-cell gradebook-user-label"><span class="first-name">Alethia</span><span class="last-name">Newsom</span><span class="netid">an4220</span></div>
+            <div class="gradebook-cell gradebook-user-label"><span class="first-name">Adaline</span><span class="last-name">Willingham</span><span class="netid">aw7681</span></div>
+            <div class="gradebook-cell gradebook-user-label"><span class="first-name">Bethel</span><span class="last-name">Jernigan</span><span class="netid">bj5471</span></div>
+            <div class="gradebook-cell gradebook-user-label"><span class="first-name">Belia</span><span class="last-name">Wendt</span><span class="netid">bw7900</span></div>
+            <div class="gradebook-cell gradebook-user-label"><span class="first-name">Chloe</span><span class="last-name">Copley</span><span class="netid">cc4548</span></div>
+            <div class="gradebook-cell gradebook-user-label"><span class="first-name">Chantay</span><span class="last-name">Capps</span><span class="netid">cc981</span></div>
+            <div class="gradebook-cell gradebook-user-label"><span class="first-name">Cristy</span><span class="last-name">Platt</span><span class="netid">cp2259</span></div>
+            <div class="gradebook-cell gradebook-user-label"><span class="first-name">Chastity</span><span class="last-name">Puckett</span><span class="netid">cp3491</span></div>
+            <div class="gradebook-cell gradebook-user-label"><span class="first-name">Christin</span><span class="last-name">Wick</span><span class="netid">cw8427</span></div>
+            <div class="gradebook-cell gradebook-user-label"><span class="first-name">Elane</span><span class="last-name">Baxley</span><span class="netid">eb8828</span></div>
+            <div class="gradebook-cell gradebook-user-label"><span class="first-name">Eugena</span><span class="last-name">Myles</span><span class="netid">em8458</span></div>
+            <div class="gradebook-cell gradebook-user-label"><span class="first-name">Farrah</span><span class="last-name">Gatlin</span><span class="netid">fg8688</span></div>
+            <div class="gradebook-cell gradebook-user-label"><span class="first-name">Gaynelle</span><span class="last-name">Barraza</span><span class="netid">gb2897</span></div>
+            <div class="gradebook-cell gradebook-user-label"><span class="first-name">Gavin</span><span class="last-name">Stubblefield</span><span class="netid">gs1695</span></div>
+            <div class="gradebook-cell gradebook-user-label"><span class="first-name">Holli</span><span class="last-name">Nunes</span><span class="netid">hn8115</span></div>
+            <div class="gradebook-cell gradebook-user-label"><span class="first-name">Ira</span><span class="last-name">Huggins</span><span class="netid">ih390</span></div>
+            <div class="gradebook-cell gradebook-user-label"><span class="first-name">Julianna</span><span class="last-name">Arsenault</span><span class="netid">ja1023</span></div>
+            <div class="gradebook-cell gradebook-user-label"><span class="first-name">Jerri</span><span class="last-name">Acosta</span><span class="netid">ja5447</span></div>
+            <div class="gradebook-cell gradebook-user-label"><span class="first-name">Jacki</span><span class="last-name">Goldman</span><span class="netid">jg5482</span></div>
+            <div class="gradebook-cell gradebook-user-label"><span class="first-name">Joan</span><span class="last-name">Grover</span><span class="netid">jg7807</span></div>
+            <div class="gradebook-cell gradebook-user-label"><span class="first-name">Jade</span><span class="last-name">Hutchins</span><span class="netid">jh3511</span></div>
+            <div class="gradebook-cell gradebook-user-label"><span class="first-name">Jona</span><span class="last-name">Helms</span><span class="netid">jh5236</span></div>
+            <div class="gradebook-cell gradebook-user-label"><span class="first-name">Kasey</span><span class="last-name">Ahmed</span><span class="netid">ka7359</span></div>
+            <div class="gradebook-cell gradebook-user-label"><span class="first-name">Karma</span><span class="last-name">Nation</span><span class="netid">kn1825</span></div>
+            <div class="gradebook-cell gradebook-user-label"><span class="first-name">Kimber</span><span class="last-name">Orellana</span><span class="netid">ko1448</span></div>
+            <div class="gradebook-cell gradebook-user-label"><span class="first-name">Kira</span><span class="last-name">Rau</span><span class="netid">kr3735</span></div>
+            <div class="gradebook-cell gradebook-user-label"><span class="first-name">Lavonda</span><span class="last-name">Chaney</span><span class="netid">lc2332</span></div>
+            <div class="gradebook-cell gradebook-user-label"><span class="first-name">Liza</span><span class="last-name">Close</span><span class="netid">lc7865</span></div>
+            <div class="gradebook-cell gradebook-user-label"><span class="first-name">Lissa</span><span class="last-name">Lytle</span><span class="netid">ll1555</span></div>
+            <div class="gradebook-cell gradebook-user-label"><span class="first-name">Lyla</span><span class="last-name">Mcnally</span><span class="netid">lm3690</span></div>
+            <div class="gradebook-cell gradebook-user-label"><span class="first-name">Luba</span><span class="last-name">Nealy</span><span class="netid">ln8704</span></div>
+            <div class="gradebook-cell gradebook-user-label"><span class="first-name">Lauren</span><span class="last-name">Thorne</span><span class="netid">lt8949</span></div>
+            <div class="gradebook-cell gradebook-user-label"><span class="first-name">Mi</span><span class="last-name">Atkinson</span><span class="netid">ma6736</span></div>
+            <div class="gradebook-cell gradebook-user-label"><span class="first-name">Malik</span><span class="last-name">Conyers</span><span class="netid">mc9530</span></div>
+            <div class="gradebook-cell gradebook-user-label"><span class="first-name">Masako</span><span class="last-name">Damico</span><span class="netid">md4576</span></div>
+            <div class="gradebook-cell gradebook-user-label"><span class="first-name">Melda</span><span class="last-name">Hornsby</span><span class="netid">mh2092</span></div>
+            <div class="gradebook-cell gradebook-user-label"><span class="first-name">Marlin</span><span class="last-name">Isaac</span><span class="netid">mi3666</span></div>
+            <div class="gradebook-cell gradebook-user-label"><span class="first-name">Myrta</span><span class="last-name">Meehan</span><span class="netid">mm3428</span></div>
+            <div class="gradebook-cell gradebook-user-label"><span class="first-name">Melissia</span><span class="last-name">Otero</span><span class="netid">mo6051</span></div>
+            <div class="gradebook-cell gradebook-user-label"><span class="first-name">Maude</span><span class="last-name">Putman</span><span class="netid">mp9227</span></div>
+            <div class="gradebook-cell gradebook-user-label"><span class="first-name">Meda</span><span class="last-name">Shin</span><span class="netid">ms1434</span></div>
+            <div class="gradebook-cell gradebook-user-label"><span class="first-name">Micah</span><span class="last-name">Villareal</span><span class="netid">mv8377</span></div>
+            <div class="gradebook-cell gradebook-user-label"><span class="first-name">Nichelle</span><span class="last-name">Paradis</span><span class="netid">np7689</span></div>
+            <div class="gradebook-cell gradebook-user-label"><span class="first-name">Natashia</span><span class="last-name">Waldrop</span><span class="netid">nw3055</span></div>
+            <div class="gradebook-cell gradebook-user-label"><span class="first-name">Pamula</span><span class="last-name">Richey</span><span class="netid">pr5255</span></div>
+            <div class="gradebook-cell gradebook-user-label"><span class="first-name">Rosalva</span><span class="last-name">Grenier</span><span class="netid">rg8028</span></div>
+            <div class="gradebook-cell gradebook-user-label"><span class="first-name">Rory</span><span class="last-name">Manson</span><span class="netid">rm756</span></div>
+            <div class="gradebook-cell gradebook-user-label"><span class="first-name">Shayne</span><span class="last-name">Brantley</span><span class="netid">sb2861</span></div>
+            <div class="gradebook-cell gradebook-user-label"><span class="first-name">Sammie</span><span class="last-name">Knowles</span><span class="netid">sk5781</span></div>
+            <div class="gradebook-cell gradebook-user-label"><span class="first-name">Shauna</span><span class="last-name">Meadows</span><span class="netid">sm3554</span></div>
+            <div class="gradebook-cell gradebook-user-label"><span class="first-name">Trish</span><span class="last-name">Desimone</span><span class="netid">td6730</span></div>
+            <div class="gradebook-cell gradebook-user-label"><span class="first-name">Temeka</span><span class="last-name">Gann</span><span class="netid">tg5970</span></div>
+            <div class="gradebook-cell gradebook-user-label"><span class="first-name">Tena</span><span class="last-name">Mendenhall</span><span class="netid">tm316</span></div>
+            <div class="gradebook-cell gradebook-user-label"><span class="first-name">Ursula</span><span class="last-name">Newkirk</span><span class="netid">un8795</span></div>
+            <div class="gradebook-cell gradebook-user-label"><span class="first-name">Willette</span><span class="last-name">House</span><span class="netid">wh7742</span></div>
+            <div class="gradebook-cell gradebook-user-label"><span class="first-name">Yong</span><span class="last-name">Mccombs</span><span class="netid">ym4978</span></div>
+            <div class="gradebook-cell gradebook-user-label"><span class="first-name">Zachariah</span><span class="last-name">Dunbar</span><span class="netid">zd4782</span></div>
+          </div>
+
+<div style="width:120px;" class="gradebook-column gradebook-column-sections">
+            <div class="gradebook-header-cell">
+              <span class="gradebook-header-label">Section</span>
+              <select id="sectionFilter">
+                <option value="">All Sections</option>
+                <option>Section 1</option>
+                <option>Section 2</option>
+                <option>Section 3</option>
+              </select>
+            </div>
+            <div class="gradebook-cell gradebook-section">Section 1</div>
+            <div class="gradebook-cell gradebook-section">Section 2</div>
+            <div class="gradebook-cell gradebook-section">Section 1</div>
+            <div class="gradebook-cell gradebook-section">Section 2</div>
+            <div class="gradebook-cell gradebook-section">Section 2</div>
+            <div class="gradebook-cell gradebook-section">Section 2</div>
+            <div class="gradebook-cell gradebook-section">Section 2</div>
+            <div class="gradebook-cell gradebook-section">Section 3</div>
+            <div class="gradebook-cell gradebook-section">Section 1</div>
+            <div class="gradebook-cell gradebook-section">Section 1</div>
+            <div class="gradebook-cell gradebook-section">Section 3</div>
+            <div class="gradebook-cell gradebook-section">Section 1</div>
+            <div class="gradebook-cell gradebook-section">Section 2</div>
+            <div class="gradebook-cell gradebook-section">Section 2</div>
+            <div class="gradebook-cell gradebook-section">Section 3</div>
+            <div class="gradebook-cell gradebook-section">Section 1</div>
+            <div class="gradebook-cell gradebook-section">Section 2</div>
+            <div class="gradebook-cell gradebook-section">Section 1</div>
+            <div class="gradebook-cell gradebook-section">Section 3</div>
+            <div class="gradebook-cell gradebook-section">Section 2</div>
+            <div class="gradebook-cell gradebook-section">Section 2</div>
+            <div class="gradebook-cell gradebook-section">Section 3</div>
+            <div class="gradebook-cell gradebook-section">Section 1</div>
+            <div class="gradebook-cell gradebook-section">Section 2</div>
+            <div class="gradebook-cell gradebook-section">Section 3</div>
+            <div class="gradebook-cell gradebook-section">Section 2</div>
+            <div class="gradebook-cell gradebook-section">Section 1</div>
+            <div class="gradebook-cell gradebook-section">Section 3</div>
+            <div class="gradebook-cell gradebook-section">Section 3</div>
+            <div class="gradebook-cell gradebook-section">Section 1</div>
+            <div class="gradebook-cell gradebook-section">Section 2</div>
+            <div class="gradebook-cell gradebook-section">Section 3</div>
+            <div class="gradebook-cell gradebook-section">Section 1</div>
+            <div class="gradebook-cell gradebook-section">Section 3</div>
+            <div class="gradebook-cell gradebook-section">Section 3</div>
+            <div class="gradebook-cell gradebook-section">Section 3</div>
+            <div class="gradebook-cell gradebook-section">Section 2</div>
+            <div class="gradebook-cell gradebook-section">Section 2</div>
+            <div class="gradebook-cell gradebook-section">Section 2</div>
+            <div class="gradebook-cell gradebook-section">Section 3</div>
+            <div class="gradebook-cell gradebook-section">Section 2</div>
+            <div class="gradebook-cell gradebook-section">Section 1</div>
+            <div class="gradebook-cell gradebook-section">Section 3</div>
+            <div class="gradebook-cell gradebook-section">Section 3</div>
+            <div class="gradebook-cell gradebook-section">Section 3</div>
+            <div class="gradebook-cell gradebook-section">Section 1</div>
+            <div class="gradebook-cell gradebook-section">Section 3</div>
+            <div class="gradebook-cell gradebook-section">Section 1</div>
+            <div class="gradebook-cell gradebook-section">Section 1</div>
+            <div class="gradebook-cell gradebook-section">Section 3</div>
+            <div class="gradebook-cell gradebook-section">Section 1</div>
+            <div class="gradebook-cell gradebook-section">Section 3</div>
+            <div class="gradebook-cell gradebook-section">Section 1</div>
+            <div class="gradebook-cell gradebook-section">Section 1</div>
+            <div class="gradebook-cell gradebook-section">Section 2</div>
+            <div class="gradebook-cell gradebook-section">Section 2</div>
+            <div class="gradebook-cell gradebook-section">Section 1</div>
+            <div class="gradebook-cell gradebook-section">Section 2</div>
+            <div class="gradebook-cell gradebook-section">Section 1</div>
+            <div class="gradebook-cell gradebook-section">Section 3</div>
+          </div>
+
+          <div style="width:120px;" class="gradebook-column">
+            <div class="gradebook-header-cell gradebook-course-total">
+              <span class="gradebook-header-label">Course Grade</span>
+              <!-- <select id="gradeFilter">
+                <option value="">Any Grade</option>
+                <option>A</option>
+                <option>B</option>
+                <option>C</option>
+                <option>D</option>
+                <option>E</option>
+                <option>F</option>
+                <option>No Grade</option>
+              </select>-->
+            </div>
+            <div class="gradebook-cell gradebook-course-total"><span>63.15</span><span> : </span><span class="gradebook-course-total-grade">C</span></div>
+            <div class="gradebook-cell gradebook-course-total"><span>50.15</span><span> : </span><span class="gradebook-course-total-grade">C</span></div>
+            <div class="gradebook-cell gradebook-course-total"><span>55.80</span><span> : </span><span class="gradebook-course-total-grade">C</span></div>
+            <div class="gradebook-cell gradebook-course-total"><span>40.60</span><span> : </span><span class="gradebook-course-total-grade">D</span></div>
+            <div class="gradebook-cell gradebook-course-total"><span>48.85</span><span> : </span><span class="gradebook-course-total-grade">D</span></div>
+            <div class="gradebook-cell gradebook-course-total"><span>52.35</span><span> : </span><span class="gradebook-course-total-grade">C</span></div>
+            <div class="gradebook-cell gradebook-course-total"><span>58.45</span><span> : </span><span class="gradebook-course-total-grade">C</span></div>
+            <div class="gradebook-cell gradebook-course-total"><span>33.35</span><span> : </span><span class="gradebook-course-total-grade">E</span></div>
+            <div class="gradebook-cell gradebook-course-total"><span>74.55</span><span> : </span><span class="gradebook-course-total-grade">B</span></div>
+            <div class="gradebook-cell gradebook-course-total"><span>35.75</span><span> : </span><span class="gradebook-course-total-grade">E</span></div>
+            <div class="gradebook-cell gradebook-course-total"><span>32.40</span><span> : </span><span class="gradebook-course-total-grade">E</span></div>
+            <div class="gradebook-cell gradebook-course-total"><span>44.75</span><span> : </span><span class="gradebook-course-total-grade">D</span></div>
+            <div class="gradebook-cell gradebook-course-total"><span>47.35</span><span> : </span><span class="gradebook-course-total-grade">D</span></div>
+            <div class="gradebook-cell gradebook-course-total"><span>57.00</span><span> : </span><span class="gradebook-course-total-grade">C</span></div>
+            <div class="gradebook-cell gradebook-course-total"><span>36.25</span><span> : </span><span class="gradebook-course-total-grade">E</span></div>
+            <div class="gradebook-cell gradebook-course-total"><span>33.75</span><span> : </span><span class="gradebook-course-total-grade">E</span></div>
+            <div class="gradebook-cell gradebook-course-total"><span>52.30</span><span> : </span><span class="gradebook-course-total-grade">C</span></div>
+            <div class="gradebook-cell gradebook-course-total"><span>35.45</span><span> : </span><span class="gradebook-course-total-grade">E</span></div>
+            <div class="gradebook-cell gradebook-course-total"><span>43.40</span><span> : </span><span class="gradebook-course-total-grade">D</span></div>
+            <div class="gradebook-cell gradebook-course-total"><span>53.55</span><span> : </span><span class="gradebook-course-total-grade">C</span></div>
+            <div class="gradebook-cell gradebook-course-total"><span>40.65</span><span> : </span><span class="gradebook-course-total-grade">D</span></div>
+            <div class="gradebook-cell gradebook-course-total"><span>50.55</span><span> : </span><span class="gradebook-course-total-grade">C</span></div>
+            <div class="gradebook-cell gradebook-course-total"><span>51.15</span><span> : </span><span class="gradebook-course-total-grade">C</span></div>
+            <div class="gradebook-cell gradebook-course-total"><span>40.55</span><span> : </span><span class="gradebook-course-total-grade">D</span></div>
+            <div class="gradebook-cell gradebook-course-total"><span>52.35</span><span> : </span><span class="gradebook-course-total-grade">C</span></div>
+            <div class="gradebook-cell gradebook-course-total"><span>46.75</span><span> : </span><span class="gradebook-course-total-grade">D</span></div>
+            <div class="gradebook-cell gradebook-course-total"><span>54.10</span><span> : </span><span class="gradebook-course-total-grade">C</span></div>
+            <div class="gradebook-cell gradebook-course-total"><span>48.30</span><span> : </span><span class="gradebook-course-total-grade">D</span></div>
+            <div class="gradebook-cell gradebook-course-total"><span>40.05</span><span> : </span><span class="gradebook-course-total-grade">D</span></div>
+            <div class="gradebook-cell gradebook-course-total"><span>59.10</span><span> : </span><span class="gradebook-course-total-grade">C</span></div>
+            <div class="gradebook-cell gradebook-course-total"><span>65.70</span><span> : </span><span class="gradebook-course-total-grade">C</span></div>
+            <div class="gradebook-cell gradebook-course-total"><span>62.80</span><span> : </span><span class="gradebook-course-total-grade">C</span></div>
+            <div class="gradebook-cell gradebook-course-total"><span>36.30</span><span> : </span><span class="gradebook-course-total-grade">E</span></div>
+            <div class="gradebook-cell gradebook-course-total"><span>53.20</span><span> : </span><span class="gradebook-course-total-grade">C</span></div>
+            <div class="gradebook-cell gradebook-course-total"><span>60.00</span><span> : </span><span class="gradebook-course-total-grade">C</span></div>
+            <div class="gradebook-cell gradebook-course-total"><span>67.65</span><span> : </span><span class="gradebook-course-total-grade">C</span></div>
+            <div class="gradebook-cell gradebook-course-total"><span>41.10</span><span> : </span><span class="gradebook-course-total-grade">D</span></div>
+            <div class="gradebook-cell gradebook-course-total"><span>58.25</span><span> : </span><span class="gradebook-course-total-grade">C</span></div>
+            <div class="gradebook-cell gradebook-course-total"><span>42.30</span><span> : </span><span class="gradebook-course-total-grade">D</span></div>
+            <div class="gradebook-cell gradebook-course-total"><span>39.05</span><span> : </span><span class="gradebook-course-total-grade">E</span></div>
+            <div class="gradebook-cell gradebook-course-total"><span>40.50</span><span> : </span><span class="gradebook-course-total-grade">D</span></div>
+            <div class="gradebook-cell gradebook-course-total"><span>47.20</span><span> : </span><span class="gradebook-course-total-grade">D</span></div>
+            <div class="gradebook-cell gradebook-course-total"><span>49.10</span><span> : </span><span class="gradebook-course-total-grade">D</span></div>
+            <div class="gradebook-cell gradebook-course-total"><span>47.70</span><span> : </span><span class="gradebook-course-total-grade">D</span></div>
+            <div class="gradebook-cell gradebook-course-total"><span>49.65</span><span> : </span><span class="gradebook-course-total-grade">D</span></div>
+            <div class="gradebook-cell gradebook-course-total"><span>39.50</span><span> : </span><span class="gradebook-course-total-grade">E</span></div>
+            <div class="gradebook-cell gradebook-course-total"><span>31.75</span><span> : </span><span class="gradebook-course-total-grade">E</span></div>
+            <div class="gradebook-cell gradebook-course-total"><span>47.15</span><span> : </span><span class="gradebook-course-total-grade">D</span></div>
+            <div class="gradebook-cell gradebook-course-total"><span>19.00</span><span> : </span><span class="gradebook-course-total-grade">F</span></div>
+            <div class="gradebook-cell gradebook-course-total"><span>49.20</span><span> : </span><span class="gradebook-course-total-grade">D</span></div>
+            <div class="gradebook-cell gradebook-course-total"><span>37.50</span><span> : </span><span class="gradebook-course-total-grade">E</span></div>
+            <div class="gradebook-cell gradebook-course-total"><span>45.20</span><span> : </span><span class="gradebook-course-total-grade">D</span></div>
+            <div class="gradebook-cell gradebook-course-total"><span>40.90</span><span> : </span><span class="gradebook-course-total-grade">D</span></div>
+            <div class="gradebook-cell gradebook-course-total"><span>73.90</span><span> : </span><span class="gradebook-course-total-grade">B</span></div>
+            <div class="gradebook-cell gradebook-course-total"><span>24.15</span><span> : </span><span class="gradebook-course-total-grade">F</span></div>
+            <div class="gradebook-cell gradebook-course-total"><span>60.90</span><span> : </span><span class="gradebook-course-total-grade">C</span></div>
+            <div class="gradebook-cell gradebook-course-total"><span>43.35</span><span> : </span><span class="gradebook-course-total-grade">D</span></div>
+            <div class="gradebook-cell gradebook-course-total"><span>62.85</span><span> : </span><span class="gradebook-course-total-grade">C</span></div>
+            <div class="gradebook-cell gradebook-course-total"><span>39.85</span><span> : </span><span class="gradebook-course-total-grade">E</span></div>
+            <div class="gradebook-cell gradebook-course-total"><span>61.40</span><span> : </span><span class="gradebook-course-total-grade">C</span></div>
+          </div>
+        </div>
+        <div class="gradebook-column-group gradebook-gradeitem-columns">
+          <div style="width:120px;" class="gradebook-column">
+            <div class="gradebook-header-cell" data-category="Final" data-weighting="25%"><span>Final</span><br>
+              <small><span>Point Value: </span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="57">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="65">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="22">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="44">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="15">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="63">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="57">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="63">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="99">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="25">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="4">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="17">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="33">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="82">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="37">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="1">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="68">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="37">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="76">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="95">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="75">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="39">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="49">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="13">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="63">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="11">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="30">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="46">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="23">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="88">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="86">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="96">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="0">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="54">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="68">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="97">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="22">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="93">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="74">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="61">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="28">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="36">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="72">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="62">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="49">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="72">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="11">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="99">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="4">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="30">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="46">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="10">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="2">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="96">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="3">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="88">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="1">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="95">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="41">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="98">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+          </div>
+          <div style="width:120px;" class="gradebook-column">
+            <div class="gradebook-header-cell" data-category="Forums" data-weighting="20%"><span>Week 1 Discussion</span><br>
+              <small><span>Point Value: </span><span>10</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="10" value="0">
+              <small class="gradebook-item-max"><span>/</span><span>10</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="10" value="1">
+              <small class="gradebook-item-max"><span>/</span><span>10</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="10" value="9">
+              <small class="gradebook-item-max"><span>/</span><span>10</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="10" value="8">
+              <small class="gradebook-item-max"><span>/</span><span>10</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="10" value="6">
+              <small class="gradebook-item-max"><span>/</span><span>10</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="10" value="5">
+              <small class="gradebook-item-max"><span>/</span><span>10</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="10" value="9">
+              <small class="gradebook-item-max"><span>/</span><span>10</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="10" value="3">
+              <small class="gradebook-item-max"><span>/</span><span>10</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="10" value="6">
+              <small class="gradebook-item-max"><span>/</span><span>10</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="10" value="9">
+              <small class="gradebook-item-max"><span>/</span><span>10</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="10" value="5">
+              <small class="gradebook-item-max"><span>/</span><span>10</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="10" value="5">
+              <small class="gradebook-item-max"><span>/</span><span>10</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="10" value="9">
+              <small class="gradebook-item-max"><span>/</span><span>10</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="10" value="2">
+              <small class="gradebook-item-max"><span>/</span><span>10</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="10" value="2">
+              <small class="gradebook-item-max"><span>/</span><span>10</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="10" value="5">
+              <small class="gradebook-item-max"><span>/</span><span>10</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="10" value="8">
+              <small class="gradebook-item-max"><span>/</span><span>10</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="10" value="8">
+              <small class="gradebook-item-max"><span>/</span><span>10</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="10" value="2">
+              <small class="gradebook-item-max"><span>/</span><span>10</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="10" value="2">
+              <small class="gradebook-item-max"><span>/</span><span>10</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="10" value="1">
+              <small class="gradebook-item-max"><span>/</span><span>10</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="10" value="3">
+              <small class="gradebook-item-max"><span>/</span><span>10</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="10" value="4">
+              <small class="gradebook-item-max"><span>/</span><span>10</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="10" value="4">
+              <small class="gradebook-item-max"><span>/</span><span>10</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="10" value="5">
+              <small class="gradebook-item-max"><span>/</span><span>10</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="10" value="5">
+              <small class="gradebook-item-max"><span>/</span><span>10</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="10" value="9">
+              <small class="gradebook-item-max"><span>/</span><span>10</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="10" value="5">
+              <small class="gradebook-item-max"><span>/</span><span>10</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="10" value="7">
+              <small class="gradebook-item-max"><span>/</span><span>10</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="10" value="6">
+              <small class="gradebook-item-max"><span>/</span><span>10</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="10" value="0">
+              <small class="gradebook-item-max"><span>/</span><span>10</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="10" value="1">
+              <small class="gradebook-item-max"><span>/</span><span>10</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="10" value="9">
+              <small class="gradebook-item-max"><span>/</span><span>10</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="10" value="8">
+              <small class="gradebook-item-max"><span>/</span><span>10</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="10" value="6">
+              <small class="gradebook-item-max"><span>/</span><span>10</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="10" value="9">
+              <small class="gradebook-item-max"><span>/</span><span>10</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="10" value="2">
+              <small class="gradebook-item-max"><span>/</span><span>10</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="10" value="1">
+              <small class="gradebook-item-max"><span>/</span><span>10</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="10" value="5">
+              <small class="gradebook-item-max"><span>/</span><span>10</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="10" value="8">
+              <small class="gradebook-item-max"><span>/</span><span>10</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="10" value="4">
+              <small class="gradebook-item-max"><span>/</span><span>10</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="10" value="8">
+              <small class="gradebook-item-max"><span>/</span><span>10</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="10" value="6">
+              <small class="gradebook-item-max"><span>/</span><span>10</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="10" value="1">
+              <small class="gradebook-item-max"><span>/</span><span>10</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="10" value="3">
+              <small class="gradebook-item-max"><span>/</span><span>10</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="10" value="6">
+              <small class="gradebook-item-max"><span>/</span><span>10</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="10" value="6">
+              <small class="gradebook-item-max"><span>/</span><span>10</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="10" value="2">
+              <small class="gradebook-item-max"><span>/</span><span>10</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="10" value="8">
+              <small class="gradebook-item-max"><span>/</span><span>10</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="10" value="9">
+              <small class="gradebook-item-max"><span>/</span><span>10</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="10" value="0">
+              <small class="gradebook-item-max"><span>/</span><span>10</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="10" value="7">
+              <small class="gradebook-item-max"><span>/</span><span>10</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="10" value="4">
+              <small class="gradebook-item-max"><span>/</span><span>10</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="10" value="3">
+              <small class="gradebook-item-max"><span>/</span><span>10</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="10" value="1">
+              <small class="gradebook-item-max"><span>/</span><span>10</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="10" value="1">
+              <small class="gradebook-item-max"><span>/</span><span>10</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="10" value="9">
+              <small class="gradebook-item-max"><span>/</span><span>10</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="10" value="6">
+              <small class="gradebook-item-max"><span>/</span><span>10</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="10" value="0">
+              <small class="gradebook-item-max"><span>/</span><span>10</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="10" value="6">
+              <small class="gradebook-item-max"><span>/</span><span>10</span></small></div>
+          </div>
+          <div style="width:120px;" class="gradebook-column">
+            <div class="gradebook-header-cell" data-category="Forums"><span>Week 2 Discussion</span><br>
+              <small><span>Point Value: </span><span>10</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="10" value="5">
+              <small class="gradebook-item-max"><span>/</span><span>10</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="10" value="4">
+              <small class="gradebook-item-max"><span>/</span><span>10</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="10" value="9">
+              <small class="gradebook-item-max"><span>/</span><span>10</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="10" value="5">
+              <small class="gradebook-item-max"><span>/</span><span>10</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="10" value="9">
+              <small class="gradebook-item-max"><span>/</span><span>10</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="10" value="6">
+              <small class="gradebook-item-max"><span>/</span><span>10</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="10" value="2">
+              <small class="gradebook-item-max"><span>/</span><span>10</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="10" value="5">
+              <small class="gradebook-item-max"><span>/</span><span>10</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="10" value="3">
+              <small class="gradebook-item-max"><span>/</span><span>10</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="10" value="0">
+              <small class="gradebook-item-max"><span>/</span><span>10</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="10" value="9">
+              <small class="gradebook-item-max"><span>/</span><span>10</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="10" value="8">
+              <small class="gradebook-item-max"><span>/</span><span>10</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="10" value="2">
+              <small class="gradebook-item-max"><span>/</span><span>10</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="10" value="8">
+              <small class="gradebook-item-max"><span>/</span><span>10</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="10" value="1">
+              <small class="gradebook-item-max"><span>/</span><span>10</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="10" value="9">
+              <small class="gradebook-item-max"><span>/</span><span>10</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="10" value="9">
+              <small class="gradebook-item-max"><span>/</span><span>10</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="10" value="7">
+              <small class="gradebook-item-max"><span>/</span><span>10</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="10" value="7">
+              <small class="gradebook-item-max"><span>/</span><span>10</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="10" value="6">
+              <small class="gradebook-item-max"><span>/</span><span>10</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="10" value="0">
+              <small class="gradebook-item-max"><span>/</span><span>10</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="10" value="5">
+              <small class="gradebook-item-max"><span>/</span><span>10</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="10" value="7">
+              <small class="gradebook-item-max"><span>/</span><span>10</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="10" value="2">
+              <small class="gradebook-item-max"><span>/</span><span>10</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="10" value="4">
+              <small class="gradebook-item-max"><span>/</span><span>10</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="10" value="3">
+              <small class="gradebook-item-max"><span>/</span><span>10</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="10" value="3">
+              <small class="gradebook-item-max"><span>/</span><span>10</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="10" value="3">
+              <small class="gradebook-item-max"><span>/</span><span>10</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="10" value="7">
+              <small class="gradebook-item-max"><span>/</span><span>10</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="10" value="1">
+              <small class="gradebook-item-max"><span>/</span><span>10</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="10" value="5">
+              <small class="gradebook-item-max"><span>/</span><span>10</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="10" value="8">
+              <small class="gradebook-item-max"><span>/</span><span>10</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="10" value="1">
+              <small class="gradebook-item-max"><span>/</span><span>10</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="10" value="9">
+              <small class="gradebook-item-max"><span>/</span><span>10</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="10" value="4">
+              <small class="gradebook-item-max"><span>/</span><span>10</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="10" value="5">
+              <small class="gradebook-item-max"><span>/</span><span>10</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="10" value="5">
+              <small class="gradebook-item-max"><span>/</span><span>10</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="10" value="9">
+              <small class="gradebook-item-max"><span>/</span><span>10</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="10" value="6">
+              <small class="gradebook-item-max"><span>/</span><span>10</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="10" value="0">
+              <small class="gradebook-item-max"><span>/</span><span>10</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="10" value="2">
+              <small class="gradebook-item-max"><span>/</span><span>10</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="10" value="9">
+              <small class="gradebook-item-max"><span>/</span><span>10</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="10" value="6">
+              <small class="gradebook-item-max"><span>/</span><span>10</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="10" value="5">
+              <small class="gradebook-item-max"><span>/</span><span>10</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="10" value="3">
+              <small class="gradebook-item-max"><span>/</span><span>10</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="10" value="3">
+              <small class="gradebook-item-max"><span>/</span><span>10</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="10" value="1">
+              <small class="gradebook-item-max"><span>/</span><span>10</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="10" value="5">
+              <small class="gradebook-item-max"><span>/</span><span>10</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="10" value="5">
+              <small class="gradebook-item-max"><span>/</span><span>10</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="10" value="6">
+              <small class="gradebook-item-max"><span>/</span><span>10</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="10" value="3">
+              <small class="gradebook-item-max"><span>/</span><span>10</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="10" value="3">
+              <small class="gradebook-item-max"><span>/</span><span>10</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="10" value="9">
+              <small class="gradebook-item-max"><span>/</span><span>10</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="10" value="8">
+              <small class="gradebook-item-max"><span>/</span><span>10</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="10" value="4">
+              <small class="gradebook-item-max"><span>/</span><span>10</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="10" value="1">
+              <small class="gradebook-item-max"><span>/</span><span>10</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="10" value="2">
+              <small class="gradebook-item-max"><span>/</span><span>10</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="10" value="9">
+              <small class="gradebook-item-max"><span>/</span><span>10</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="10" value="9">
+              <small class="gradebook-item-max"><span>/</span><span>10</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="10" value="7">
+              <small class="gradebook-item-max"><span>/</span><span>10</span></small></div>
+          </div>
+          <div style="width:120px;" class="gradebook-column">
+            <div class="gradebook-header-cell" data-category="Forums"><span>Week 3 Discussion</span><br>
+              <small><span>Point Value: </span><span>10</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="10" value="8">
+              <small class="gradebook-item-max"><span>/</span><span>10</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="10" value="2">
+              <small class="gradebook-item-max"><span>/</span><span>10</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="10" value="5">
+              <small class="gradebook-item-max"><span>/</span><span>10</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="10" value="6">
+              <small class="gradebook-item-max"><span>/</span><span>10</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="10" value="7">
+              <small class="gradebook-item-max"><span>/</span><span>10</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="10" value="2">
+              <small class="gradebook-item-max"><span>/</span><span>10</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="10" value="0">
+              <small class="gradebook-item-max"><span>/</span><span>10</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="10" value="5">
+              <small class="gradebook-item-max"><span>/</span><span>10</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="10" value="9">
+              <small class="gradebook-item-max"><span>/</span><span>10</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="10" value="6">
+              <small class="gradebook-item-max"><span>/</span><span>10</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="10" value="6">
+              <small class="gradebook-item-max"><span>/</span><span>10</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="10" value="9">
+              <small class="gradebook-item-max"><span>/</span><span>10</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="10" value="6">
+              <small class="gradebook-item-max"><span>/</span><span>10</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="10" value="7">
+              <small class="gradebook-item-max"><span>/</span><span>10</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="10" value="4">
+              <small class="gradebook-item-max"><span>/</span><span>10</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="10" value="0">
+              <small class="gradebook-item-max"><span>/</span><span>10</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="10" value="5">
+              <small class="gradebook-item-max"><span>/</span><span>10</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="10" value="0">
+              <small class="gradebook-item-max"><span>/</span><span>10</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="10" value="6">
+              <small class="gradebook-item-max"><span>/</span><span>10</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="10" value="7">
+              <small class="gradebook-item-max"><span>/</span><span>10</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="10" value="8">
+              <small class="gradebook-item-max"><span>/</span><span>10</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="10" value="8">
+              <small class="gradebook-item-max"><span>/</span><span>10</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="10" value="5">
+              <small class="gradebook-item-max"><span>/</span><span>10</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="10" value="5">
+              <small class="gradebook-item-max"><span>/</span><span>10</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="10" value="1">
+              <small class="gradebook-item-max"><span>/</span><span>10</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="10" value="3">
+              <small class="gradebook-item-max"><span>/</span><span>10</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="10" value="7">
+              <small class="gradebook-item-max"><span>/</span><span>10</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="10" value="5">
+              <small class="gradebook-item-max"><span>/</span><span>10</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="10" value="4">
+              <small class="gradebook-item-max"><span>/</span><span>10</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="10" value="1">
+              <small class="gradebook-item-max"><span>/</span><span>10</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="10" value="8">
+              <small class="gradebook-item-max"><span>/</span><span>10</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="10" value="9">
+              <small class="gradebook-item-max"><span>/</span><span>10</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="10" value="5">
+              <small class="gradebook-item-max"><span>/</span><span>10</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="10" value="0">
+              <small class="gradebook-item-max"><span>/</span><span>10</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="10" value="5">
+              <small class="gradebook-item-max"><span>/</span><span>10</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="10" value="1">
+              <small class="gradebook-item-max"><span>/</span><span>10</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="10" value="2">
+              <small class="gradebook-item-max"><span>/</span><span>10</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="10" value="9">
+              <small class="gradebook-item-max"><span>/</span><span>10</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="10" value="4">
+              <small class="gradebook-item-max"><span>/</span><span>10</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="10" value="0">
+              <small class="gradebook-item-max"><span>/</span><span>10</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="10" value="0">
+              <small class="gradebook-item-max"><span>/</span><span>10</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="10" value="8">
+              <small class="gradebook-item-max"><span>/</span><span>10</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="10" value="6">
+              <small class="gradebook-item-max"><span>/</span><span>10</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="10" value="3">
+              <small class="gradebook-item-max"><span>/</span><span>10</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="10" value="3">
+              <small class="gradebook-item-max"><span>/</span><span>10</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="10" value="6">
+              <small class="gradebook-item-max"><span>/</span><span>10</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="10" value="9">
+              <small class="gradebook-item-max"><span>/</span><span>10</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="10" value="6">
+              <small class="gradebook-item-max"><span>/</span><span>10</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="10" value="5">
+              <small class="gradebook-item-max"><span>/</span><span>10</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="10" value="2">
+              <small class="gradebook-item-max"><span>/</span><span>10</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="10" value="7">
+              <small class="gradebook-item-max"><span>/</span><span>10</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="10" value="8">
+              <small class="gradebook-item-max"><span>/</span><span>10</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="10" value="8">
+              <small class="gradebook-item-max"><span>/</span><span>10</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="10" value="9">
+              <small class="gradebook-item-max"><span>/</span><span>10</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="10" value="1">
+              <small class="gradebook-item-max"><span>/</span><span>10</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="10" value="5">
+              <small class="gradebook-item-max"><span>/</span><span>10</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="10" value="1">
+              <small class="gradebook-item-max"><span>/</span><span>10</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="10" value="8">
+              <small class="gradebook-item-max"><span>/</span><span>10</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="10" value="2">
+              <small class="gradebook-item-max"><span>/</span><span>10</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="10" value="9">
+              <small class="gradebook-item-max"><span>/</span><span>10</span></small></div>
+          </div>
+          <div style="width:120px;" class="gradebook-column">
+            <div class="gradebook-header-cell" data-category="Homework" data-weighting="20%"><span>Week 1 Homework</span><br>
+              <small><span>Point Value: </span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="65">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="72">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="33">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="34">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="57">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="78">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="82">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="37">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="54">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="30">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="83">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="5">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="21">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="56">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="56">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="35">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="49">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="12">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="44">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="95">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="2">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="65">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="14">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="84">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="39">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="74">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="77">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="80">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="12">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="13">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="73">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="2">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="74">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="20">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="23">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="21">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="65">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="35">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="2">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="62">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="17">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="66">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="51">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="1">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="71">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="68">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="4">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="38">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="7">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="76">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="29">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="72">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="15">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="87">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="35">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="44">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="15">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="24">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="5">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="7">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+          </div>
+          <div style="width:120px;" class="gradebook-column">
+            <div class="gradebook-header-cell" data-category="Homework" data-weighting="20%"><span>Week 2 Homework</span><br>
+              <small><span>Point Value: </span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="98">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="77">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="89">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="66">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="11">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="64">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="79">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="36">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="57">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="21">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="67">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="73">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="89">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="0">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="20">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="41">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="40">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="15">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="17">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="12">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="87">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="51">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="28">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="62">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="52">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="5">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="68">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="35">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="39">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="94">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="21">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="83">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="93">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="36">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="2">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="91">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="16">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="3">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="39">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="25">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="37">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="82">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="18">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="78">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="39">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="41">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="32">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="56">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="35">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="60">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="14">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="0">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="37">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="72">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="73">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="82">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="20">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="53">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="7">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="98">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+          </div>
+          <div style="width:120px;" class="gradebook-column">
+            <div class="gradebook-header-cell" data-category="Homework" data-weighting="20%"><span>Week 3 Homework</span><br>
+              <small><span>Point Value: </span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="22">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="78">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="59">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="66">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="43">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="83">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="24">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="22">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="44">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="15">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="17">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="99">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="86">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="71">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="44">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="82">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="65">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="19">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="5">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="33">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="20">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="83">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="62">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="64">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="51">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="54">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="70">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="5">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="90">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="82">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="87">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="59">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="1">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="30">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="87">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="39">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="19">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="81">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="62">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="23">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="61">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="16">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="77">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="8">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="39">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="14">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="72">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="25">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="36">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="73">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="77">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="46">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="47">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="66">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="2">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="24">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="81">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="89">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="85">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="32">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+          </div>
+          <div style="width:120px;" class="gradebook-column">
+            <div class="gradebook-header-cell" data-category="Midterm" data-weighting="15%"><span>Midterm</span><br>
+              <small><span>Point Value: </span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="87">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="31">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="86">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="15">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="70">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="23">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="96">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="8">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="99">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="57">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="21">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="14">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="20">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="39">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="30">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="31">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="2">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="48">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="34">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="34">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="5">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="42">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="90">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="29">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="52">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="86">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="78">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="79">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="41">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="51">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="78">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="62">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="40">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="93">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="74">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="99">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="63">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="58">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="5">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="14">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="90">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="39">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="15">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="90">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="70">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="6">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="41">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="5">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="1">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="54">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="10">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="97">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="95">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="42">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="27">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="72">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="85">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="50">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="42">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="100" value="51">
+              <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
+          </div>
+          <div style="width:120px;" class="gradebook-column hide-me">
+            <div class="gradebook-header-cell hide-me" data-category="Quizzes" data-weighting="20%"><span>Class Quiz</span><br>
+              <small><span>Point Value: </span><span>20</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="20" value="">
+              <small class="gradebook-item-max"><span>/</span><span>20</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="20" value="">
+              <small class="gradebook-item-max"><span>/</span><span>20</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="20" value="">
+              <small class="gradebook-item-max"><span>/</span><span>20</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="20" value="">
+              <small class="gradebook-item-max"><span>/</span><span>20</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="20" value="">
+              <small class="gradebook-item-max"><span>/</span><span>20</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="20" value="">
+              <small class="gradebook-item-max"><span>/</span><span>20</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="20" value="">
+              <small class="gradebook-item-max"><span>/</span><span>20</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="20" value="">
+              <small class="gradebook-item-max"><span>/</span><span>20</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="20" value="">
+              <small class="gradebook-item-max"><span>/</span><span>20</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="20" value="">
+              <small class="gradebook-item-max"><span>/</span><span>20</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="20" value="">
+              <small class="gradebook-item-max"><span>/</span><span>20</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="20" value="">
+              <small class="gradebook-item-max"><span>/</span><span>20</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="20" value="">
+              <small class="gradebook-item-max"><span>/</span><span>20</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="20" value="">
+              <small class="gradebook-item-max"><span>/</span><span>20</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="20" value="">
+              <small class="gradebook-item-max"><span>/</span><span>20</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="20" value="">
+              <small class="gradebook-item-max"><span>/</span><span>20</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="20" value="">
+              <small class="gradebook-item-max"><span>/</span><span>20</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="20" value="">
+              <small class="gradebook-item-max"><span>/</span><span>20</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="20" value="">
+              <small class="gradebook-item-max"><span>/</span><span>20</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="20" value="">
+              <small class="gradebook-item-max"><span>/</span><span>20</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="20" value="">
+              <small class="gradebook-item-max"><span>/</span><span>20</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="20" value="">
+              <small class="gradebook-item-max"><span>/</span><span>20</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="20" value="">
+              <small class="gradebook-item-max"><span>/</span><span>20</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="20" value="">
+              <small class="gradebook-item-max"><span>/</span><span>20</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="20" value="">
+              <small class="gradebook-item-max"><span>/</span><span>20</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="20" value="">
+              <small class="gradebook-item-max"><span>/</span><span>20</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="20" value="">
+              <small class="gradebook-item-max"><span>/</span><span>20</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="20" value="">
+              <small class="gradebook-item-max"><span>/</span><span>20</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="20" value="">
+              <small class="gradebook-item-max"><span>/</span><span>20</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="20" value="">
+              <small class="gradebook-item-max"><span>/</span><span>20</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="20" value="">
+              <small class="gradebook-item-max"><span>/</span><span>20</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="20" value="">
+              <small class="gradebook-item-max"><span>/</span><span>20</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="20" value="">
+              <small class="gradebook-item-max"><span>/</span><span>20</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="20" value="">
+              <small class="gradebook-item-max"><span>/</span><span>20</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="20" value="">
+              <small class="gradebook-item-max"><span>/</span><span>20</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="20" value="">
+              <small class="gradebook-item-max"><span>/</span><span>20</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="20" value="">
+              <small class="gradebook-item-max"><span>/</span><span>20</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="20" value="">
+              <small class="gradebook-item-max"><span>/</span><span>20</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="20" value="">
+              <small class="gradebook-item-max"><span>/</span><span>20</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="20" value="">
+              <small class="gradebook-item-max"><span>/</span><span>20</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="20" value="">
+              <small class="gradebook-item-max"><span>/</span><span>20</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="20" value="">
+              <small class="gradebook-item-max"><span>/</span><span>20</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="20" value="">
+              <small class="gradebook-item-max"><span>/</span><span>20</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="20" value="">
+              <small class="gradebook-item-max"><span>/</span><span>20</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="20" value="">
+              <small class="gradebook-item-max"><span>/</span><span>20</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="20" value="">
+              <small class="gradebook-item-max"><span>/</span><span>20</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="20" value="">
+              <small class="gradebook-item-max"><span>/</span><span>20</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="20" value="">
+              <small class="gradebook-item-max"><span>/</span><span>20</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="20" value="">
+              <small class="gradebook-item-max"><span>/</span><span>20</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="20" value="">
+              <small class="gradebook-item-max"><span>/</span><span>20</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="20" value="">
+              <small class="gradebook-item-max"><span>/</span><span>20</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="20" value="">
+              <small class="gradebook-item-max"><span>/</span><span>20</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="20" value="">
+              <small class="gradebook-item-max"><span>/</span><span>20</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="20" value="">
+              <small class="gradebook-item-max"><span>/</span><span>20</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="20" value="">
+              <small class="gradebook-item-max"><span>/</span><span>20</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="20" value="">
+              <small class="gradebook-item-max"><span>/</span><span>20</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="20" value="">
+              <small class="gradebook-item-max"><span>/</span><span>20</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="20" value="">
+              <small class="gradebook-item-max"><span>/</span><span>20</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="20" value="">
+              <small class="gradebook-item-max"><span>/</span><span>20</span></small></div>
+            <div class="gradebook-cell gradebook-item-cell">
+              <input type="number" min="0" max="20" value="">
+              <small class="gradebook-item-max"><span>/</span><span>20</span></small></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script id="templateGradebookAddForm" type="text/template">
+  <div class="gradebook-add-form">
+    <h3>Add Grade Item</h3>
+    <img src="addgradeitem.png" style="width: 500px" />
+    <div class="actions">
+      <a id="createGradeItem" class="button active" href="javascript:void(0);">Create Item</a> <a id="cancelCreateGradeItem" class="button" href="javascript:void(0);">Cancel</a>
+    </div>
+  </div>
+</script>
+</body>
+</html>

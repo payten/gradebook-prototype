@@ -1,0 +1,1919 @@
+/* NOTE: This file is linked to after the tool_base.css file inside of tools. It provides for skinning. */
+/* many of the definitions below exist also in tool_base.css - the duplication allows for one instalation with many different looks sharing some common elements
+ */
+/* SECTION 1 GENERIC SELECTORS */
+body {
+    font-family:  'Helvetica Neue','Arial',sans-serif !important;
+    font-size: 0.9em;
+    font-weight: 300;
+    color: #444;
+}
+
+/* stub in tool_base.css - skinned here */
+hr.itemSeparator {
+    height: 1px;
+    border-color: #3698DB;
+    border-style: solid;
+    border-width: 1px 0 0 0;
+}
+/* SECTION 2 LINKS */
+a:link {
+    color: #F93838;
+    text-decoration: none;
+}
+a:visited {
+    color: #BF3B3B;
+    text-decoration: none;
+}
+a:hover, a:active {
+    text-decoration: none;
+}
+a:focus {
+    text-decoration: none;
+}
+/* links inside the calendar tool tables */
+table.calendar td a:hover {
+    text-decoration: none;
+}
+/* links inside the <th> of the standard list table */
+.listHier th a:link, .listHier th a:visited {
+    color: inherit;
+    text-decoration: none;
+}
+/* some links are jscripted so the href is the same - cannot provide visited functionality - so make both the same */
+/* see: list of assignments - the cells are classed with "specialLink" */
+.specialLink a:link, .specialLink a:visited {
+    text-decoration: none;
+}
+.specialLink a:hover {
+    text-decoration: underline;
+}
+/* links in resources - selected for move */
+tr.selectedMove a:link, tr.selectedMove a:visited {
+    color: silver
+}
+/* used as background class for recent items in dropbox, anywhere */
+.recentItem {
+    padding: 2px;
+    background: url(images/new_item_back.gif) top right no-repeat;
+    _display: inline-block;
+    _margin-left: -1.5em;
+    white-space: nowrap;
+    border: 0px solid #fff;
+}
+.recentItemInstruction {
+    padding: 0 5px;
+    background: url(images/new_item_back_inst.png) center left no-repeat;
+}
+.recentItem a:link {
+    border: 0px solid #fff;
+    text-decoration: none !important;
+}
+.listNav div.instruction, .searchNav div.instruction {
+    font-family:  'Helvetica Neue','Arial',sans-serif !important;
+}
+/* links associated with an item in alist */
+/* see links below announcement title in ann list */
+.itemAction a, .itemAction a:link {
+    padding: .2em .3em 1px 0;
+    white-space: nowrap;
+    border-bottom: none;
+}
+.itemAction a:visited {
+    text-decoration: none;
+    border-bottom: 1px solid #fff;
+}
+/* certain links are highlighted in resources after a selection */
+/* see "Paste copied here" after ccopying a selection in resources */
+.itemAction a.highlightlink {
+    font-weight: bold
+}
+/* links in resources - selected for move "deaden" the link */
+tr.selectedMove .itemAction a:link, tr.selectedMove .itemAction a:visited {
+    color: silver;
+    text-decoration: none;
+    border-bottom: none;
+}
+/* links for the generic toolbar - inline-block is there to make IE behave
+see: http://www.quirksmode.org/bugreports/archives/2005/07/Wrapped_inlinenowrap_elements_lose_padding_left_in.html */
+.navIntraTool a, .navIntraTool a:link {
+    margin-right: 1em;
+    text-decoration: none;
+    white-space: nowrap;
+    display: inline-block;
+    color: #555;
+    font-family:  'Helvetica Neue','Arial',sans-serif !important;
+    font-weight: 300;
+}
+.navIntraTool a:hover {
+    background: #FFF !important;
+    color: #BF3B3B !important;
+    border-color: #BF3B3B !important;
+    text-decoration: underline;
+}
+.navIntraTool a:link:hover, #actionToolbar a:link:hover {
+    color: #BF3B3B !important;
+}
+.navIntraTool .current a, .navIntraTool .current a {color: #fff !important;}
+.navIntraTool .current a:hover, .navIntraTool .current a:hover {color: #BF3B3B !important;}
+.navIntraTool span.current > a, .navIntraTool span.current > a:hover {
+  border: none !important;
+  background-color: transparent !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  color: #FFF !important;
+}
+/* where one is at in hierarchy - can be static or active links */
+.breadCrumb {
+    font-size: 1.2em
+}
+/* for accessib. some breadcrumbs have h3 children - format like normal text */
+.breadCrumb h3, .breadCrumb h4, .breadCrumb h5, .breadCrumb h6 {
+    font-size: 85%
+}
+.breadCrumb a:link, .breadCrumb a:visited {
+    color: #3698DB;
+    text-decoration: none;
+}
+.breadCrumb a:hover {
+    color: #3698DB;
+    text-decoration: underline;
+}
+/* SECTION 3 CALENDAR SELECTORS */
+/* recommend - decide your palette first - then substitute colors here */
+table.calendar {
+    background-color: #ffc
+}
+table.calendar th {
+    background-color: #ffc;
+    font-weight: normal;
+    text-align: center;
+    border-collapse: collapse;
+}
+.bgActivity {
+    background-color: #ffc;
+    border: 1px solid #3698DB;
+    text-align: right;
+}
+.bgWithoutActivity {
+    background-color: #fff;
+    border: 1px solid #bbb;
+    text-align: right;
+}
+.borderGrayYear {
+    background-color: #eee;
+    border: 1px solid #bbb;
+    text-align: right;
+}
+.borderGrayDayWeek {
+    border-bottom: none;
+    border-collapse: collapse;
+    border-left: 1px solid #bbb;
+    border-right: 1px solid #bbb;
+    border-top: 1px solid #bbb;
+}
+.borderGrayBackground {
+    background-color: #ffc;
+    border-bottom: none;
+    border-left: 1px solid #bbb;
+    border-right: 1px solid #bbb;
+    border-top: 1px solid #bbb;
+}
+.borderGrayTodayBgCenter {
+    background-color: #ffc;
+    border-left: 1px solid #000;
+    border-right: 1px solid #000;
+    border-top: 1px solid #bbb;
+}
+.borderGrayTodayEmptyMiddleBottom {
+    background-color: white;
+    border: 1px solid #bbb;
+}
+.borderGrayTodayEmptyMiddleCenter {
+    background-color: white;
+    border-left: 1px solid #bbb;
+    border-right: 1px solid #bbb;
+    border-top: 1px solid #bbb;
+}
+.borderGrayTodayLeftBottom {
+    border-bottom: 1px solid #bbb;
+    border-left: 1px solid #000;
+    border-right: 1px solid #bbb;
+    border-top: 1px solid #bbb;
+}
+.borderGrayTodayLeftCenter {
+    border-left: 1px solid #000;
+    border-right: 1px solid #bbb;
+    border-top: 1px solid #bbb;
+}
+.borderGrayTodayMiddleCenter {
+    border-left: 1px solid #bbb;
+    border-right: 1px solid #bbb;
+    border-top: 1px solid #bbb;
+}
+.borderGrayTodayRightBottom {
+    border-bottom: 1px solid #bbb;
+    border-left: 1px solid #bbb;
+    border-right: 1px solid #000;
+    border-top: 1px solid #bbb;
+}
+.borderGrayTodayRightCenter {
+    border-left: 1px solid #bbb;
+    border-right: 1px solid #000;
+    border-top: 1px solid #bbb;
+}
+.borderOnlyLeftDay {
+    background-color: #ffc;
+    border-left: 1px solid #bbb;
+}
+.borderOnlyLeft {
+    border-left: 1px solid #bbb
+}
+.borderToday {
+    border: 1px solid #000
+}
+.borderTodayCenter {
+    border-bottom: 1px solid #bbb;
+    border-left: 1px solid #000;
+    border-right: 1px solid #000;
+    border-top: 1px solid #bbb;
+}
+.borderTodayTop {
+    border-bottom: 1px solid #bbb;
+    border-left: 1px solid #000;
+    border-right: 1px solid #000;
+    border-top: 1px solid #000;
+}
+.borderTodayWithActivity {
+    background-color: #ffc;
+    border: 1px solid #000;
+    text-align: right;
+}
+.borderTodayWithoutActivity {
+    background-color: #777;
+    border: 1px solid #000;
+    text-align: right;
+}
+.borderTodayWithoutActivity a {
+    color: #fff
+}
+.borderTopLeft {
+    background-color: #ffc;
+    border-left: 1px solid #bbb;
+    border-right: 1px solid #bbb;
+    border-top: 1px solid #bbb;
+}
+.borderTopLeftWhite {
+    border-left: 1px solid #bbb;
+    border-right: 1px solid #bbb;
+    border-top: 1px solid #bbb;
+}
+.borderWhiteYear {
+    background-color: #ffc;
+    border: 1px solid #fff;
+    text-align: center;
+}
+.borderWhite {
+    border-bottom: none;
+    border-left: 1px solid #fff;
+    border-right: 1px solid #fff;
+    border-top: 1px solid #fff;
+}
+.borderGrayTodayCenter, .borderOnlyLeftTodayCenter {
+    border-left: 1px solid #000;
+    border-right: 1px solid #000;
+    border-top: 1px solid #bbb;
+}
+.borderGrayTodayEmptyRightBottom, .borderGrayTodayEmptyRightCenter {
+    background-color: white;
+    border-left: 1px solid #bbb;
+    border-right: 1px solid #000;
+    border-top: 1px solid #bbb;
+}
+.borderGrayTodayMiddleBottom, .borderFullGray, .borderGrayMonth {
+    border: 1px solid #bbb
+}
+.borderTodayBottom, .borderGrayTodayBottom, .borderOnlyLeftTodayBottom {
+    border-bottom: 1px solid #000;
+    border-left: 1px solid #000;
+    border-right: 1px solid #000;
+    border-top: 1px solid #bbb;
+}
+table.calendar .event {
+    background-color: #ffc
+}
+.timeCells {
+    background: #eee
+}
+/* SECTION 4 TABULAR DATA */
+/* skinned header of standard data table.
+    Mutliple background attributes for gradients
+*/
+.listHier th {
+    padding: .3em .4em !important;
+    background: #eeeeee;
+    background: -moz-linear-gradient(top, #f3f3f3 0%, #e7e7e7 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f3f3f3), color-stop(100%,#e7e7e7));
+    background: -webkit-linear-gradient(top, #f3f3f3 0%,#e7e7e7 100%);
+    background: -o-linear-gradient(top, #f3f3f3 0%,#e7e7e7 100%);
+    background: -ms-linear-gradient(top, #f3f3f3 0%,#e7e7e7 100%);
+    background: linear-gradient(top, #f3f3f3 0%,#e7e7e7 100%);
+    border: 1px solid #e2e2e2 !important;
+    border-width: 1px 0 1px 0 !important;
+    font-weight: bold !important;
+}
+.listHier th a:hover {
+    color: #3698DB
+}
+/* skinned cell of standard tab. data table */
+.listHier td {
+    vertical-align: top;
+    padding: .3em .4em;
+}
+/* lines - provides rules and hover effects on some tables */
+table.lines {
+    border-collapse: separate
+}
+table.lines th {
+    border-width: 1px 0 1px 0 !important
+}
+table.lines tr:hover {
+    background-color: #DEEEFF
+}
+table.lines td {
+    border-bottom: 1px solid #bbb;
+    border-top: 1px solid #eee;
+}
+table h5 {
+    font-weight: normal !important
+}
+/* some rows needed to be excluded from the rule and hover - see resources see other sites toggle */
+table.lines tr.exclude:hover {
+    background: transparent
+}
+/* substracts the rules from the lines class- mantain the hover */
+table.nolines td {
+    border-bottom: 0px solid #bbb;
+    border-top: 0px solid #eee;
+}
+/* when an item has been copied - signal this */
+/* see resources */
+tr.selectedCopy {
+    background: #ffd
+}
+tr.selectedCopy td {
+    border-top: 2px solid #bbb;
+    border-bottom: 2px solid #bbb;
+}
+/* when an item has been cut - signal this */
+tr.selectedMove {
+    color: silver;
+    background: #eee;
+}
+tr.selectedMove td {
+    border-top: 2px dotted #bbb;
+    border-bottom: 2px dotted #bbb;
+}
+/* some rows need highlighting */
+/* see announcement 3rd view option */
+tr.highLightRow {
+    background: #ddd
+}
+/* highlight a row representing an item that has been added */
+tr.highLightAdded {
+    background: #afa
+}
+tr.highLightRow:hover {
+    background: #ddd !important
+}
+tr.lightHighLightRow {
+    background: #ffd
+}
+/* remove the arrow indicating rows (in resources after a selection, in discussion, etc) */
+.lines td.selected img {
+    display: none
+}
+/* when a row contained a searched for item has been found */
+/* see: discussion */
+tr.selectedFound {
+    background: #cff
+}
+/* a selected row */
+tr.selectedSelected {
+    background: #eff
+}
+/* a row that is being sorted - see resources in Sakai 2.3 */
+tr#selectedReorder {
+    color: #000;
+    background: #fe6;
+}
+tr#selectedReorder:hover {
+    color: #000 !important;
+    background: #fe6 !important;
+}
+tr#selectedReorder h4 {
+    font-weight: bold
+}
+tr td.arrowHere {
+    width: 14px
+}
+tr#selectedReorder td.arrowHere {
+    /*    can give this an image if needed*/
+    /*    background: url(images/arrowhere.gif) center .5em no-repeat*/;;;
+}
+.moveUp, .moveDown {
+    width: 14px
+}
+.moveUp img, .moveDown img {
+    vertical-align: bottom;
+    padding-top: .5em;
+    width: 13px;
+}
+/* skinned info for disclosure toggle */
+/* see: assignment */
+.discTria {
+    background-color: #ddd;
+    font-family:  'Helvetica Neue','Arial',sans-serif !important;
+}
+/* SECTION 6 HIERARCHY */
+/* headers are used in many places for structuring things semantically - these are the plain headers - below there are others contextually defined */
+.portletBody h2, h6 {
+    color: #555;
+    padding: 0;
+    font-family:  'Helvetica Neue','Arial',sans-serif !important;
+    margin: 1em 0;
+    background-color: transparent !important;
+}
+h2 {
+    font-size: 130%
+}
+h3 {
+    font-size: 110%
+}
+h4, h5, h6 {
+    font-size: 100%
+}
+h3, h4, h5 {
+    color: #555;
+    padding: 0;
+    font-family:  'Helvetica Neue','Arial',sans-serif !important;
+    margin: 1em 0 0 0;
+    background-color: transparent !important;
+}
+/* headers when they occur in a table
+want to make them look like normal text - but structure the content
+see: resources, any legacy list */
+.listHier th h3, .listHier th h4, .listHier th h5, .listHier th h6, .listHier td h3, .listHier td h4, .listHier td h5, .listHier td h6 {
+    margin: 0;
+    padding: 0;
+    color: #000;
+    font-size: 1em;
+    background: none;
+    font-weight: 300;
+    font-family:  'Helvetica Neue','Arial',sans-serif !important;
+}
+/* SECTION 7 INPUTS */
+/* see: create any item */
+label {
+    color: #000;
+    font-family:  'Helvetica Neue','Arial',sans-serif !important;
+    margin-top: .3em;
+}
+/* a required marker for a shorttext label/input pair */
+.shorttext .reqStar {
+    color: #3698DB;
+    width: auto;
+    margin: 0 0 0 -1em;
+    font-weight: bold;
+    font-size: 1em;
+    padding: 0;
+}
+/* for alignment when an element need the same left-margin as the input of a shorttext label/input pair */
+.labelindnt {
+    font-size: 1em;
+    margin: 0 0 0 17em !important;
+}
+.shorttext input {
+
+}
+.shorttext input:focus {
+    border: 1px solid #000
+}
+textarea {
+    padding: .1em .3em;
+    border: 1px solid #bbb;
+    font-family:  'Helvetica Neue','Arial',sans-serif !important;
+    font-size: 100%;
+}
+textarea:focus {
+    border: 1px solid #000
+}
+textarea.cke_source:focus {
+    border: none
+}
+/* select element for actions on items in resources tool's list view */
+.actionmenu {
+    font-size: 85%
+}
+/* optgroup element for actions on items in resources tool's list view */
+.actiongroup {
+    background-color: #fca;
+    padding: .3em 0em 0em 0em;
+}
+/* option element for actions on items in resources tool's list view */
+.actionitem {
+    background-color: #ffc;
+    padding: .3em;
+}
+/* SECTION 8 TOOLBAR */
+/* see: any tool */
+.actionToolBar, .navIntraTool {
+    margin: 0 !important;
+    padding: 4px 0 1px 2px !important;
+    letter-spacing: -4px !important;
+    color: transparent !important;
+    font-size: 0px !important;
+}
+/* Unstyle all of the items in the actionToolBar, then selectively re-style them since there are some artifacts in the toolbars */
+.actionToolBar *, .navIntraTool * {
+    margin: 0 !important;
+    padding: 0 !important;
+    border: none !important;
+    letter-spacing: normal !important;
+    color: #000;
+    font-size: 12px !important;
+    text-decoration: none !important;
+}
+.navIntraTool {
+    margin: 0 !important;
+    font-family:  'Helvetica Neue','Arial',sans-serif !important;
+    font-size: 80%;
+    text-align: left;
+    background: transparent;
+    border-bottom: 1px solid #EEE;
+    background: #f6f6f6;
+}
+
+/* Button styling
+Turns the old links into buttons. The many different ways the tools have implemented the links in the past forces us to use these every specific and many selectors. The proper way is to use a UL with LIs as the buttons. */
+.navIntraTool>li>span>a,.navIntraTool>li>span.current, .navIntraTool>form>li, .navIntraTool>span, .navIntraTool>a, .navIntraTool>div>a, div.navIntraTool>ul>li>a, div.navIntraTool>ul>li>span>a, div.navIntraTool>ul>a, .navIntraTool>li.nav_item>a, ul.navIntraTool>li>a {
+    display: inline-block !important;
+    margin-right: 4px !important;
+    margin-bottom: 4px !important;
+    padding: 3px 8px !important;
+    border: 1px solid #ccc !important;
+    background: #ddd !important;
+    color: #444 !important;
+}
+ul.navIntraTool>li>a>span {
+    color: #444 !important;
+}
+.navIntraTool>li>span>a:hover, .navIntraTool>form>li:hover, .navIntraTool>span:hover, .navIntraTool>a:hover, .navIntraTool>div>a:hover, div.navIntraTool>ul>li>a:hover, div.navIntraTool>ul>li>span>a:hover, div.navIntraTool>ul>a:hover, .navIntraTool>li.nav_item>a:hover, ul.navIntraTool>li>a:hover {
+  background: #ffffff !important;
+  color: #BF3B3B !important;
+  border-color: #BF3B3B !important;
+}
+ul.navIntraTool>li>a>span:hover {
+  color: #BF3B3B !important;
+}
+/* IE chokes on the whole ruleset if it sees a NOT selector, so this rule has to be written separately */
+.navIntraTool>div>span:not(.navSeparator) {
+    display: inline-block !important;
+    margin-right: 4px !important;
+    margin-bottom: 4px !important;
+    padding: 3px 8px !important;
+    border: 1px solid #BF3B3B !important;
+    background: #ddd !important;
+}
+/* Make invisible any unruly empty spans or .separator class items (remnants of old skin styles) */
+ul.navIntraTool>li>span.separator, .navIntraTool>li>span:empty, span.navSeparator {
+    display: none !important
+}
+.navIntraTool a {
+    margin: 0 !important
+}
+/* Style the currently selected tool (where classes are implemented, like Resources) */
+ul.navIntraTool>li>span.inactive {
+    border: 1px solid #ccc !important;
+    color: #444 !important;
+    background-color: #fb5617 !important;
+}
+.navIntraTool li span.current,
+.navIntraTool li span.current,
+.navIntraTool .current,
+.navIntraTool .current span {
+    color: #fff !important;
+    background-color: #2F7FAB !important;
+    border-color: #2F7FAB !important;
+}
+.navIntraTool li span.current:hover, .navIntraTool li span.current:hover, .navIntraTool .current:hover,
+.navIntraTool li span.current:active, .navIntraTool li span.current:active, .navIntraTool .current:active,
+.navIntraTool li span.current:focus, .navIntraTool li span.current:focus, .navIntraTool .current:focus {
+    color: #FFF !important;
+    background-color: #2F7FAB !important;
+}
+ul#actionToolBar.navIntraTool.actionToolBar li.dummyToolBarLink span.current {
+  background-color: #ddd !important;
+  border-color: #ddd !important;
+}
+.navIntraTool li span.current:hover, .navIntraTool li span.current:hover, .navIntraTool .current:hover, ul.navIntraTool>li>span.inactive:hover {background: #2F7FAB !important;}
+.specialLink ul.navIntraTool.actionToolBar li .current {color: #fff !important;}
+.specialLink ul.navIntraTool.actionToolBar li .current:hover {color: #FFF !important;}
+.specialLink ul.navIntraTool.actionToolBar li span a {color: #555;}
+.specialLink ul.navIntraTool.actionToolBar li span a:hover {color: #BF3B3B !important;}
+
+/* Add a slight border to #search inputs that appear in navIntraTool */
+.navIntraTool li #search {
+    border: 1px solid #ccc !important
+}
+/* Considerations for Profile tool-style bars where everything is contained within one large toolbar rather than individual buttons */
+#page-links {
+    padding: 5px 5px !important
+}
+#page-links .icon {
+    padding-top: 4px !important;
+    padding-bottom: 4px !important;
+    padding-left: 20px !important;
+    margin-right: 10px !important;
+}
+#page-links .current-tab>span {
+    color: #777 !important;
+    font-style: italic !important;
+}
+/* Button badges */
+#page-links .new-items-count {
+    display: inline;
+    display: inline-block;
+    min-width: 15px;
+    min-height: 15px;
+    margin-left: 5px !important;
+    padding: 1px !important;
+    background: #3698DB;
+    border: 2px solid white !important;
+    border-radius: 20pt;
+    color: #fff !important;
+    text-align: center;
+}
+.current-tab>.new-items-count {
+    display: none !important
+}
+/* ===[ More Tools dropdown styling ]=== */
+#dropDownDiv {
+    padding: 10px !important;
+    background: #eeeeee !important;
+    background: -moz-linear-gradient(top, #eeeeee 0%, #e4e4e4 100%) !important;
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#eeeeee), color-stop(100%,#e4e4e4)) !important;
+    background: -webkit-linear-gradient(top, #eeeeee 0%,#e4e4e4 100%) !important;
+    background: -o-linear-gradient(top, #eeeeee 0%,#e4e4e4 100%) !important;
+    background: -ms-linear-gradient(top, #eeeeee 0%,#e4e4e4 100%) !important;
+    background: linear-gradient(top, #eeeeee 0%,#e4e4e4 100%) !important;
+    border: 1px solid #d1d1d1 !important;
+}
+/* Unstyle all in More Tools, then restyle */
+#dropDownDiv * {
+    background: none !important;
+    border: none !important;
+    font-weight: normal !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+#dropDownDiv span {
+    display: block !important
+}
+#dropDownDiv span>span {
+    display: inline !important
+}
+#dropDownDiv a, #dropDownDiv a>span {
+    font-weight: bold !important
+}
+#dropDownDiv a:hover {
+    color: inherit !important
+}
+/* Buttons with images in them, such as print buttons that appear in Wiki tool */
+.navIntraTool>li>.printLinks>span>a {
+    height: 16px !important;
+    width: 20px !important;
+    background-position: center bottom !important;
+}
+.printLinks {
+    padding-right: 8px !important;
+    padding-top: 8px !important;
+}
+.navIntraTool>li>span>a>img {
+    vertical-align: -24%;
+    height: 15px;
+}
+.navIntraTool #searchField {
+    border: 1px solid #ccc !important;
+    font-family:  'Helvetica Neue','Arial',sans-serif !important;
+    font-size: 1em;
+    padding: 3px 4px !important;
+}
+#rwiki_container>.portletBody>form>.navIntraTool>li {
+    display: inline !important
+}
+.rwiki_searchForm>.navIntraTool>li.firstToolBarItem>span {
+    *background: none !important
+}
+/* some toolbars will have input buttons */
+/* see: resources as instructor */
+.navIntraToolLink {
+    color: #fff;
+}
+/* button link color */
+.neoPortletTitleWrap {
+    width: 99%;
+    border-bottom: 2px solid #3698DB;
+    border-radius: 3px;
+}
+/* SECTION 9 MESSAGES */
+/* see: create any item */
+.instruction {
+    color: #555
+}
+/* see: create a site */
+.step {
+    font-size: 90%;
+    height: auto;
+}
+/* the generic required marker */
+/* see: create any item */
+.reqStar {
+    color: #3698DB;
+    width: auto;
+    margin-left: -1em;
+    font-weight: bold;
+    font-size: 1em;
+    padding: 0;
+    float: left;
+    border-top: 3px solid #fff;
+}
+/* the required marker for a longtext label/input pair */
+/* see: create any item with a textarea */
+.longtext .reqStar {
+    color: #3698DB;
+    font-size: 1.2em;
+    font-weight: normal;
+    padding: 0 0 0 .1em;
+    float: left;
+}
+/* when need to display the required marker inline as a part of a text */
+/* see: create any item - instruction message about requireed fields */
+.reqStarInline {
+    color: #3698DB;
+    font-size: 1.2em;
+    vertical-align: middle;
+    width: 1em;
+}
+/* inline blob used to indicate progress (see: upload a resource say)
+visibility gets toggled */
+#submitnotif {
+    background: #fff url(images/warn-a.gif) .3em .3em no-repeat;
+    border: 1px solid #b11;
+    font-family:  'Helvetica Neue','Arial',sans-serif !important;
+    clear: none;
+    color: #b11;
+    font-size: small;
+    vertical-align: text-top;
+    margin: 0;
+    padding: 5px 5px 5px 25px;
+}
+/* SECTION 10 NAV PANELS */
+/* positioning etc., are defined in base - here just the skin info */
+/* see any list with more than 20 items - announcements - for example */
+.navPanel {
+    background-color: #fff
+}
+/* the default action in this control - keep in mind that anything you do to it (except to the font) will make 
+you loose the native buttonishness affordance of the os/browser */
+/* create any item - like an announcement */
+.act .active {
+    color: #3698DB
+}
+.act .active[disabled="disabled"] {
+    color: gray
+}
+/* SECTION 10 DATA PANELS */
+.highlightPanel {
+    border: 1px solid #eee
+}
+.infoPanel {
+    border: 1px solid #3698DB
+}
+.infoPanelHead {
+    border: 1px solid #3698DB;
+    background: #3698DB;
+    color: #ffd;
+}
+/* see: topic content in discussion */
+.hierItemBlock, .hierItemBlockWrapper {
+    padding: 0 .5em .5em .5em;
+    border: 1px solid silver;
+    margin-top: .5em;
+    margin-bottom: .5em;
+    width: auto;
+    background: #fff;
+}
+/* see: forum/statistics --> display in thread */
+.hierItemBlockBold {
+    padding: 0 .5em .5em .5em;
+    border: 2px solid black;
+    margin-top: .5em;
+    margin-bottom: .5em;
+    width: auto;
+    background: #fff;
+}
+/* see: forum/statistics-->display in thread */
+.hierItemBlockBold h4.textPanelHeaderBold {
+    border-bottom: 2px solid black;
+    margin: 0 -.4em 1.0em -.4em;
+    padding: .5em;
+    background: #ffd !important;
+}
+table.hierItemBlock td {
+    width: 100%
+}
+table.hierItemBlock td h4, table.hierItemBlock td h5, table.hierItemBlock td h6, .hierItemBlockChild h4, .hierItemBlockChild h5, .hierItemBlockChild h6 {
+    display: inline
+}
+.hierItemBlockWrapper {
+    background: #FFFFF1;
+    padding-top: 0.5em;
+}
+.hierItemBlock h4.textPanelHeader, .hierItemBlock h5.textPanelHeader, .hierItemBlock h6.textPanelHeader {
+    border-bottom: 1px solid silver;
+    margin: 0 -.4em 1.0em -.4em;
+    padding: .5em;
+    background: #ffd !important;
+}
+.hierItemBlockChild {
+    margin: .5em 0;
+    margin-left: 0.5em;
+    padding: .5em;
+    border-top: 1px solid silver;
+}
+.hierItemBlockChild td {
+    padding: .3em
+}
+/* SECTION 11 LAYOUT REQUIRED IN SPECIFIC TOOLS */
+.chatListHeadWrapper {
+    padding: .2em;
+    margin-bottom: .5em;
+    border-bottom: 1px dotted silver;
+}
+h3.chatListHeadWrapper {
+    margin-top: 0;
+}
+#chatPresenceHeadWrapper, .chatPresenceHeadWrapper {
+    margin-bottom: .5em;
+    padding: 0 0 .2em .2em;
+    border-bottom: 1px dotted silver;
+}
+#chatListWrapper, .chatListWrapper {
+    width: 83%;
+    padding-bottom: .5em;
+    float: left;
+}
+.chatListMonitor {
+    height: 300px;
+    overflow: auto;
+    overflow-y: auto;
+    overflow-x: visible;
+    /* This overflow is for Netscape*/
+    overflow: -moz-scrollbars-vertical;
+}
+#chatPresenceWrapper, .chatPresenceWrapper {
+    width: 16%;
+    float: left;
+    border-left: 1px dotted silver;
+}
+#chatList, .chatList {
+    margin: 0;
+    padding-left: 1.2em;
+    list-style: none;
+    width: 96%;
+}
+#chatList li, .chatList li {
+    margin: .2em 0 0 2em;
+    padding: .2em 0;
+    text-indent: -3em;
+    line-height: 1.2em;
+}
+#chatList li .chatDate, .chatList li .chatDate {
+    font-size: .8em
+}
+.discussionToolBarIframe {
+    height: 5em;
+    width: 100%;
+}
+#discussionLayoutTop-Bottom {
+    border-width: 1px 0 0 0;
+    border-style: solid;
+    border-color: silver;
+    clear: both;
+    width: 100%;
+}
+#discussionLayoutTop-Bottom .discussionListWrapper {
+    padding: 0;
+    vertical-align: top;
+}
+#discussionLayoutTop-Bottom .discussionItemWrapper {
+    padding: 0;
+    border-width: 1px 0 0 0;
+    border-style: solid;
+    border-color: silver;
+    vertical-align: top;
+}
+#discussionLayoutLeft-Right {
+    border-top: 1px solid silver;
+    clear: both;
+}
+#discussionLayoutLeft-Right .discussionListWrapper {
+    padding: 0;
+    width: 50%;
+    vertical-align: top;
+}
+#discussionLayoutLeft-Right .discussionItemWrapper {
+    padding: 0;
+    width: 50%;
+    vertical-align: top;
+    /* border-left: 1px solid orange; */
+    padding-left: .2em;
+}
+tr.selectedFound td {
+
+}
+.rosterImage {
+    border: 1px solid #bbb;
+    /* no height - so no distortion - adjust to a specific size if size known - otherwise leave as is: ;;;
+    height: 75px;*/
+    width: 75px;
+}
+.profileTable {
+    width: 100%
+}
+.rosterImageCol {
+    width: 80px;
+    vertical-align: top;
+}
+.profileData {
+    padding-left: 2em;
+    vertical-align: top;
+}
+.profileData span {
+    display: block
+}
+.profileSearch {
+    width: 40%;
+    text-align: right;
+    vertical-align: top;
+}
+.profileSearch table {
+    border: 1px solid #fff
+}
+.profileSearch span {
+    text-align: left
+}
+.profileSearchResultsNav {
+    float: right
+}
+.profileSearchResultsList {
+    float: right;
+    clear: both;
+    text-align: right;
+    margin-right: 0;
+    width: auto !important;
+}
+.profileSearchResultsListSingle {
+    text-align: left
+}
+/* PORTAL THINGS */
+/* below presence things needed by chat tool presence */
+.presenceBody {
+    background: #fff
+}
+.presenceList {
+    font-size: .8em;
+    list-style: none;
+    margin: 0;
+    padding-left: .1em;
+}
+.presenceList li {
+    padding: 0 0 0 .7em;
+    margin-bottom: .2em;
+}
+/* some definitions overriding tool_base.css for the external xlogin screen */
+.loginform label {
+    color: #ffffff;
+}
+.login td.logo {
+    width: 266px;
+    background: #57068c url(images/newlogowhite.png) 25px 12px no-repeat;
+    background-position: 20px 12px;
+}
+.login td.form {
+
+}
+.login th {
+    background: #eeeeee;
+    background: -moz-linear-gradient(top, #f3f3f3 0%, #e7e7e7 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f3f3f3), color-stop(100%,#e7e7e7));
+    background: -webkit-linear-gradient(top, #f3f3f3 0%,#e7e7e7 100%);
+    background: -o-linear-gradient(top, #f3f3f3 0%,#e7e7e7 100%);
+    background: -ms-linear-gradient(top, #f3f3f3 0%,#e7e7e7 100%);
+    background: linear-gradient(top, #f3f3f3 0%,#e7e7e7 100%);
+    border: 1px solid #ccc;
+    display: none;
+}
+.login {
+    border: 1px solid #ccc;
+    border-collapse: collapse;
+    background: #57068c;
+}
+/* ===[ Make a list based css menu ]=== */
+ul.makeMenu, ul.makeMenu ul {
+    width: auto;
+    border: 1px solid #ddd !important;
+    background: #fff;
+    padding: 3px;
+    cursor: default;
+    margin-left: 0px;
+    display: inline;
+    position: relative;
+    text-align: left;
+    white-space: nowrap;
+}
+ul.makeMenu {
+    background: #eee url(images/makemenu.gif) top left repeat-x
+}
+ul.makeMenu:hover {
+    color: #07b;
+    border: 1px solid #000 !important;
+    background: #eee url(images/makemenu-h.gif) top left repeat-x;
+}
+.listHier ul.makeMenu img {
+    margin-right: 0;
+    vertical-align: middle;
+}
+ul.makeMenu li {
+    list-style-type: none;
+    margin: 0px;
+}
+ul.makeMenu li > ul {
+    display: none;
+    width: auto;
+    background-color: #ffffff;
+    background-image: none;
+    position: absolute;
+    border: 1px solid #000 !important;
+    margin-top: 0px;
+    z-index: 3;
+}
+.makeMenuChild {
+    display: none;
+    position: absolute;
+    width: 14em;
+    background-color: #ffffff;
+    background-image: none;
+    position: absolute;
+    border: 1px solid #666 !important;
+    margin-top: 0px;
+    z-index: 3;
+}
+.makeMenuChild li {
+    padding: 0 !important
+}
+ul.makeMenu li a {
+    display: block;
+    width: 100%;
+    text-decoration: none;
+    padding: 6px;
+    color: #3698DB !important;
+}
+ul.makeMenu li a:active {
+    outline: none
+}
+ul.makeMenu li a:hover, ul.makeMenu li a.CSStoHighLink {
+    color: #000 !important
+}
+ul.makeMenu li:hover > a {
+    color: #000
+}
+ul.makeMenu li.menuClose {
+    display: block;
+    height: 100%;
+    font-size: .9em;
+    font-weight: bold;
+    border-bottom: 1px solid blue;
+}
+ul.makeMenu li.menuClose:hover {
+    border-bottom: 1px solid green
+}
+ul.makeMenu li.menuClose a {
+    display: block;
+    color: blue !important;
+    text-align: right;
+    text-decoration: none !important;
+    height: 20px;
+    padding: 3px 0;
+    outline: none;
+}
+ul.makeMenu li.menuClose a:hover {
+    color: green !important;
+    text-decoration: none !important;
+}
+.centerLines td {
+    vertical-align: middle
+}
+.menuOpen {
+    cursor: pointer
+}
+#davdocs_step1 {
+    border: 3px solid #eee;
+    padding: 1em;
+    background-color: #FFFCE9;
+}
+#davdocs_step2 {
+    margin-top: 1.2em;
+    border: 3px solid #eee;
+    padding: 1em;
+    background-color: #EBFFE8;
+}
+#davdocs_step2 ul {
+    list-style-type: none
+}
+#davdocs_step2 ul li {
+    display: inline;
+    margin-right: 1.5em;
+}
+.webdav_os {
+    margin-top: 4em;
+    border: 3px solid #eee;
+    padding: 2em;
+}
+/* ===[ Lessons ]=== */
+.lessonsHeader {
+    width: 99%;
+    border-bottom: 2px solid #3698DB !important;
+    border-radius: 3px !important;
+    height: 25px;
+}
+.lessonsHeader .title {
+    display: inline-block;
+    margin: 2px 0 0 2px;
+    font-size: 1.3em;
+}
+/* ===[ New alerts ]=== */
+.validationEmbedded, .validation, .alertMessage {
+}
+.information {
+}
+/* override native button things rendering */
+a.button, input[type="submit"], input[type="button"], input[type="reset"] {
+    background-color: #ddd !important;
+    font-size: 12px !important;
+    font-weight: 300 !important;
+    min-height: 24px !important;
+    color: #555 !important;
+    font-family:  'Helvetica Neue','Arial',sans-serif !important;
+    border: none;
+    border: 1px solid #ccc !important;
+}
+a.button:hover, input[type="submit"]:hover, input[type="button"]:hover, input[type="reset"]:hover {
+    background: #FFF !important;
+    color: #BF3B3B !important;
+    border-color: #BF3B3B !important;
+}
+input[type="submit"][disabled="disabled"],
+  input[type="button"][disabled="disabled"],
+  input[type="submit"][disabled="true"],
+  input[type="button"][disabled="true"],
+  input[type="submit"][disabled],
+  input[type="button"][disabled],
+  input[type="submit"][class="disabled"],
+  input[type="button"][class="disabled"],
+  input[type="submit"][disabled="disabled"]:hover,
+  input[type="button"][disabled="disabled"]:hover,
+  input[type="submit"][disabled="true"]:hover,
+  input[type="button"][disabled="true"]:hover,
+  input[type="submit"][disabled]:hover,
+  input[type="button"][disabled]:hover,
+  input[type="submit"][class="disabled"]:hover,
+  input[type="button"][class="disabled"]:hover {
+    background: #eeeeee !important;
+    color: #bbb !important;
+    border: 1px solid #E0E3E5 !important;
+    font-size: 11px !important;
+    font-weight: bold !important;
+    height: 24px;
+    margin-left: 0 !important;
+    margin-right: 3px;
+}
+input[type="checkbox"][disabled="disabled"], input[type="checkbox"][disabled="true"], input[type="checkbox"][class="disabled"], input[type="checkbox"][disabled="disabled"]:hover, input[type="checkbox"][disabled="true"]:hover {
+    background: #ccc !important;
+    border: 1px solid #E0E3E5 !important;
+    margin-right: 3px;
+}
+.listNav input[type="submit"], .listNav input[type="button"] {
+    height: 20px !important
+}
+@media screen and (max-device-width: 480px) {
+.login td.logo {
+    width: 175px;
+    background: #fff url(images/x-login-logo-sm.png) no-repeat;
+    background-position: 10px 20px;
+    border-width: 1px 0 1px 1px;
+    border-style: solid;
+    border-color: #ccc;
+}
+
+}
+
+/* https://jira.sakaiproject.org/browse/SAK-23662 Date/Time Picker */
+.ui-timepicker-div .ui-widget-header { margin-bottom: 8px; }
+.ui-timepicker-div dl { text-align: left; }
+.ui-timepicker-div dl dt { float: left; clear:left; padding: 0 0 0 5px; }
+.ui-timepicker-div dl dd { margin: 0 10px 10px 45%; }
+.ui-timepicker-div td { font-size: 90%; }
+.ui-tpicker-grid-label { background: none; border: none; margin: 0; padding: 0; }
+.ui-timepicker-rtl{ direction: rtl; }
+.ui-timepicker-rtl dl { text-align: right; padding: 0 5px 0 0; }
+.ui-timepicker-rtl dl dt{ float: right; clear: right; }
+.ui-timepicker-rtl dl dd { margin: 0 45% 10px 10px; }
+
+#helpSearchForm {
+  padding: 6px;
+}
+#helpSearchForm\\:searchField {
+  width: 100px;
+  padding-right: 6px;
+}
+
+
+/* Tool icons */
+
+@font-face {
+    font-family:"nyu-classes-icons";
+    src:url(fonts/nyu-classes-icons.eot);
+    src:url(fonts/nyu-classes-icons.eot?#iefix) format("embedded-opentype"),url(fonts/nyu-classes-icons.woff) format("woff"),url(fonts/nyu-classes-icons.ttf) format("truetype"),url(fonts/nyu-classes-icons.svg#nyu-classes-icons) format("svg");
+    font-weight:400;
+    font-style:normal
+}
+
+[class*="icon-sakai"] {
+    font-family:"nyu-classes-icons"
+}
+
+[class*="icon-sakai"]:before,.icon-sakai-help:before,.icon-sakai-iframe-site:before,.icon-sakai-motd:before,.icon-sakai-schedule:before,.icon-sakai-announcements:before,.icon-sakai-resources:before,.icon-sakai-assignment-grades:before,.icon-sakai-dropbox:before,.icon-sakai-chat:before,.icon-sakai-mailbox:before,.icon-sakai-siteinfo:before,.icon-sakai-sitesetup:before,.icon-sakai-messages:before,.icon-sakai-realms:before,.icon-sakai-memory:before,.icon-sakai-sites:before,.icon-sakai-users:before,.icon-sakai-su:before,.icon-sakai-profile2:before,.icon-sakai-membership:before,.icon-sakai-preferences:before,.icon-sakai-singleuser:before,.icon-sakai-syllabus:before,.icon-sakai-forums:before,.icon-sakai-iframe:before,.icon-sakai-lessonbuildertool:before,.icon-nyu-libraries:before,.icon-sakai-samigo:before,.icon-sakai-gradebook-tool:before,.icon-sakai-blogwow:before,.icon-sakai-sections:before,.icon-sakai-kaltura:before,.icon-sakai-sitestats:before,.icon-sakai-delegatedaccess:before,.icon-sakai-site-roster:before,.icon-sakai-site-roster2:before,.icon-sakai-news:before,.icon-sakai-turningtool:before,.icon-sakai-subsite:before,.category-title-information:before,.category-title-communication:before,.category-title-content:before,.category-title-activities-and-assessment:before,.category-title-utilities:before,#toggleToolMax:after,#toggleNormal:after {
+    margin:0 .25em 0 0;
+    padding:.25em
+}
+
+[class*="icon-sakai"]:before {
+    content:"\e60d"
+}
+
+.icon-sakai-edit:before {
+    content:"\e025"
+}
+
+.icon-sakai-help:before {
+    content:"\e003"
+}
+
+.icon-sakai-iframe-site:before {
+    content:"\e005"
+}
+
+.icon-sakai-motd:before {
+    content:"\e005"
+}
+
+.icon-sakai-schedule:before {
+    content:"\e028"
+}
+
+.icon-sakai-announcements:before {
+    content:"\e006"
+}
+
+.icon-sakai-resources:before {
+    content:"\e01e"
+}
+
+.icon-sakai-assignment-grades:before {
+    content:"\e00e"
+}
+
+.icon-sakai-dropbox:before {
+    content:"\e021"
+}
+
+.icon-sakai-mailbox:before {
+    content:"\e032"
+}
+
+.icon-sakai-siteinfo:before {
+    content:"\e034"
+}
+
+.icon-sakai-sitesetup:before {
+    content:"\e603"
+}
+
+.icon-sakai-realms:before {
+    content:"\e03a"
+}
+
+.icon-sakai-realms:before {
+    content:"\e03a"
+}
+
+.icon-sakai-memory:before {
+    content:"\e04a"
+}
+
+.icon-sakai-sites:before {
+    content:"\e038"
+}
+
+.icon-sakai-users:before {
+    content:"\e02a"
+}
+
+.icon-sakai-su:before {
+    content:"\e02e"
+}
+
+.icon-sakai-profile2:before {
+    content:"\e029"
+}
+
+.icon-sakai-membership:before {
+    content:"\e02a"
+}
+
+.icon-sakai-preferences:before {
+    content:"\e034"
+}
+
+.icon-sakai-singleuser:before {
+    content:"\e02b"
+}
+
+.icon-sakai-syllabus:before {
+    content:"\e017"
+}
+
+.icon-sakai-iframe:before {
+    content:"\e60f"
+}
+
+.icon-sakai-lessonbuildertool:before {
+    content:"\e60b"
+}
+
+.icon-nyu-libraries:before {
+    content:"\e051"
+}
+
+.icon-sakai-samigo:before {
+    content:"\e60c"
+}
+
+.icon-sakai-gradebook-tool:before {
+    content:"\e050"
+}
+
+.icon-sakai-blogwow:before {
+    content:"\e043"
+}
+
+.icon-sakai-kaltura:before {
+    content:"\e04f"
+}
+
+.icon-sakai-sitestats:before {
+    content:"\e035"
+}
+
+.icon-sakai-delegatedaccess:before {
+    content:"\e02e"
+}
+
+.icon-sakai-site-roster:before {
+    content:"\e052"
+}
+
+.icon-sakai-site-roster2:before {
+    content:"\e052"
+}
+
+.icon-sakai-news:before {
+    content:"\e053"
+}
+
+.icon-sakai-turningtool:before {
+    content:"\e054"
+}
+
+.icon-sakai-subsite:before {
+    content:""
+}
+
+
+.icon-sakai-rwiki:before {
+    content:"\e038"
+}
+
+.icon-sakai-bbb:before {
+    content:"\e03C"
+}
+
+.icon-sakai-dashboard:before {
+    content:"\e036"
+}
+
+.icon-sakai-mailtool:before {
+    content:"\e05D"
+}
+
+.icon-sakai-rsf-evaluation:before {
+    content:"\e046"
+}
+
+.icon-sakai-basiclti:before {
+    content:"\e037"
+}
+
+.icon-sakai-scorm-tool:before {
+    content:"\e602"
+}
+
+.icon-nyu-mediasite-poly:before {
+    content:"\e04F"
+}
+
+.icon-nyu-mediasite-stern:before {
+    content:"\e04F"
+}
+
+.icon-nyu-mediasite-libraries:before {
+    content:"\e04F"
+}
+
+.icon-nyu-panopto-law:before {
+    content:"\e04F"
+}
+
+.icon-sakai-podcasts:before {
+    content:"\e02F"
+}
+
+.icon-sakai-poll:before {
+    content:"\e03E"
+}
+
+.icon-sakai-scorm-singlepackage-tool:before {
+    content:"\e602"
+}
+
+.icon-sakai-search:before {
+    content:"\e048"
+}
+
+.icon-sakai-signup:before {
+    content:"\e02A"
+}
+
+.icon-sakai-messages:before {
+    content:"\e05D"
+}
+
+.icon-sakai-chat:before {
+    content:"\e030"
+}
+
+.icon-sakai-sections:before {
+    content:"\e601"
+}
+
+.icon-sakai-forums:before {
+    content:"\e02C"
+}
+
+
+
+/* Button Overrides */
+.button.active, a.button.active, button.active, input[type="button"].active, input[type="submit"].active, input[name="eventSubmit_doSearch"], input[name=":submit"], #siteStatus a, .portletBody font a:nth-of-type(1), input[value="Publish entry"] {
+  background: #3698DB !important;
+  color: #FFF !important;
+  border-color: #3698DB !important;
+  cursor: pointer !important;
+  text-decoration: none !important;
+}
+.button.active:hover, a.button.active:hover, button.active:hover, input[type="button"].active:hover, input[type="submit"].active:hover, input[name="eventSubmit_doSearch"]:hover, input[name=":submit"]:hover, #siteStatus a:hover, .portletBody font a:nth-of-type(1):hover, input[value="Publish entry"]:hover {
+  background: #FFF !important;
+  color: #3698DB !important;
+  border-color: #3698DB !important;
+}
+.button.cancel, a.button.cancel, button.cancel, input[type="button"][value*="Cancel"], input[type="submit"][value*="Cancel"], button[name="eventSubmit_doCancel"], input#reset, .actionItem a#restdef {
+  cursor: pointer !important;
+}
+.navIntraTool.actionToolBar .inputItem input {
+  padding: 4px !important;
+  border: 1px solid #DDD !important;
+}
+
+/* Alerts */
+.messageInformation:before,
+.information:before, .messageError:before,
+.alertMessage:before,
+.alertMessageInline:before,
+.ui-state-error.ui-corner-all:before, .messageValidation:before,
+.validationEmbedded:before,
+.validation:before,
+.messageAlert:before, .messageSuccess:before,
+.success:before, .messageConfirmation:before, .instruction a[onclick*="toggle"]:before, #gradeForm .viewNav.highlight strong:before {
+  font-family: "nyu-classes-icons";
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+}
+.messageInformation,
+.information, .messageError,
+.alertMessage,
+.alertMessageInline,
+.ui-state-error.ui-corner-all, .messageValidation,
+.validationEmbedded,
+.validation,
+.messageAlert, .messageSuccess,
+.success, .messageConfirmation, .step {
+  padding: .5em 1em .5em .75em !important;
+  margin: .5em 0 .5em 0 !important;
+  display: inline-block;
+  background-image: none;
+  line-height: 1.5em;
+  width: auto;
+}
+
+/* line 15, sass/modules/alerts/_alerts_extendables.scss */
+.messageInformation:before,
+.information:before, .messageError:before,
+.alertMessage:before,
+.alertMessageInline:before,
+.ui-state-error.ui-corner-all:before, .messageValidation:before,
+.validationEmbedded:before,
+.validation:before,
+.messageAlert:before, .messageSuccess:before,
+.success:before, .messageConfirmation:before, .instruction a[onclick*="toggle"]:before, #gradeForm .viewNav.highlight strong:before {
+  font-size: 1.75em;
+  line-height: 0.75em;
+  opacity: 0.5;
+  vertical-align: middle;
+  padding: 0 0.15em 0 0;
+  margin: 0 0 0 -0.05em;
+}
+
+/* line 16, sass/modules/alerts/_alerts.scss */
+.messageInformation:before,
+.information:before {
+  content: '\e01d';
+}
+/* line 21, sass/modules/alerts/_alerts.scss */
+.messageInformation:empty,
+.information:empty {
+  display: none;
+  background: none;
+  border: none;
+}
+/* line 26, sass/modules/alerts/_alerts.scss */
+.messageInformation:empty:before,
+.information:empty:before {
+  content: "";
+}
+/* line 30, sass/modules/alerts/_alerts.scss */
+.messageInformation p, .messageInformation div,
+.information p,
+.information div {
+  display: inline-block;
+  margin: 0;
+}
+/* line 34, sass/modules/alerts/_alerts.scss */
+.messageInformation p.hidden, .messageInformation div.hidden,
+.information p.hidden,
+.information div.hidden {
+  display: none;
+}
+
+/* line 48, sass/modules/alerts/_alerts.scss */
+.messageError:before,
+.alertMessage:before,
+.alertMessageInline:before,
+.ui-state-error.ui-corner-all:before {
+  content: '\e01a';
+}
+
+/* line 62, sass/modules/alerts/_alerts.scss */
+.messageValidation:before,
+.validationEmbedded:before,
+.validation:before,
+.messageAlert:before {
+  content: '\e01b';
+}
+
+/* line 74, sass/modules/alerts/_alerts.scss */
+.messageSuccess:before,
+.success:before {
+  content: '\e071';
+}
+
+/* line 85, sass/modules/alerts/_alerts.scss */
+.messageConfirmation:before {
+  content: '\e019';
+}
+
+/* line 93, sass/modules/alerts/_alerts.scss */
+.instruction,
+.messageInstruction {
+  color: #595959;
+  font-weight: normal;
+  font-style: italic;
+}
+/* line 96, sass/modules/alerts/_alerts.scss */
+.instruction a,
+.messageInstruction a {
+  color: #5f8106;
+  text-decoration: underline;
+}
+
+/* line 102, sass/modules/alerts/_alerts.scss */
+.highlight {
+  color: #333333;
+  background: #faedab;
+  font-weight: normal;
+}
+
+/* line 108, sass/modules/alerts/_alerts.scss */
+.step {
+  color: #666666;
+  border-color: #cccccc;
+  background: #eaeaea;
+}
+
+/* line 127, sass/modules/alerts/_alerts.scss */
+h3[class*="message"], h3[class*="alert"], h3.success, h3.information {
+  font-size: 1em;
+}
+
+/* line 133, sass/modules/alerts/_alerts.scss */
+h3 [class*="message"] {
+  font-size: .625em;
+  margin: 0 !important;
+}
+
+/* line 141, sass/modules/alerts/_alerts.scss */
+#tab-dhtml-more-sites .instruction.instruction {
+  height: 100%;
+  display: block;
+  font-size: 1em;
+}
+
+/* line 150, sass/modules/alerts/_alerts.scss */
+#selectedSections table.listHier {
+  border: none;
+  display: inline-block;
+  vertical-align: middle;
+}
+/* line 154, sass/modules/alerts/_alerts.scss */
+#selectedSections table.listHier tr {
+  background: none;
+}
+/* line 156, sass/modules/alerts/_alerts.scss */
+#selectedSections table.listHier tr td {
+  border: none;
+}
+
+/* line 164, sass/modules/alerts/_alerts.scss */
+.instruction.information {
+  color: #3a87ad;
+}
+/* line 168, sass/modules/alerts/_alerts.scss */
+.instruction a[onclick*="toggle"] img[src$="information.png"] {
+  display: none;
+}
+/* line 171, sass/modules/alerts/_alerts.scss */
+.instruction a[onclick*="toggle"]:before {
+  content: '\e01d';
+}
+/* line 175, sass/modules/alerts/_alerts.scss */
+.instruction a[onclick*="toggle"][style*="float"]:before {
+  content: '';
+}
+
+/* line 196, sass/modules/alerts/_alerts.scss */
+.alertMessage div {
+  display: inline;
+}
+/* line 199, sass/modules/alerts/_alerts.scss */
+.alertMessage div.hidden {
+  display: none;
+}
+/* line 204, sass/modules/alerts/_alerts.scss */
+.alertMessage #message strong {
+  font-weight: normal;
+}
+
+/* line 210, sass/modules/alerts/_alerts.scss */
+.ui-widget[role="alert"] {
+  font-family: inherit;
+  font-size: inherit;
+}
+/* line 214, sass/modules/alerts/_alerts.scss */
+.ui-widget[role="alert"] .ui-icon {
+  display: none;
+}
+/* line 217, sass/modules/alerts/_alerts.scss */
+.ui-widget[role="alert"] .ui-icon + div {
+  display: inline-block;
+}
+
+.feedback, .messageInformation,
+.information, .messageError,
+.alertMessage,
+.alertMessageInline,
+.ui-state-error.ui-corner-all, .messageValidation,
+.validationEmbedded,
+.validation,
+.messageAlert, .messageSuccess,
+.success, .messageConfirmation, .step {
+  padding: 0.125em 1em;
+  margin: 1em;
+  color: #3a87ad;
+  background-color: #d9edf7;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #bce8f1;
+  -webkit-border-radius: 0.5em;
+  -moz-border-radius: 0.5em;
+  border-radius: 0.5em;
+  background-clip: padding-box;
+}
+/* line 14, sass/modules/feedback/_feedback_extendables.scss */
+.feedback a, .messageInformation a,
+.information a, .messageError a,
+.alertMessage a,
+.alertMessageInline a,
+.ui-state-error.ui-corner-all a, .messageValidation a,
+.validationEmbedded a,
+.validation a,
+.messageAlert a, .messageSuccess a,
+.success a, .messageConfirmation a, .step a {
+  color: #3a87ad;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+/* line 21, sass/modules/feedback/_feedback_extendables.scss */
+.feedback.error, .messageError,
+.alertMessage,
+.alertMessageInline,
+.ui-state-error.ui-corner-all {
+  background-color: #ffbbbb;
+  color: #b10804;
+  border-color: #cc9999;
+}
+/* line 26, sass/modules/feedback/_feedback_extendables.scss */
+.feedback.error a, .messageError a,
+.alertMessage a,
+.alertMessageInline a,
+.ui-state-error.ui-corner-all a {
+  color: #b10804;
+}
+/* line 30, sass/modules/feedback/_feedback_extendables.scss */
+.feedback.error a:visited, .messageError a:visited,
+.alertMessage a:visited,
+.alertMessageInline a:visited,
+.ui-state-error.ui-corner-all a:visited, .feedback.error a:focus, .messageError a:focus,
+.alertMessage a:focus,
+.alertMessageInline a:focus,
+.ui-state-error.ui-corner-all a:focus {
+  color: #7f0603;
+}
+/* line 34, sass/modules/feedback/_feedback_extendables.scss */
+.feedback.error a:hover, .messageError a:hover,
+.alertMessage a:hover,
+.alertMessageInline a:hover,
+.ui-state-error.ui-corner-all a:hover {
+  color: #e30a05;
+}
+
+/* line 40, sass/modules/feedback/_feedback_extendables.scss */
+.feedback.warning, .messageConfirmation {
+  background-color: #fcf8e3;
+  color: #a66208;
+  border-color: #e6d2ac;
+}
+/* line 45, sass/modules/feedback/_feedback_extendables.scss */
+.feedback.warning a, #siteStatus a, .messageConfirmation a {
+  color: #a66208;
+}
+/* line 49, sass/modules/feedback/_feedback_extendables.scss */
+.feedback.warning a:visited, #siteStatus a:visited, .messageConfirmation a:visited, .feedback.warning a:focus, #siteStatus a:focus, .messageConfirmation a:focus {
+  color: #754506;
+}
+/* line 53, sass/modules/feedback/_feedback_extendables.scss */
+.feedback.warning a:hover, #siteStatus a:hover, .messageConfirmation a:hover {
+  color: #d77f0a;
+}
+
+/* line 59, sass/modules/feedback/_feedback_extendables.scss */
+.messageValidation,
+.validationEmbedded,
+.validation,
+.messageAlert {
+  background-color: #ffeeee;
+  color: #b54e4c;
+  border-color: #ffbbbb;
+}
+/* line 64, sass/modules/feedback/_feedback_extendables.scss */
+.messageValidation a,
+.validationEmbedded a,
+.validation a,
+.messageAlert a {
+  color: #b54e4c;
+}
+/* line 68, sass/modules/feedback/_feedback_extendables.scss */
+.messageValidation a:visited,
+.validationEmbedded a:visited,
+.validation a:visited,
+.messageAlert a:visited, .messageValidation a:focus,
+.validationEmbedded a:focus,
+.validation a:focus,
+.messageAlert a:focus {
+  color: #923e3c;
+}
+/* line 72, sass/modules/feedback/_feedback_extendables.scss */
+.messageValidation a:hover,
+.validationEmbedded a:hover,
+.validation a:hover,
+.messageAlert a:hover {
+  color: #c47270;
+}
+
+/* line 78, sass/modules/feedback/_feedback_extendables.scss */
+.messageSuccess,
+.success {
+  background-color: #dff0d8;
+  color: #1e7b20;
+  border-color: #c4e4a3;
+}
+/* line 83, sass/modules/feedback/_feedback_extendables.scss */
+.messageSuccess a,
+.success a {
+  color: #1e7b20;
+}
+/* line 87, sass/modules/feedback/_feedback_extendables.scss */
+.messageSuccess a:visited,
+.success a:visited, .messageSuccess a:focus,
+.success a:focus {
+  color: #145215;
+}
+/* line 91, sass/modules/feedback/_feedback_extendables.scss */
+.messageSuccess a:hover,
+.success a:hover {
+  color: #28a42b;
+}
+
+/* line 97, sass/modules/feedback/_feedback_extendables.scss */
+.messageInformation,
+.information {
+  background-color: #bce8f1;
+  color: #396987;
+  border-color: #96e2f0;
+}
+/* line 102, sass/modules/feedback/_feedback_extendables.scss */
+.messageInformation a,
+.information a {
+  color: #396987;
+}
+/* line 106, sass/modules/feedback/_feedback_extendables.scss */
+.messageInformation a:visited,
+.information a:visited, .messageInformation a:focus,
+.information a:focus {
+  color: #2a4d63;
+}
+/* line 110, sass/modules/feedback/_feedback_extendables.scss */
+.messageInformation a:hover,
+.information a:hover {
+  color: #4885ab;
+}
+.radioOptionSelected {
+  background: #D6E4F4;
+}
+
+.hide-me {
+  visibility: hidden;
+}
