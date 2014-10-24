@@ -53,7 +53,7 @@ $(function() {
           show: function(event, api) {
             $("#createGradeItem").on("click", function() {
               $("#addGradeItem").qtip("hide");
-              var matches = $spreadsheet.find(".hide-me").removeClass("hide-me");
+              var matches = $(".hide-me").removeClass("hide-me");
               setTimeout(function() {
                 matches.find(".gradebook-item-cell:first").focus();
               }, 500);

@@ -419,3 +419,39 @@ html {
 .gradebook-item-cell:hover {
   border-color: #F0f0f0;
 }
+#gradebookGradeItemToggle {
+  padding: 2px 8px;
+}
+#gradebookGradeItemToggle:after {
+  font-family: 'nyu-classes-icons';
+  content: '\e063';
+  padding: 0 0 0 4px;
+}
+#gradebookGradeItemToggle.on {
+  border-color: #15A885 !important;
+  color: #15A885 !important;
+  background-color: #FFF !important;
+}
+#gradeItemFilter {
+  position: absolute;
+  border: 1px solid #15A885;
+  background-color: #FFF;
+  padding: 10px;
+  right: 20px;
+  min-width: 100px;
+  z-index: 10;
+}
+#gradeItemFilter .hide-me {
+  display: none;
+}
+#gradeItemFilter input {
+  float: right;
+  margin-left: 20px;
+}
+.gradebook-item-category-filter,
+.gradebook-item-filter {
+  clear: both;
+}
+.gradebook-item-filter  {
+  margin-left: 10px;
+}
