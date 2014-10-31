@@ -190,9 +190,6 @@ GradebookSpreadsheet.prototype.addListeners = function() {
   var self = this;
   self.$spreadsheet.on("keydown", function(event) {
     self.onKeydown(event);
-  }).on("click", ".context-menu-toggle", function(event){
-    event.preventDefault();
-    event.stopImmediatePropagation();
   }).on("click", function(event) {
     self.onClick(event);
   });
@@ -501,7 +498,10 @@ GradebookSpreadsheet.prototype.initContextSensitiveMenus = function() {
   var menuHTML = $("#templateContextMenuToggle").html();
   $(".gradebook-header-cell, .gradebook-item-cell", self.$spreadsheet).append(menuHTML);
 
-  $(document).on("click", ".context-menu-toggle", function(event) {
+  $(document.body).on("click", ".context-menu-toggle", function(event) {
+    event.preventDefault();
+    event.stopImmediatePropagation();
+
     var $toggle = $(event.target);
     var $menu;
 
@@ -513,7 +513,7 @@ GradebookSpreadsheet.prototype.initContextSensitiveMenus = function() {
       $(document).off("scrol", scrollEvent);
     } else {
       // Hide all other menus
-      $(document).find(".context-menu-toggle.on").trigger("click");
+      $(document.body).find(".context-menu-toggle.on").trigger("click");
       
       if ($toggle.closest(".gradebook-column-students-header").length > 0) {
         $menu = $($("#templateStudentColumnContextMenuToggle").html());
@@ -536,7 +536,7 @@ GradebookSpreadsheet.prototype.initContextSensitiveMenus = function() {
       });
 
       $(document.body).one("click", function(event) {
-        $(document).find(".context-menu-toggle.on").trigger("click");
+        $(document.body).find(".context-menu-toggle.on").trigger("click");
       });
       scrollEvent = $(document).on("scroll", function() {
         $menu.css({
