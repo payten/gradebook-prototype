@@ -37,10 +37,9 @@
       </div>
         <div class="gradebook-column-group gradebook-fixed-columns">
           <div style="width:180px;" class="gradebook-column gradebook-column-students">
-            <div class="gradebook-header-cell sort-asc">
+            <div class="gradebook-header-cell gradebook-column-students-header sort-asc">
               <span class="gradebook-header-label">Students</span>
               <input type="text" id="studentFilter" placeholder="Filter Students"/>
-              <a class="context-menu-toggle" href="javascript:void(0);"></a>
             </div>
             <div class="gradebook-cell gradebook-user-label"><span class="first-name">Anjelica</span><span class="last-name">Baez</span><span class="netid">ab8222</span></div>
             <div class="gradebook-cell gradebook-user-label"><span class="first-name">Asuncion</span><span class="last-name">Elrod</span><span class="netid">ae8891</span></div>
@@ -105,7 +104,7 @@
           </div>
 
 <div style="width:120px;" class="gradebook-column gradebook-column-sections">
-            <div class="gradebook-header-cell">
+            <div class="gradebook-header-cell gradebook-section-header-cell">
               <span class="gradebook-header-label">Section</span>
               <select id="sectionFilter">
                 <option value="">All Sections</option>
@@ -1991,6 +1990,40 @@
         <input type="checkbox" id="gradebook-item-filter-Quizzes-1" data-colIdx="8" checked />
       </div>
     </div>
+  </div>
+</script>
+<script id="templateContextMenuToggle" type="text/template">
+  <a class="context-menu-toggle" href="javascript:void(0);"></a>
+</script>
+<script id="templateStudentColumnContextMenuToggle" type="text/template">
+  <div class="context-menu">
+    <ul>
+      <li><a href="javascript:void(0);" id="toggleStudentNames">Toggle Student Name</a></li>
+    </ul>
+  </div>
+</script>
+<script id="templateDummyContextMenuToggle" type="text/template">
+  <div class="context-menu">
+    <ul>
+      <li>Something will go here</li>
+    </ul>
+  </div>
+</script>
+<script id="templateGradeItemContextMenuToggle" type="text/template">
+  <div class="context-menu">
+    <ul>
+      <li><a id="editItemDetails" href="javascript:void(0)">Edit Item Details</a></li>
+      <li><a id="toggleVisibleToStudents" href="javascript:void(0)">Visible to Students</a></li>
+      <li><a id="toggleCalcInclusion" href="javascript:void(0)">Included in Course Grade Calculations</a></li>
+    </ul>
+  </div>
+</script>
+<script id="templateGradeContextMenuToggle" type="text/template">
+  <div class="context-menu">
+    <ul>
+      <li><a id="viewGradeLog" href="javascript:void(0)">Grade log</a></li>
+      <li><a id="viewGradeComments" href="javascript:void(0)">View/Edit Comments</a></li>
+    </ul>
   </div>
 </script>
 </body>

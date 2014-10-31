@@ -73,6 +73,7 @@ html {
   border: 1px solid transparent;
   border-bottom: 1px solid #FAFAFA;
   border-right: 1px solid #FAFAFA;
+  position: relative;
 }
 .gradebook-user-label {
 }
@@ -88,6 +89,20 @@ html {
 }
 .gradebook-user-label .netid:after {
   content: ')';
+}
+.hide-student-names .first-name,
+.hide-student-names .last-name {
+  display: none;
+}
+.hide-student-names .gradebook-user-label {
+  text-align: center;
+}
+.hide-student-names .gradebook-user-label .netid {
+  color: #444;
+}
+.hide-student-names .gradebook-user-label .netid:before,
+.hide-student-names .gradebook-user-label .netid:after {
+  content: '';
 }
 .gradebook-user-label .netid {
   color: #999;
@@ -229,9 +244,14 @@ html {
   top: 31px;
   right: 0;
 }
-
 .gradebook-column-group.gradebook-fixed-columns {
-  z-index: 1;
+  z-index: 7;
+}
+.gradebook-column-group.gradebook-fixed-columns .gradebook-fixed-header.gradebook-fixed-columns-header {
+  z-index: 8;
+}
+.gradebook-fixed-header.gradebook-gradeitem-columns-header {
+  z-index: 6;
 }
 .gradebook-column-group.gradebook-gradeitem-columns {
   position: relative;
@@ -248,7 +268,7 @@ html {
   font-size: 1em;
 }
 .gradebook-add-form {
-  padding: 10px 0 20px;
+  padding: 10px 10px 20px;
 }
 .gradebook-add-form img {
   margin: 20px 0;
@@ -374,7 +394,7 @@ html {
   background-color: #f6f6f6;
   border-bottom: 1px solid #DDD;
   position: absolute;
-  z-index: 2;
+  z-index: 10;
   box-shadow: 0 -4px #FFF; /* just to cover the shadow from the fixed column group */
 }
 .gradebook-header-cell {
@@ -386,14 +406,13 @@ html {
   right: 0;
   width: 14px;
   height: 14px;
-  display: none;
 }
 .context-menu-toggle:after {
   transition: border-color 0.25s;
 
   border-left: 8px solid transparent;
   border-right: 0px solid transparent;
-  border-bottom: 8px solid #DDD;
+  border-bottom: 8px solid #F0F0F0;
   content: "";
   width: 0;
   height: 0;
@@ -401,12 +420,17 @@ html {
   right: 3px;
   bottom: 3px;
 }
-.gradebook-header-cell:hover .context-menu-toggle:after {
+.gradebook-header-cell .context-menu-toggle:after  {
+  border-bottom-color: #DDD;
+}
+.gradebook-header-cell:hover .context-menu-toggle:after, 
+.gradebook-item-cell:hover .context-menu-toggle:after {
   transition: border-color 0.25s;
 
   border-bottom-color: #AAA;
 }
-.gradebook-header-cell:hover .context-menu-toggle:hover:after {
+.gradebook-header-cell:hover .context-menu-toggle:hover:after,
+.gradebook-item-cell:hover .context-menu-toggle:hover:after {
   transition: border-color 0.25s;
 
   border-bottom-color: #666;
@@ -421,11 +445,23 @@ html {
 }
 #gradebookGradeItemToggle {
   padding: 2px 8px;
+  border-top-color: #CCC !important;
+  border-left-color: #CCC !important;
+  border-bottom-color: #FFF !important;
+  border-right-color: #FAFAFA !important;
+  color: black !important;
+  background-color: transparent !important;
 }
 #gradebookGradeItemToggle:after {
   font-family: 'nyu-classes-icons';
   content: '\e063';
   padding: 0 0 0 4px;
+}
+#gradebookGradeItemToggle:hover,
+#gradebookGradeItemToggle:focus {
+  border-color: #BF3B3B !important;
+  color: #BF3B3B !important;
+  background-color: #FFF !important;
 }
 #gradebookGradeItemToggle.on {
   border-color: #15A885 !important;
@@ -447,6 +483,13 @@ html {
 #gradeItemFilter input {
   float: right;
   margin-left: 20px;
+  background-color: transparent;
+}
+#gradeItemFilter input:before {
+  height: 16px;
+  width: 16px;
+  display: inline-block;
+  content: "";
 }
 .gradebook-item-category-filter,
 .gradebook-item-filter {
@@ -455,3 +498,36 @@ html {
 .gradebook-item-filter  {
   margin-left: 10px;
 }
+.context-menu {
+  position: absolute;
+  border: 1px solid #15A885;
+  background-color: #FFF;
+  z-index: 10;
+  box-shadow: 1px 1px 6px #AAA;
+  font-size: 0.9em;
+  max-width: 140px;
+}
+.context-menu ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.context-menu li {
+}
+.context-menu a {
+  color: #444;
+  display: block;
+  padding: 8px;
+}
+.context-menu a:hover {
+  background-color: #EEE;
+}
+.context-menu-toggle.on:after {
+  border-bottom-color: #15A885 !important;
+}
+
+.gradebook-header-cell.gradebook-section-header-cell .context-menu-toggle,
+.gradebook-header-cell.gradebook-course-total .context-menu-toggle {
+  display: none;
+}
+

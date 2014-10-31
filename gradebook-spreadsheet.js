@@ -1,7 +1,11 @@
 function GradebookSpreadsheet($spreadsheet) {
   this._CELLS = {};
+  this._COLORS = {};
   this.$spreadsheet = $spreadsheet;
   this.$gradeitemColumnContainer = $(".gradebook-gradeitem-columns", $spreadsheet);  
+
+  // bump out HTML5 input attributes
+  $(":input[type=number]").attr("type", "text");
 
   this.initCells();
   this.initStudentFilter();
@@ -9,6 +13,7 @@ function GradebookSpreadsheet($spreadsheet) {
   this.initCategories();
   this.initFixedTableHeader();
   this.initGradeItemToggle();
+  this.initContextSensitiveMenus()
 
   this.addListeners();
 }
@@ -66,6 +71,20 @@ GradebookSpreadsheet.prototype.handleInputReturn = function(event, $cell) {
 };
 
 
+GradebookSpreadsheet.prototype.handleArrayKey = function(event, $cell) {
+  if (event.keyCode == 37) {
+    this.navigate(event, $cell, "left", true);
+  } else if (event.keyCode == 38) {
+    this.navigate(event, $cell, "up", true);
+  } else if (event.keyCode == 39) {
+    this.navigate(event, $cell, "right", true);
+  } else if (event.keyCode == 40) {
+    this.navigate(event, $cell, "down", true);
+  }
+  return false;
+};
+
+
 GradebookSpreadsheet.prototype.handleInputTab = function(event, $cell) {
   this.navigate(event, $cell, event.shiftKey ? "left" : "right", true);
 };
@@ -94,6 +113,7 @@ GradebookSpreadsheet.prototype.navigate = function(event, fromCell, direction, e
                       find(".gradebook-cell:nth-child("+($cell.index()+1)+")").
                       focus();
     } else {
+      fromCell.focus();
       return true;
     }
   } else if (direction == "right") {
@@ -105,6 +125,7 @@ GradebookSpreadsheet.prototype.navigate = function(event, fromCell, direction, e
                                       find(".gradebook-cell:nth-child("+($cell.index()+1)+")").
                                       focus();
     } else {
+      fromCell.focus();
       return true;
     }
   } else if (direction == "up") {
@@ -113,6 +134,8 @@ GradebookSpreadsheet.prototype.navigate = function(event, fromCell, direction, e
       event.stopPropagation();
 
       $targetCell = $cell.prevAll(":visible:first").focus();
+    } else {
+      fromCell.focus();
     }
   } else if (direction == "down") {
     if ($cell.index() < $column.children().last().index()) {
@@ -120,11 +143,15 @@ GradebookSpreadsheet.prototype.navigate = function(event, fromCell, direction, e
       event.stopPropagation();
 
       $targetCell = $cell.nextAll(":visible:first").focus();
+    } else {
+      fromCell.focus();
     }
   }
 
   if (enableEditMode && $targetCell) {
     this.getCellModel($targetCell).enterEditMode();
+  } else if ($targetCell) {
+    $targetCell.focus();
   }
 
   return false;
@@ -144,14 +171,10 @@ GradebookSpreadsheet.prototype.initCells = function() {
       $cell.data("colIdx", colIndex).data("cellIdx", cellIndex);
       $cell.attr("id", colIndex + "-" + cellIndex);
 
-      var callbacks = $.Callbacks();
-      callbacks.add(self.handleInputReturn);
-      callbacks.add(self.handleInputTab);
-      
-
       self._CELLS[colIndex][cellIndex] = new GradebookItemCell($cell, {
         onInputReturn: $.proxy(self.handleInputReturn, self),
-        onInputTab: $.proxy(self.handleInputTab, self)
+        onInputTab: $.proxy(self.handleInputTab, self),
+        onArrowKey: $.proxy(self.handleArrayKey, self)
       });
     });
   });
@@ -167,6 +190,9 @@ GradebookSpreadsheet.prototype.addListeners = function() {
   var self = this;
   self.$spreadsheet.on("keydown", function(event) {
     self.onKeydown(event);
+  }).on("click", ".context-menu-toggle", function(event){
+    event.preventDefault();
+    event.stopImmediatePropagation();
   }).on("click", function(event) {
     self.onClick(event);
   });
@@ -271,6 +297,7 @@ GradebookSpreadsheet.prototype.initFixedTableHeader = function() {
       }
 
       var color = GradebookUtils.getRandomColor();
+      self._COLORS[lastCategory] = color;
       $category.css("backgroundColor", color);
       $this.css("backgroundColor", color);
       $categories.append($category);
@@ -302,9 +329,20 @@ GradebookSpreadsheet.prototype.initGradeItemToggle = function() {
   var $filter = $($("#templateGradeItemFilter").html()).hide();
   $(document.body).append($filter);
 
+  // setup the colors
+  $(".gradebook-item-category-filter", $filter).each(function() {
+    var $categoryFilter = $(this);
+    $categoryFilter.closest(".gradebook-item-filter-group").
+                    find(":input").css("backgroundColor", self._COLORS[$categoryFilter.text().trim()]);
+  });
+
+
+  // here's the serious stuff
   var $button = $("#gradebookGradeItemToggle");
   $button.on("click", function() {
     $button.toggleClass("on");
+
+    var scrollEvent;
 
     if ($button.hasClass("on")) {
       $filter.css("top", Math.ceil($button.offset().top) -1 + $button.outerHeight() + "px");
@@ -349,8 +387,74 @@ GradebookSpreadsheet.prototype.initGradeItemToggle = function() {
         }
       });
 
+      scrollEvent = $(document).on("scroll", function() {
+        $filter.css({
+          right: $(document.body).width() + 1 - Math.ceil($button.offset().left) - $button.outerWidth() + "px",
+          top: Math.ceil($button.offset().top) -1 + $button.outerHeight() + "px"
+        });
+      });
+
     } else {
       $filter.hide();
+      $(document).off("scroll", scrollEvent);
     }
   });
+};
+
+GradebookSpreadsheet.prototype.toggleStudentNames = function() {
+  this.$spreadsheet.find(".gradebook-column-students").toggleClass("hide-student-names");
+};
+
+GradebookSpreadsheet.prototype.initContextSensitiveMenus = function() {
+  var self = this;
+  var menuHTML = $("#templateContextMenuToggle").html();
+  $(".gradebook-header-cell, .gradebook-item-cell", self.$spreadsheet).append(menuHTML);
+
+  self.$spreadsheet.on("click", ".context-menu-toggle", function(event) {
+    var $toggle = $(event.target);
+    var $menu;
+
+    var scrollEvent;
+
+    if ($toggle.is(".on")) {
+      $menu = $(".context-menu");
+      $menu.remove();
+      $(document).off("scrol", scrollEvent);
+    } else {
+      // Hide all other menus
+      self.$spreadsheet.find(".context-menu-toggle.on").trigger("click");
+      
+      if ($toggle.closest(".gradebook-column-students-header").length > 0) {
+        $menu = $($("#templateStudentColumnContextMenuToggle").html());
+      } else if ($toggle.closest(".gradebook-gradeitem-columns-header").length > 0) {
+        $menu = $($("#templateGradeItemContextMenuToggle").html());
+      } else if ($toggle.closest(".gradebook-item-cell").length > 0) {
+        $menu = $($("#templateGradeContextMenuToggle").html());
+      } else {
+        $menu = $($("#templateDummyContextMenuToggle").html());
+      }
+      $(document.body).append($menu);
+      $menu.css({
+        left: $toggle.offset().left + $toggle.outerWidth() - 3 - $menu.outerWidth() + "px",
+        top: $toggle.offset().top + $toggle.outerHeight() - 3 + "px"
+      });
+
+      $(document.body).one("click", function(event) {
+        self.$spreadsheet.find(".context-menu-toggle.on").trigger("click");
+      });
+      scrollEvent = $(document).on("scroll", function() {
+        $menu.css({
+          left: $toggle.offset().left + $toggle.outerWidth() - 3 - $menu.outerWidth() + "px",
+          top: $toggle.offset().top + $toggle.outerHeight() - 3 + "px"
+        });
+      });
+    }
+
+    $toggle.toggleClass("on");
+  });
+
+  $(document.body).on("click", "#toggleStudentNames", function() {
+    self.toggleStudentNames()
+  });
+
 };

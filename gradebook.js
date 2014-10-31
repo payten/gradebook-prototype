@@ -36,6 +36,9 @@ $(function() {
           at: '200px center',
           target: $(document.body)
         },
+        style: {
+          width: "540px"
+        },
         show: {
           event: 'click',
           modal: {

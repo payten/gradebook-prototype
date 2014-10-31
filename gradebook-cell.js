@@ -109,7 +109,9 @@ GradebookItemCell.prototype.enterEditMode = function(withValue) {
 
   // if not typing a value then select the input
   if (withValue == null) {
-    self.$input.select();
+    self.$input.focus().select();
+  } else {
+    self.$input.focus();
   }
 
   self.$input.one("blur", function(event) {
@@ -140,12 +142,24 @@ GradebookItemCell.prototype.enterEditMode = function(withValue) {
 
       return false;
 
+    // arrow keys
+    } else if (event.keyCode >= 37 && event.keyCode <= 40) {
+      event.preventDefault();
+      event.stopPropagation();
+
+      self.exitEditMode();
+      self.callbacks.onArrowKey(event, self.$cell);
+      self.save();
+
+      return false;
+
     // TAB 9
     } else if (event.keyCode == 9) {
       event.preventDefault();
       event.stopPropagation();
 
       self.exitEditMode();
+      self.$cell.focus();
       self.callbacks.onInputTab(event, self.$cell);
       self.save();
       
@@ -187,6 +201,11 @@ GradebookItemCell.prototype._validate = function() {
 
   if (value == "") {
     return true;
+  }
+
+  // basic "am I a string" test
+  if (parseFloat(value) + "" != value) {
+    return false;
   }
 
   if (parseFloat(value) > parseInt(this.$input.attr("max"))) {
