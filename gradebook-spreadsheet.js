@@ -332,9 +332,63 @@ GradebookSpreadsheet.prototype.initGradeItemToggle = function() {
   // setup the colors
   $(".gradebook-item-category-filter", $filter).each(function() {
     var $categoryFilter = $(this);
+    var myColor = self._COLORS[$categoryFilter.text().trim()];
     $categoryFilter.closest(".gradebook-item-filter-group").
-                    find(":input").css("backgroundColor", self._COLORS[$categoryFilter.text().trim()]);
+                    find(".gradebook-item-category-filter-signal").
+                    css("backgroundColor", myColor).
+                    css("borderColor", myColor);
   });
+
+  var updateSignal = function($label, $input) {
+    var $categoryGroup = $label.closest(".gradebook-item-filter-group");
+    var $categoryFilter = $categoryGroup.find(".gradebook-item-category-filter");
+    var myColor = self._COLORS[$categoryFilter.text().trim()];
+    var $signal = $label.find(".gradebook-item-category-filter-signal");
+
+    if ($input.is(":checked")) {
+      $signal.css("backgroundColor", myColor).
+              css("borderColor", myColor);
+    } else {
+      $signal.css("backgroundColor", "#FFF").
+              css("borderColor", myColor);
+    }
+  };
+
+
+/*
+   // should the top level be a partial?
+    var $categoryLabel = $categoryGroup.find(".gradebook-item-category-filter label");
+    var checked = $categoryGroup.find(".gradebook-item-filter :input:checked").length;
+    var total = $categoryGroup.find(".gradebook-item-filter :input").length
+    if (checked == 0) {
+      $categoryLabel.removeClass("category-partial-filter");
+      
+    } else if (checked == total) {
+      $categoryLabel.removeClass("category-partial-filter");
+    } else {
+      $categoryLabel.addClass("category-partial-filter");
+*/
+
+  var updateCategoryFilterState = function($itemFilter) {
+    var $group = $itemFilter.closest(".gradebook-item-filter-group");
+    var $label = $group.find(".gradebook-item-category-filter label");
+    var $input = $group.find(".gradebook-item-category-filter input");
+
+    var checkedItemFilters = $group.find(".gradebook-item-filter :input:checked").length;
+    var itemFilters = $group.find(".gradebook-item-filter :input").length;
+
+    $label.find(".gradebook-filter-partial-signal").remove();
+    if (checkedItemFilters == 0) {
+      $input.prop("checked", false);
+    } else if (checkedItemFilters == itemFilters) {
+      $input.prop("checked", true);
+    } else {
+      $input.prop("checked", false);
+      $label.find(".gradebook-item-category-filter-signal").append($("<span>").addClass("gradebook-filter-partial-signal"));
+    }
+
+    updateSignal($label, $input);
+  };
 
 
   // here's the serious stuff
@@ -349,42 +403,51 @@ GradebookSpreadsheet.prototype.initGradeItemToggle = function() {
       $filter.css("right", $(document.body).width() + 1 - Math.ceil($button.offset().left) - $button.outerWidth() + "px");
       $filter.show();
 
-      $("#gradeItemFilter :input").on("change", function() {
+      $("#gradeItemFilter .gradebook-item-category-filter :input").on("change", function() {
         var $input = $(this);
-        if ($input.data("category")) {
-          // toggle all columns in this category
-          if ($input.is(":checked")) {
-            // show all
-            $input.closest(".gradebook-item-filter-group").find(".gradebook-item-filter :input:not(:checked)").trigger("click");
-          } else {
-            // hide all
-            $input.closest(".gradebook-item-filter-group").find(".gradebook-item-filter :input:checked").trigger("click");
-          }
+        var $label = $("#gradeItemFilter label[for="+$input.attr("id")+"]");
+
+        // toggle all columns in this category
+        if ($input.is(":checked")) {
+          // show all
+          $input.closest(".gradebook-item-filter-group").find(".gradebook-item-filter :input:not(:checked)").trigger("click");
         } else {
-          // toggle single column
-          var $header = $("#"+$input.data("colidx").toString()+"-header");
-          if ($input.is(":checked")) {
-            // show
-            $header.show();
-            $(self.$gradeitemColumnContainer.find(".gradebook-column").
-              get(parseInt($input.data("colidx")))).show();
-          } else {
-            //hide
-            $header.hide();
-            $(self.$gradeitemColumnContainer.find(".gradebook-column").
-              get(parseInt($input.data("colidx")))).hide();
-          }
-          //hide the category group header too if all are hidden
-          var matches = $input.closest(".gradebook-item-filter-group").find(".gradebook-item-filter :input:checked").length;
-          if (matches > 0) {
-            self.$gradeitemColumnContainer.find(".gradebook-category:contains('"+$header.data("category")+"')").
-              show().
-              width(matches * 120);
-          } else {
-            self.$gradeitemColumnContainer.find(".gradebook-category:contains('"+$header.data("category")+"')").
-              hide();
-          }
+          // hide all
+          $input.closest(".gradebook-item-filter-group").find(".gradebook-item-filter :input:checked").trigger("click");
         }
+
+        updateCategoryFilterState($input);
+      });
+      $("#gradeItemFilter .gradebook-item-filter :input").on("change", function() {
+        var $input = $(this);
+        var $label = $("#gradeItemFilter label[for="+$input.attr("id")+"]");
+        
+        // toggle single column
+        var $header = $("#"+$input.data("colidx").toString()+"-header");
+        if ($input.is(":checked")) {
+          // show
+          $header.show();
+          $(self.$gradeitemColumnContainer.find(".gradebook-column").
+            get(parseInt($input.data("colidx")))).show();
+        } else {
+          //hide
+          $header.hide();
+          $(self.$gradeitemColumnContainer.find(".gradebook-column").
+            get(parseInt($input.data("colidx")))).hide();
+        }
+        //hide the category group header too if all are hidden
+        var matches = $input.closest(".gradebook-item-filter-group").find(".gradebook-item-filter :input:checked").length;
+        if (matches > 0) {
+          self.$gradeitemColumnContainer.find(".gradebook-category:contains('"+$header.data("category")+"')").
+            show().
+            width(matches * 120);
+        } else {
+          self.$gradeitemColumnContainer.find(".gradebook-category:contains('"+$header.data("category")+"')").
+            hide();
+        }
+
+        updateSignal($label, $input);
+        updateCategoryFilterState($input);
       });
 
       scrollEvent = $(document).on("scroll", function() {

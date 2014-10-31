@@ -484,6 +484,15 @@ html {
   float: right;
   margin-left: 20px;
   background-color: transparent;
+  display: none;
+}
+#gradeItemFilter label {
+  cursor: pointer;
+  display: block;
+  padding: 2px;
+}
+#gradeItemFilter label:hover {
+  background-color: #FAFAFA;
 }
 #gradeItemFilter input:before {
   height: 16px;
@@ -491,12 +500,31 @@ html {
   display: inline-block;
   content: "";
 }
+#gradeItemFilter .gradebook-item-category-filter-signal {
+  height: 12px;
+  width: 12px;
+  float: right;
+  margin-left: 20px;
+  border: 1px solid transparent;
+}
 .gradebook-item-category-filter,
 .gradebook-item-filter {
   clear: both;
 }
 .gradebook-item-filter  {
   margin-left: 10px;
+}
+#gradeItemFilter label.category-partial-filter .gradebook-item-category-filter-signal:before {
+  font-family: 'nyu-classes-icons';
+  content: '\e060';
+}
+.gradebook-filter-partial-signal {
+  display: block;
+
+  border-left: 12px solid transparent;
+  border-right: 0px solid transparent;
+  border-bottom: 12px solid;
+  border-bottom-color: inherit;
 }
 .context-menu {
   position: absolute;
