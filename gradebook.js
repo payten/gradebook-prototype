@@ -60,6 +60,7 @@ $(function() {
               setTimeout(function() {
                 matches.find(".gradebook-item-cell:first").focus();
               }, 500);
+              mySpreadsheet.refreshSummary();
             });
             $("#cancelCreateGradeItem").on("click", function() {
               $("#addGradeItem").qtip("hide");
@@ -71,5 +72,5 @@ $(function() {
 
 
   initAddGradePopup();
-  new GradebookSpreadsheet($spreadsheet);
+  var mySpreadsheet = new GradebookSpreadsheet($spreadsheet);
 });

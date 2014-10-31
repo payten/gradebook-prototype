@@ -334,9 +334,18 @@ GradebookSpreadsheet.prototype.showOnlyThisGradeItem = function($itemFilter) {
 };
 
 
+GradebookSpreadsheet.prototype.refreshSummary = function() {
+  var $summary = this.$spreadsheet.find(".gradebook-item-summary");
+  var $filter = $("#gradeItemFilter");
+
+  $summary.find(".visible").html($filter.find(".gradebook-item-filter-group:not(.hide-me) .gradebook-item-filter :input:checked").length);
+  $summary.find(".total").html($filter.find(".gradebook-item-filter-group:not(.hide-me) .gradebook-item-filter :input").length);
+};
+
+
 GradebookSpreadsheet.prototype.initGradeItemToggle = function() {
   var self = this;
-  
+
   var $filter = $($("#templateGradeItemFilter").html()).hide();
   $(document.body).append($filter);
 
@@ -464,6 +473,7 @@ GradebookSpreadsheet.prototype.initGradeItemToggle = function() {
 
         updateSignal($label, $input);
         updateCategoryFilterState($input);
+        self.refreshSummary();
       });
 
       scrollEvent = $(document).on("scroll", function() {
@@ -478,6 +488,8 @@ GradebookSpreadsheet.prototype.initGradeItemToggle = function() {
       $(document).off("scroll", scrollEvent);
     }
   });
+
+  self.refreshSummary();
 };
 
 GradebookSpreadsheet.prototype.toggleStudentNames = function() {
