@@ -340,6 +340,11 @@ GradebookSpreadsheet.prototype.initGradeItemToggle = function() {
   var $filter = $($("#templateGradeItemFilter").html()).hide();
   $(document.body).append($filter);
 
+
+  $filter.on("click", "#showAllGradeItems", function() {
+    $filter.find(".gradebook-item-filter :input:not(:checked)").trigger("click");
+  });
+
   // setup the colors
   $(".gradebook-item-category-filter", $filter).each(function() {
     var $categoryFilter = $(this);
