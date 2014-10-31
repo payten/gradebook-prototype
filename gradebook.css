@@ -423,12 +423,14 @@ html {
 .gradebook-header-cell .context-menu-toggle:after  {
   border-bottom-color: #DDD;
 }
+.gradebook-item-filter:hover .context-menu-toggle:after,
 .gradebook-header-cell:hover .context-menu-toggle:after, 
 .gradebook-item-cell:hover .context-menu-toggle:after {
   transition: border-color 0.25s;
 
   border-bottom-color: #AAA;
 }
+.gradebook-item-filter:hover .context-menu-toggle:hover:after,
 .gradebook-header-cell:hover .context-menu-toggle:hover:after,
 .gradebook-item-cell:hover .context-menu-toggle:hover:after {
   transition: border-color 0.25s;
@@ -513,6 +515,10 @@ html {
 }
 .gradebook-item-filter  {
   margin-left: 10px;
+  position: relative;
+}
+#gradeItemFilter label {
+  margin-right: 20px;
 }
 #gradeItemFilter label.category-partial-filter .gradebook-item-category-filter-signal:before {
   font-family: 'nyu-classes-icons';
