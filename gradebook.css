@@ -90,6 +90,9 @@ html {
 .gradebook-user-label .netid:after {
   content: ')';
 }
+.sort-by-last-name .gradebook-user-label .last-name:after {
+  content: ', ';
+}
 .hide-student-names .first-name,
 .hide-student-names .last-name {
   display: none;
@@ -327,18 +330,26 @@ html {
 .gradebook-category-weighting:after {
   content: ']';
 }
-.gradebook-header-cell.sort-asc .gradebook-header-label:after {
+.sort-direction-toggle:before {
   font-family: 'nyu-classes-icons';
   content: '\e060';
-  color: #999;
   margin-left: 5px;
+  height: 1em;
+  width: 1em;
+  display: inline-block;
 }
+.gradebook-header-cell.sort-desc .sort-direction-toggle:before {
+  content: '\e063';
+} 
+
 .gradebook-header-cell .gradebook-header-label {
   cursor: pointer;
 }
-.gradebook-header-cell .gradebook-header-label:hover,
-.gradebook-header-cell .gradebook-header-label:hover:after {
-  color: #BF3B3B !important;
+.gradebook-header-cell .gradebook-header-sort-toggle {
+  color: #444;
+}
+.gradebook-header-cell .gradebook-header-sort-toggle:hover {
+  color: #BF3B3B;
 }
 .gradebook-cell-item-saving {
   position: relative;

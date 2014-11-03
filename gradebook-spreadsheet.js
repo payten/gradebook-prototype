@@ -13,7 +13,8 @@ function GradebookSpreadsheet($spreadsheet) {
   this.initCategories();
   this.initFixedTableHeader();
   this.initGradeItemToggle();
-  this.initContextSensitiveMenus()
+  this.initContextSensitiveMenus();
+  this.initStudentColumnSorting();
 
   this.addListeners();
 }
@@ -553,4 +554,107 @@ GradebookSpreadsheet.prototype.initContextSensitiveMenus = function() {
     self.toggleStudentNames()
   });
 
+};
+
+GradebookSpreadsheet.prototype._sort = ["netid", "last-name", "first-name"];
+GradebookSpreadsheet.prototype._sortLabels = {
+  "netid": "NetId",
+  "last-name": "Last Name",
+  "first-name": "First Name"
+};
+GradebookSpreadsheet.prototype.initStudentColumnSorting = function() {
+  var self = this;
+  self._currentSort = "netid";
+  self._currentSortOrder = "asc";
+
+  var $studentColumn = self.$spreadsheet.find(".gradebook-column.gradebook-column-students");
+  $studentColumn.addClass("sort-by-"+self._currentSort);
+
+  var setNextSortField = function() {
+    
+    $studentColumn.removeClass("sort-by-"+self._currentSort);
+
+    var i = GradebookSpreadsheet.prototype._sort.indexOf(self._currentSort);
+    if (i < GradebookSpreadsheet.prototype._sort.length - 1) {
+      self._currentSort = GradebookSpreadsheet.prototype._sort[i + 1];
+    } else {
+      self._currentSort = GradebookSpreadsheet.prototype._sort[0];
+    }
+
+    $studentColumn.addClass("sort-by-"+self._currentSort);
+
+    // update the heading text
+    self.$spreadsheet.find(".gradebook-column-students-header .gradebook-header-label").text("Students by " + self._sortLabels[self._currentSort]);
+
+    // Reorder the Student labels
+    self.$spreadsheet.find(".gradebook-cell.gradebook-user-label").each(function(i, cell) {
+      var $cell = $(cell);
+      if (self._currentSort == "last-name") {
+        $(cell).find(".last-name").insertBefore($cell.find(".first-name"));
+      } else {
+        $cell.find(".first-name").insertBefore($cell.find(".last-name"));        
+      }
+    });
+
+    return self._currentSort;
+  };
+
+  self.$spreadsheet.find(".gradebook-column.gradebook-column-students .gradebook-user-label").each(function() {
+    var $cell = $(this);
+    var firstName = $cell.find(".first-name").text().trim();
+    var lastName = $cell.find(".last-name").text().trim();
+    var netid = $cell.find(".netid").text().trim();
+
+    $cell.attr("data-sort-netid", netid);
+    $cell.attr("data-sort-last-name", lastName + ", " + firstName);
+    $cell.attr("data-sort-first-name", firstName + " " + lastName);
+
+    $cell.attr("id", netid);
+    $.each(self.$spreadsheet.find(".gradebook-column"), function() {
+      $($(this).children().get($cell.index())).addClass("netid-"+netid);
+    });
+  });
+
+  var newOrderIds = [];
+  var newOrderIndexes = []
+
+  var $sortToggle = self.$spreadsheet.find(".gradebook-column-students-header .gradebook-header-label");
+  $sortToggle.on("click", function(event, opts) {
+    if (opts == undefined || (opts && !opts.onlyToggleDirection)) {
+      setNextSortField();
+    }
+
+    var newOrder = [];
+    var cells = self.$spreadsheet.find(".gradebook-column.gradebook-column-students .gradebook-user-label").toArray();
+    cells = cells.sort(function(a, b) {
+      return $(a).data("sort-" + self._currentSort).localeCompare($(b).data("sort-" + self._currentSort));
+    });
+    $.each(cells, function(i, cell) {
+      newOrder.push(cell.id);
+    });
+
+    if ($sortToggle.closest(".gradebook-header-cell").hasClass("sort-desc")) {
+      newOrder = newOrder.reverse();
+    }
+
+    var $columns = self.$spreadsheet.find(".gradebook-column");
+    $.each($columns, function(colIndex, column) {
+      var $column = $(column);
+      $.each(newOrder, function(i, netid) {
+        var $cell = $column.find(".netid-"+netid);
+        if (i==0) {
+          $cell.prependTo($column);
+        } else {
+          $cell.insertAfter($column.children().get(i-1));
+        }
+      });
+    });
+  });
+
+  self.$spreadsheet.find(".gradebook-column-students-header .sort-direction-toggle").on("click", function() {
+    $(this).closest(".gradebook-header-cell").toggleClass("sort-asc").toggleClass("sort-desc");
+    $sortToggle.triggerHandler("click", {
+      onlyToggleDirection: true
+    });
+  });
 };
