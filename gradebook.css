@@ -259,7 +259,7 @@ html {
 .gradebook-column-group.gradebook-gradeitem-columns {
   position: relative;
 }
-#qtip-addGradeItemPopup {
+.qtip.qtip-default {
   position: fixed;
   top: 40px !important;
   max-width: 100%;
@@ -270,14 +270,15 @@ html {
   background-color: #FFF;
   font-size: 1em;
 }
+.gradebook-student-view,
 .gradebook-add-form {
   padding: 10px 10px 20px;
 }
-.gradebook-add-form img {
+.qtip img {
   margin: 20px 0;
   border-bottom: 1px solid #EEE;
 }
-.gradebook-add-form .button {
+.qtip .button {
   padding: 4px 8px;
 }
 .hide-categories .gradebook-categories {
@@ -580,4 +581,10 @@ html {
   float: right;
   font-size: 0.9em;
   margin: 0 20px 10px;
+}
+.gradebook-cell.gradebook-user-label {
+  cursor: pointer;
+}
+.gradebook-cell.gradebook-user-label:hover span {
+  color: #BF3B3B;
 }

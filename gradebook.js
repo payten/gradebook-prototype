@@ -71,6 +71,51 @@ $(function() {
   };
 
 
+  var initStudentViewPopup = function() {
+    var qtip = $(".gradebook-cell.gradebook-user-label").qtip({
+        id: "studentViewPopup",
+        content: {
+          text: $("#templateStudentViewPopup").html(),
+          button: true
+        },
+        position: {
+          my: 'center',
+          at: '200px center',
+          target: $(document.body)
+        },
+        style: {
+          width: "540px"
+        },
+        show: {
+          event: 'click',
+          modal: {
+              on: true,
+              blur: false,
+              escape: false
+          },
+        },
+        hide: {
+            fixed: true,
+            event: false,
+            leave: false
+        },
+        events: {
+          show: function(event, api) {
+            $("#qtip-overlay div").css("opacity", 1);
+            $(event.target).find(".netid").text($(event.originalEvent.target).closest(".gradebook-user-label").find(".netid").text());
+            $(".studentViewDone").on("click", function() {
+              qtip.qtip("hide");
+            });
+          }, 
+          hide: function() {
+            $("#qtip-overlay div").css("opacity", 0.7);
+          }
+        }
+    });
+  };
+
+
   initAddGradePopup();
+  initStudentViewPopup();
   var mySpreadsheet = new GradebookSpreadsheet($spreadsheet);
 });

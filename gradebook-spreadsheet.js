@@ -64,6 +64,8 @@ GradebookSpreadsheet.prototype.onClick = function(event) {
   if ($cell.length > 0 && $cell.hasClass("gradebook-cell-ready") && !$cell.hasClass("gradebook-cell-active")) {
     this.getCellModel($cell).enterEditMode();
   }
+
+  return true;
 };
 
 
