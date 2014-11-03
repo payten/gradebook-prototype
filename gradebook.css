@@ -599,15 +599,16 @@ html {
 }
 .gradebook-item-details {
   transition: height 0.5s;
-  height: 10px;
+  height: 18px;
   overflow: hidden;
-  padding: 10px 8px 11px;
+  padding: 2px 8px 11px;
   text-align: left;
 
 }
 .gradebook-item-details small {
   display: block;
-  margin: 0 0 8px;
+  margin: 0 0 2px;
+  line-height: 14px;
 }
 .gradebook-gradeitem-columns-header {
   transition: opacity 0.5s;
@@ -619,9 +620,21 @@ html {
   box-shadow: 0 1px 3px #AAA;
   opacity: 0.95;
 }
+.gradebook-item-details small.point-value {
+  margin: 0;
+}
 .gradebook-gradeitem-columns-header:hover .gradebook-item-details {
   transition: height 0.5s;
   transition-delay: 0.2s;
-  height: 180px;
+  height: 190px;
   font-size: 1em;
+}
+.gradebook-gradeitem-columns-header .gradebook-item-details small {
+  transition: margin 0.5s;
+  margin: 0 0 2px;
+}
+.gradebook-gradeitem-columns-header:hover .gradebook-item-details small {
+  transition: margin 0.5s;
+  transition-delay: 0.2s;
+  margin: 0 0 6px;
 }
