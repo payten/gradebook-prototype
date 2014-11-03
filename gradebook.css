@@ -607,7 +607,7 @@ html {
 }
 .gradebook-item-details small {
   display: block;
-  margin: 0 0 10px;
+  margin: 0 0 8px;
 }
 .gradebook-gradeitem-columns-header {
   transition: opacity 0.5s;
@@ -622,6 +622,6 @@ html {
 .gradebook-gradeitem-columns-header:hover .gradebook-item-details {
   transition: height 0.5s;
   transition-delay: 0.2s;
-  height: 160px;
+  height: 180px;
   font-size: 1em;
 }
