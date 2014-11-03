@@ -115,7 +115,52 @@ $(function() {
   };
 
 
+  var initEditGradeItemPopup = function() {
+    $(document).on("click", "#editItemDetails", function() {
+      var qtip = $(document.body).qtip({
+        id: "editGradeItemPopup",
+        content: {
+          text: $("#templateEditGradeItemPopup").html(),
+          button: true
+        },
+        position: {
+          my: 'center',
+          at: '200px center',
+          target: $(document.body)
+        },
+        style: {
+          width: "540px"
+        },
+        show: {
+          ready: true,
+          modal: {
+              on: true,
+              blur: false,
+              escape: false
+          },
+        },
+        hide: {
+            fixed: true,
+            event: false,
+            leave: false
+        },
+        events: {
+          show: function(event, api) {
+            $(".button").on("click", function() {
+              qtip.qtip("hide");
+            });
+          },
+          hide: function(event, api) {
+            qtip.qtip("destroy");
+          }
+        }
+      });
+    });
+  };
+
+
   initAddGradePopup();
   initStudentViewPopup();
+  initEditGradeItemPopup();
   var mySpreadsheet = new GradebookSpreadsheet($spreadsheet);
 });
