@@ -16,6 +16,8 @@ function GradebookSpreadsheet($spreadsheet) {
   this.initContextSensitiveMenus();
   this.initStudentColumnSorting();
 
+  this.initGradeItemDetails();
+
   this.addListeners();
 }
 
@@ -659,4 +661,26 @@ GradebookSpreadsheet.prototype.initStudentColumnSorting = function() {
       onlyToggleDirection: true
     });
   });
+};
+
+
+GradebookSpreadsheet.prototype.initGradeItemDetails = function() {
+  this.$spreadsheet.find(".gradebook-gradeitem-columns-header .gradebook-header-cell").
+    hover(
+      function(event) {
+        //$(this).addClass("cloned-and-popped");
+        //$cell.css("top", $(this).offset().top).css("left", $(this).offset().left).attr("id", "");
+        //$(document.body).append($cell);
+        //$cell.on("mouseover", function() {
+        //   clearTimeout($cell.data("closeTimeout"));
+        //}).on("mouseout", function() {
+        //  $cell.data("closeTimeout", setTimeout(function() {
+//
+          //}, 500));
+        //})
+      },
+      function(event) {
+        //$(".cloned-and-popped").remove();
+      }
+    );
 };
