@@ -674,7 +674,7 @@ html {
 }
 .gradebook-gradeitem-columns-header.show-details .gradebook-item-details small {
   transition: margin 0.5s;
-  transition-delay: 0.2s;
+  transition-delay: 0.5s;
   margin: 0 0 6px;
 }
 .sortable-placeholder {
@@ -684,13 +684,14 @@ html {
   list-style: none;
   margin: 0;
   padding: 0;
+  display: table-row;
 }
 .gradebook-header-list li {
   margin: 0;
   padding: 0;
-  float: left;
   width: 120px;
   height: 54px;
+  display: table-cell;
 }
 .gradebook-gradeitem-columns .gradebook-column input {
   transition: opacity 0.5s;
