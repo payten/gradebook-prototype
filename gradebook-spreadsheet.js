@@ -536,8 +536,8 @@ GradebookSpreadsheet.prototype.initContextSensitiveMenus = function() {
       }
       $(document.body).append($menu);
       $menu.css({
-        left: $toggle.offset().left + $toggle.outerWidth() - 3 - $menu.outerWidth() + "px",
-        top: $toggle.offset().top + $toggle.outerHeight() - 3 + "px"
+        left: $toggle.offset().left + $toggle.outerWidth() - $menu.outerWidth() + "px",
+        top: $toggle.offset().top + $toggle.outerHeight() - 1 + "px"
       });
 
       $(document.body).one("click", function(event) {
@@ -545,8 +545,8 @@ GradebookSpreadsheet.prototype.initContextSensitiveMenus = function() {
       });
       scrollEvent = $(document).on("scroll", function() {
         $menu.css({
-          left: $toggle.offset().left + $toggle.outerWidth() - 3 - $menu.outerWidth() + "px",
-          top: $toggle.offset().top + $toggle.outerHeight() - 3 + "px"
+          left: $toggle.offset().left + $toggle.outerWidth() - $menu.outerWidth() + "px",
+          top: $toggle.offset().top + $toggle.outerHeight() - 1 + "px"
         });
       });
     }

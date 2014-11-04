@@ -418,45 +418,48 @@ html {
   position: relative;
 }
 .context-menu-toggle {
+  transition: border-color 0.25s, background 0.25s, color 0.25s;
   position: absolute;
-  bottom: 0;
-  right: 0;
+  bottom: 2px;
+  right: 2px;
+  background: transparent;
+  border: 1px solid #E0E0E0;
+  border-radius: 2px;
+  padding: 0;
+  height: 12px;
   width: 14px;
-  height: 14px;
+  line-height: 14px;
+  color: #999 !important;
+  text-shadow: none !important;
+  text-align: center;
 }
 .gradebook-gradeitem-columns-header .context-menu-toggle {
   top: 38px;
   bottom: auto;
 }
-.context-menu-toggle:after {
-  transition: border-color 0.25s;
-
-  border-left: 8px solid transparent;
-  border-right: 0px solid transparent;
-  border-bottom: 8px solid #F0F0F0;
-  content: "";
-  width: 0;
-  height: 0;
-  position: absolute;
-  right: 3px;
-  bottom: 3px;
+.context-menu-toggle:before {
+  font-family: 'nyu-classes-icons';
+  content: '\e619';
+  font-size: 8px;
 }
-.gradebook-header-cell .context-menu-toggle:after  {
-  border-bottom-color: #DDD;
+.context-menu-toggle:hover {
+  transition: border-color 0.25s, background 0.25s, color 0.25s;
+  border-color: #2F7FAB;
+  background: #FFF;
+  color: #2F7FAB !important;
 }
-.gradebook-item-filter:hover .context-menu-toggle:after,
-.gradebook-header-cell:hover .context-menu-toggle:after, 
-.gradebook-item-cell:hover .context-menu-toggle:after {
-  transition: border-color 0.25s;
-
-  border-bottom-color: #AAA;
+.gradebook-item-filter:hover .context-menu-toggle,
+.gradebook-header-cell:hover .context-menu-toggle, 
+.gradebook-item-cell:hover .context-menu-toggle {
+  background: #FAFAFA;
 }
-.gradebook-item-filter:hover .context-menu-toggle:hover:after,
-.gradebook-header-cell:hover .context-menu-toggle:hover:after,
-.gradebook-item-cell:hover .context-menu-toggle:hover:after {
-  transition: border-color 0.25s;
-
-  border-bottom-color: #666;
+.gradebook-item-cell .context-menu-toggle {
+  transition: opacity 0.25s;
+  opacity: 0;
+}
+.gradebook-item-cell:hover .context-menu-toggle {
+  transition: opacity 0.25s;
+  opacity: 1;
 }
 /*.gradebook-cell-item,
 .gradebook-user-label,
@@ -577,8 +580,12 @@ html {
 .context-menu a:hover {
   background-color: #EEE;
 }
-.context-menu-toggle.on:after {
-  border-bottom-color: #15A885 !important;
+.context-menu-toggle.on {
+  border-color: #15A885 !important;
+  background: #15A885 !important;
+  color: #FFF !important;
+  border-radius: 2px 2px 0 0;
+  opacity: 1 !important;
 }
 
 .gradebook-header-cell.gradebook-section-header-cell .context-menu-toggle,

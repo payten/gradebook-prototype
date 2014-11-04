@@ -12,17 +12,17 @@ body {
 /* stub in tool_base.css - skinned here */
 hr.itemSeparator {
     height: 1px;
-    border-color: #3698DB;
+    border-color: #2F7FAB;
     border-style: solid;
     border-width: 1px 0 0 0;
 }
 /* SECTION 2 LINKS */
 a:link {
-    color: #F93838;
+    color: #3698DB;
     text-decoration: none;
 }
 a:visited {
-    color: #BF3B3B;
+    color: #2F7FAB;
     text-decoration: none;
 }
 a:hover, a:active {
@@ -107,15 +107,15 @@ see: http://www.quirksmode.org/bugreports/archives/2005/07/Wrapped_inlinenowrap_
 }
 .navIntraTool a:hover {
     background: #FFF !important;
-    color: #BF3B3B !important;
-    border-color: #BF3B3B !important;
+    color: #2F7FAB !important;
+    border-color: #2F7FAB !important;
     text-decoration: underline;
 }
 .navIntraTool a:link:hover, #actionToolbar a:link:hover {
-    color: #BF3B3B !important;
+    color: #2F7FAB !important;
 }
 .navIntraTool .current a, .navIntraTool .current a {color: #fff !important;}
-.navIntraTool .current a:hover, .navIntraTool .current a:hover {color: #BF3B3B !important;}
+.navIntraTool .current a:hover, .navIntraTool .current a:hover {color: #2F7FAB !important;}
 .navIntraTool span.current > a, .navIntraTool span.current > a:hover {
   border: none !important;
   background-color: transparent !important;
@@ -132,11 +132,11 @@ see: http://www.quirksmode.org/bugreports/archives/2005/07/Wrapped_inlinenowrap_
     font-size: 85%
 }
 .breadCrumb a:link, .breadCrumb a:visited {
-    color: #3698DB;
+    color: #2F7FAB;
     text-decoration: none;
 }
 .breadCrumb a:hover {
-    color: #3698DB;
+    color: #2F7FAB;
     text-decoration: underline;
 }
 /* SECTION 3 CALENDAR SELECTORS */
@@ -152,7 +152,7 @@ table.calendar th {
 }
 .bgActivity {
     background-color: #ffc;
-    border: 1px solid #3698DB;
+    border: 1px solid #2F7FAB;
     text-align: right;
 }
 .bgWithoutActivity {
@@ -323,7 +323,7 @@ table.calendar .event {
     font-weight: bold !important;
 }
 .listHier th a:hover {
-    color: #3698DB
+    color: #2F7FAB
 }
 /* skinned cell of standard tab. data table */
 .listHier td {
@@ -338,6 +338,12 @@ table.lines th {
     border-width: 1px 0 1px 0 !important
 }
 table.lines tr:hover {
+    -webkit-transition: background-color 0.2s;
+    -moz-transition: background-color 0.2s;
+    -ms-transition: background-color 0.2s;
+    -o-transition: background-color 0.2s;
+    transition: background-color 0.2s;
+
     background-color: #DEEEFF
 }
 table.lines td {
@@ -377,14 +383,14 @@ tr.selectedMove td {
 /* some rows need highlighting */
 /* see announcement 3rd view option */
 tr.highLightRow {
-    background: #ddd
+    background: #EEEEEE
 }
 /* highlight a row representing an item that has been added */
 tr.highLightAdded {
     background: #afa
 }
 tr.highLightRow:hover {
-    background: #ddd !important
+    background: #EEEEEE !important
 }
 tr.lightHighLightRow {
     background: #ffd
@@ -432,7 +438,7 @@ tr#selectedReorder td.arrowHere {
 /* skinned info for disclosure toggle */
 /* see: assignment */
 .discTria {
-    background-color: #ddd;
+    background-color: #EEEEEE;
     font-family:  'Helvetica Neue','Arial',sans-serif !important;
 }
 /* SECTION 6 HIERARCHY */
@@ -481,7 +487,7 @@ label {
 }
 /* a required marker for a shorttext label/input pair */
 .shorttext .reqStar {
-    color: #3698DB;
+    color: #2F7FAB;
     width: auto;
     margin: 0 0 0 -1em;
     font-weight: bold;
@@ -537,11 +543,11 @@ textarea.cke_source:focus {
 /* Unstyle all of the items in the actionToolBar, then selectively re-style them since there are some artifacts in the toolbars */
 .actionToolBar *, .navIntraTool * {
     margin: 0 !important;
-    padding: 0 !important;
+    padding: 2px !important;
     border: none !important;
     letter-spacing: normal !important;
     color: #000;
-    font-size: 12px !important;
+    font-size: 16px !important;
     text-decoration: none !important;
 }
 .navIntraTool {
@@ -557,12 +563,20 @@ textarea.cke_source:focus {
 /* Button styling
 Turns the old links into buttons. The many different ways the tools have implemented the links in the past forces us to use these every specific and many selectors. The proper way is to use a UL with LIs as the buttons. */
 .navIntraTool>li>span>a,.navIntraTool>li>span.current, .navIntraTool>form>li, .navIntraTool>span, .navIntraTool>a, .navIntraTool>div>a, div.navIntraTool>ul>li>a, div.navIntraTool>ul>li>span>a, div.navIntraTool>ul>a, .navIntraTool>li.nav_item>a, ul.navIntraTool>li>a {
+    -webkit-transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+    -moz-transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+    -ms-transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+    -o-transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+    transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+
     display: inline-block !important;
-    margin-right: 4px !important;
+    margin-right: 8px !important;
     margin-bottom: 4px !important;
     padding: 3px 8px !important;
-    border: 1px solid #ccc !important;
-    background: #ddd !important;
+
+    border: 1px solid #DBDCDE !important;
+    
+    background: #E7E7EB !important;
     color: #444 !important;
 }
 ul.navIntraTool>li>a>span {
@@ -570,11 +584,11 @@ ul.navIntraTool>li>a>span {
 }
 .navIntraTool>li>span>a:hover, .navIntraTool>form>li:hover, .navIntraTool>span:hover, .navIntraTool>a:hover, .navIntraTool>div>a:hover, div.navIntraTool>ul>li>a:hover, div.navIntraTool>ul>li>span>a:hover, div.navIntraTool>ul>a:hover, .navIntraTool>li.nav_item>a:hover, ul.navIntraTool>li>a:hover {
   background: #ffffff !important;
-  color: #BF3B3B !important;
-  border-color: #BF3B3B !important;
+  color: #2F7FAB !important;
+  border-color: #2F7FAB !important;
 }
 ul.navIntraTool>li>a>span:hover {
-  color: #BF3B3B !important;
+  color: #2F7FAB !important;
 }
 /* IE chokes on the whole ruleset if it sees a NOT selector, so this rule has to be written separately */
 .navIntraTool>div>span:not(.navSeparator) {
@@ -582,8 +596,8 @@ ul.navIntraTool>li>a>span:hover {
     margin-right: 4px !important;
     margin-bottom: 4px !important;
     padding: 3px 8px !important;
-    border: 1px solid #BF3B3B !important;
-    background: #ddd !important;
+    border: 1px solid #2F7FAB !important;
+    background: #E7E7EB !important;
 }
 /* Make invisible any unruly empty spans or .separator class items (remnants of old skin styles) */
 ul.navIntraTool>li>span.separator, .navIntraTool>li>span:empty, span.navSeparator {
@@ -594,7 +608,7 @@ ul.navIntraTool>li>span.separator, .navIntraTool>li>span:empty, span.navSeparato
 }
 /* Style the currently selected tool (where classes are implemented, like Resources) */
 ul.navIntraTool>li>span.inactive {
-    border: 1px solid #ccc !important;
+    border: 1px solid #DDD !important;
     color: #444 !important;
     background-color: #fb5617 !important;
 }
@@ -613,18 +627,18 @@ ul.navIntraTool>li>span.inactive {
     background-color: #2F7FAB !important;
 }
 ul#actionToolBar.navIntraTool.actionToolBar li.dummyToolBarLink span.current {
-  background-color: #ddd !important;
-  border-color: #ddd !important;
+  background-color: #E7E7EB !important;
+  border-color: #E7E7EB !important;
 }
 .navIntraTool li span.current:hover, .navIntraTool li span.current:hover, .navIntraTool .current:hover, ul.navIntraTool>li>span.inactive:hover {background: #2F7FAB !important;}
 .specialLink ul.navIntraTool.actionToolBar li .current {color: #fff !important;}
 .specialLink ul.navIntraTool.actionToolBar li .current:hover {color: #FFF !important;}
 .specialLink ul.navIntraTool.actionToolBar li span a {color: #555;}
-.specialLink ul.navIntraTool.actionToolBar li span a:hover {color: #BF3B3B !important;}
+.specialLink ul.navIntraTool.actionToolBar li span a:hover {color: #2F7FAB !important;}
 
 /* Add a slight border to #search inputs that appear in navIntraTool */
 .navIntraTool li #search {
-    border: 1px solid #ccc !important
+    border: 1px solid #DBDCDE !important
 }
 /* Considerations for Profile tool-style bars where everything is contained within one large toolbar rather than individual buttons */
 #page-links {
@@ -648,7 +662,7 @@ ul#actionToolBar.navIntraTool.actionToolBar li.dummyToolBarLink span.current {
     min-height: 15px;
     margin-left: 5px !important;
     padding: 1px !important;
-    background: #3698DB;
+    background: #2F7FAB;
     border: 2px solid white !important;
     border-radius: 20pt;
     color: #fff !important;
@@ -660,7 +674,7 @@ ul#actionToolBar.navIntraTool.actionToolBar li.dummyToolBarLink span.current {
 /* ===[ More Tools dropdown styling ]=== */
 #dropDownDiv {
     padding: 10px !important;
-    background: #eeeeee !important;
+    background: #E7E7EB !important;
     background: -moz-linear-gradient(top, #eeeeee 0%, #e4e4e4 100%) !important;
     background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#eeeeee), color-stop(100%,#e4e4e4)) !important;
     background: -webkit-linear-gradient(top, #eeeeee 0%,#e4e4e4 100%) !important;
@@ -704,7 +718,7 @@ ul#actionToolBar.navIntraTool.actionToolBar li.dummyToolBarLink span.current {
     height: 15px;
 }
 .navIntraTool #searchField {
-    border: 1px solid #ccc !important;
+    border: 1px solid #DBDCDE !important;
     font-family:  'Helvetica Neue','Arial',sans-serif !important;
     font-size: 1em;
     padding: 3px 4px !important;
@@ -723,7 +737,7 @@ ul#actionToolBar.navIntraTool.actionToolBar li.dummyToolBarLink span.current {
 /* button link color */
 .neoPortletTitleWrap {
     width: 99%;
-    border-bottom: 2px solid #3698DB;
+    border-bottom: 2px solid #2F7FAB;
     border-radius: 3px;
 }
 /* SECTION 9 MESSAGES */
@@ -739,19 +753,19 @@ ul#actionToolBar.navIntraTool.actionToolBar li.dummyToolBarLink span.current {
 /* the generic required marker */
 /* see: create any item */
 .reqStar {
-    color: #3698DB;
+    color: #2F7FAB;
     width: auto;
     margin-left: -1em;
     font-weight: bold;
     font-size: 1em;
     padding: 0;
     float: left;
-    border-top: 3px solid #fff;
+    border: 1px solid #fff;
 }
 /* the required marker for a longtext label/input pair */
 /* see: create any item with a textarea */
 .longtext .reqStar {
-    color: #3698DB;
+    color: #2F7FAB;
     font-size: 1.2em;
     font-weight: normal;
     padding: 0 0 0 .1em;
@@ -760,7 +774,7 @@ ul#actionToolBar.navIntraTool.actionToolBar li.dummyToolBarLink span.current {
 /* when need to display the required marker inline as a part of a text */
 /* see: create any item - instruction message about requireed fields */
 .reqStarInline {
-    color: #3698DB;
+    color: #2F7FAB;
     font-size: 1.2em;
     vertical-align: middle;
     width: 1em;
@@ -788,7 +802,7 @@ visibility gets toggled */
 you loose the native buttonishness affordance of the os/browser */
 /* create any item - like an announcement */
 .act .active {
-    color: #3698DB
+    color: #2F7FAB
 }
 .act .active[disabled="disabled"] {
     color: gray
@@ -798,11 +812,11 @@ you loose the native buttonishness affordance of the os/browser */
     border: 1px solid #eee
 }
 .infoPanel {
-    border: 1px solid #3698DB
+    border: 1px solid #2F7FAB
 }
 .infoPanelHead {
-    border: 1px solid #3698DB;
-    background: #3698DB;
+    border: 1px solid #2F7FAB;
+    background: #2F7FAB;
     color: #ffd;
 }
 /* see: topic content in discussion */
@@ -1022,18 +1036,18 @@ tr.selectedFound td {
     background: -o-linear-gradient(top, #f3f3f3 0%,#e7e7e7 100%);
     background: -ms-linear-gradient(top, #f3f3f3 0%,#e7e7e7 100%);
     background: linear-gradient(top, #f3f3f3 0%,#e7e7e7 100%);
-    border: 1px solid #ccc;
+    border: 1px solid #DBDCDE;
     display: none;
 }
 .login {
-    border: 1px solid #ccc;
+    border: 1px solid #DBDCDE;
     border-collapse: collapse;
     background: #57068c;
 }
 /* ===[ Make a list based css menu ]=== */
 ul.makeMenu, ul.makeMenu ul {
     width: auto;
-    border: 1px solid #ddd !important;
+    border: 1px solid #DBDCDE !important;
     background: #fff;
     padding: 3px;
     cursor: default;
@@ -1088,7 +1102,7 @@ ul.makeMenu li a {
     width: 100%;
     text-decoration: none;
     padding: 6px;
-    color: #3698DB !important;
+    color: #2F7FAB !important;
 }
 ul.makeMenu li a:active {
     outline: none
@@ -1129,13 +1143,13 @@ ul.makeMenu li.menuClose a:hover {
     cursor: pointer
 }
 #davdocs_step1 {
-    border: 3px solid #eee;
+    border: 1px solid #eee;
     padding: 1em;
     background-color: #FFFCE9;
 }
 #davdocs_step2 {
     margin-top: 1.2em;
-    border: 3px solid #eee;
+    border: 1px solid #eee;
     padding: 1em;
     background-color: #EBFFE8;
 }
@@ -1148,13 +1162,13 @@ ul.makeMenu li.menuClose a:hover {
 }
 .webdav_os {
     margin-top: 4em;
-    border: 3px solid #eee;
+    border: 1px solid #eee;
     padding: 2em;
 }
 /* ===[ Lessons ]=== */
 .lessonsHeader {
     width: 99%;
-    border-bottom: 2px solid #3698DB !important;
+    border-bottom: 2px solid #2F7FAB !important;
     border-radius: 3px !important;
     height: 25px;
 }
@@ -1169,20 +1183,33 @@ ul.makeMenu li.menuClose a:hover {
 .information {
 }
 /* override native button things rendering */
-a.button, input[type="submit"], input[type="button"], input[type="reset"] {
-    background-color: #ddd !important;
+.button,input[type="submit"], input[type="button"], input[type="reset"] {
+    -webkit-transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+    -moz-transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+    -ms-transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+    -o-transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+    transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+
+    cursor: pointer;
+    background-color: #E7E7EB !important;
     font-size: 12px !important;
     font-weight: 300 !important;
     min-height: 24px !important;
     color: #555 !important;
     font-family:  'Helvetica Neue','Arial',sans-serif !important;
     border: none;
-    border: 1px solid #ccc !important;
+    border: 1px solid #DBDCDE !important;
 }
-a.button:hover, input[type="submit"]:hover, input[type="button"]:hover, input[type="reset"]:hover {
+.button:hover, input[type="submit"]:hover, input[type="button"]:hover, input[type="reset"]:hover {
+    -webkit-transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+    -moz-transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+    -ms-transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+    -o-transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+    transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+
     background: #FFF !important;
-    color: #BF3B3B !important;
-    border-color: #BF3B3B !important;
+    color: #2F7FAB !important;
+    border-color: #2F7FAB !important;
 }
 input[type="submit"][disabled="disabled"],
   input[type="button"][disabled="disabled"],
@@ -1200,7 +1227,13 @@ input[type="submit"][disabled="disabled"],
   input[type="button"][disabled]:hover,
   input[type="submit"][class="disabled"]:hover,
   input[type="button"][class="disabled"]:hover {
-    background: #eeeeee !important;
+    -webkit-transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+    -moz-transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+    -ms-transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+    -o-transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+    transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+
+    background: #E7E7EB !important;
     color: #bbb !important;
     border: 1px solid #E0E3E5 !important;
     font-size: 11px !important;
@@ -1210,7 +1243,13 @@ input[type="submit"][disabled="disabled"],
     margin-right: 3px;
 }
 input[type="checkbox"][disabled="disabled"], input[type="checkbox"][disabled="true"], input[type="checkbox"][class="disabled"], input[type="checkbox"][disabled="disabled"]:hover, input[type="checkbox"][disabled="true"]:hover {
-    background: #ccc !important;
+    -webkit-transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+    -moz-transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+    -ms-transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+    -o-transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+    transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+
+    background: #DBDCDE !important;
     border: 1px solid #E0E3E5 !important;
     margin-right: 3px;
 }
@@ -1224,7 +1263,7 @@ input[type="checkbox"][disabled="disabled"], input[type="checkbox"][disabled="tr
     background-position: 10px 20px;
     border-width: 1px 0 1px 1px;
     border-style: solid;
-    border-color: #ccc;
+    border-color: #DBDCDE;
 }
 
 }
@@ -1264,7 +1303,7 @@ input[type="checkbox"][disabled="disabled"], input[type="checkbox"][disabled="tr
     font-family:"nyu-classes-icons"
 }
 
-[class*="icon-sakai"]:before,.icon-sakai-help:before,.icon-sakai-iframe-site:before,.icon-sakai-motd:before,.icon-sakai-schedule:before,.icon-sakai-announcements:before,.icon-sakai-resources:before,.icon-sakai-assignment-grades:before,.icon-sakai-dropbox:before,.icon-sakai-chat:before,.icon-sakai-mailbox:before,.icon-sakai-siteinfo:before,.icon-sakai-sitesetup:before,.icon-sakai-messages:before,.icon-sakai-realms:before,.icon-sakai-memory:before,.icon-sakai-sites:before,.icon-sakai-users:before,.icon-sakai-su:before,.icon-sakai-profile2:before,.icon-sakai-membership:before,.icon-sakai-preferences:before,.icon-sakai-singleuser:before,.icon-sakai-syllabus:before,.icon-sakai-forums:before,.icon-sakai-iframe:before,.icon-sakai-lessonbuildertool:before,.icon-nyu-libraries:before,.icon-sakai-samigo:before,.icon-sakai-gradebook-tool:before,.icon-sakai-blogwow:before,.icon-sakai-sections:before,.icon-sakai-kaltura:before,.icon-sakai-sitestats:before,.icon-sakai-delegatedaccess:before,.icon-sakai-site-roster:before,.icon-sakai-site-roster2:before,.icon-sakai-news:before,.icon-sakai-turningtool:before,.icon-sakai-subsite:before,.category-title-information:before,.category-title-communication:before,.category-title-content:before,.category-title-activities-and-assessment:before,.category-title-utilities:before,#toggleToolMax:after,#toggleNormal:after {
+[class*="icon-sakai"]:before,.icon-sakai-help:before,.icon-sakai-iframe-site:before,.icon-sakai-motd:before,.icon-sakai-schedule:before,.icon-sakai-announcements:before,.icon-sakai-resources:before,.icon-sakai-assignment-grades:before,.icon-sakai-dropbox:before,.icon-sakai-chat:before,.icon-sakai-mailbox:before,.icon-sakai-siteinfo:before,.icon-sakai-sitesetup:before,.icon-sakai-messages:before,.icon-sakai-realms:before,.icon-sakai-memory:before,.icon-sakai-sites:before,.icon-sakai-users:before,.icon-sakai-su:before,.icon-sakai-profile2:before,.icon-sakai-membership:before,.icon-sakai-preferences:before,.icon-sakai-singleuser:before,.icon-sakai-syllabus:before,.icon-sakai-forums:before,.icon-sakai-iframe:before,.icon-sakai-lessonbuildertool:before,.icon-nyu-libraries:before,.icon-sakai-samigo:before,.icon-sakai-gradebook-tool:before,.icon-sakai-blogwow:before,.icon-sakai-sections:before,.icon-sakai-kaltura:before,.icon-sakai-sitestats:before,.icon-sakai-delegatedaccess:before,.icon-sakai-site-roster:before,.icon-sakai-site-roster2:before,.icon-sakai-news:before,.icon-sakai-turningtool:before,.icon-sakai-subsite:before,.category-title-information:before,.category-title-communication:before,.category-title-content:before,.category-title-activities-and-assessment:before,.category-title-utilities:before,#toggleToolMax:after,#toggleNormal:after,.icon-home:before {
     margin:0 .25em 0 0;
     padding:.25em
 }
@@ -1279,6 +1318,11 @@ input[type="checkbox"][disabled="disabled"], input[type="checkbox"][disabled="tr
 
 .icon-sakai-help:before {
     content:"\e003"
+}
+
+.icon-home:before {
+    font-family:"nyu-classes-icons";
+    content:"\e005";
 }
 
 .icon-sakai-iframe-site:before {
@@ -1506,6 +1550,12 @@ input[type="checkbox"][disabled="disabled"], input[type="checkbox"][disabled="tr
 
 /* Button Overrides */
 .button.active, a.button.active, button.active, input[type="button"].active, input[type="submit"].active, input[name="eventSubmit_doSearch"], input[name=":submit"], #siteStatus a, .portletBody font a:nth-of-type(1), input[value="Publish entry"] {
+  -webkit-transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+  -moz-transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+  -ms-transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+  -o-transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+
   background: #3698DB !important;
   color: #FFF !important;
   border-color: #3698DB !important;
@@ -1513,16 +1563,22 @@ input[type="checkbox"][disabled="disabled"], input[type="checkbox"][disabled="tr
   text-decoration: none !important;
 }
 .button.active:hover, a.button.active:hover, button.active:hover, input[type="button"].active:hover, input[type="submit"].active:hover, input[name="eventSubmit_doSearch"]:hover, input[name=":submit"]:hover, #siteStatus a:hover, .portletBody font a:nth-of-type(1):hover, input[value="Publish entry"]:hover {
+  -webkit-transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+  -moz-transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+  -ms-transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+  -o-transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+
   background: #FFF !important;
-  color: #3698DB !important;
-  border-color: #3698DB !important;
+  color: #2F7FAB !important;
+  border-color: #2F7FAB !important;
 }
 .button.cancel, a.button.cancel, button.cancel, input[type="button"][value*="Cancel"], input[type="submit"][value*="Cancel"], button[name="eventSubmit_doCancel"], input#reset, .actionItem a#restdef {
   cursor: pointer !important;
 }
 .navIntraTool.actionToolBar .inputItem input {
   padding: 4px !important;
-  border: 1px solid #DDD !important;
+  border: 1px solid #DBDCDE !important;
 }
 
 /* Alerts */
@@ -1659,7 +1715,7 @@ input[type="checkbox"][disabled="disabled"], input[type="checkbox"][disabled="tr
 /* line 108, sass/modules/alerts/_alerts.scss */
 .step {
   color: #666666;
-  border-color: #cccccc;
+  border-color: #DBDCDE;
   background: #eaeaea;
 }
 
@@ -1913,7 +1969,59 @@ h3 [class*="message"] {
 .radioOptionSelected {
   background: #D6E4F4;
 }
+span#cke_1_bottom {
+    height: 33px;
+}
+span#cke_1_bottom:after {
+    content: 'Ctrl/Command+Right-Click to access the editor\'s context menu';
+    position: absolute;
+    bottom: 3px;
+    left: 13px;
+    text-shadow: 1px 1px 1px #FFF;
+}
 
-.hide-me {
-  visibility: hidden;
+.cke_resizer.cke_resizer_ltr {
+    position: relative;
+    top: 13px;
+}
+
+#toolSelectionList ul li {
+    background: none !important;
+    padding-left: 5px !important;
+}
+
+/* Override dropzone styles */
+.dropzone {
+  border: 4px dashed #DBDCDE !important;
+  background: none !important;
+  font-size: 16px;
+}
+.dz-message:before {
+  content: "Choose files to upload";
+  position: absolute;
+  top: 4em;
+  width: 200px;
+  margin-left: -100px;
+  left: 50%;
+  border: 1px solid #2F7FAB;
+  background-color: #2F7FAB;
+  color: #FFF;
+  padding: 4px 8px;
+}
+.dz-message:hover:before {
+  background-color: #FFF;
+  color: #2F7FAB;
+}
+.dz-message:after {
+  content: "or";
+  position: absolute;
+  top: 2em;
+  left: 50%;
+  width: 20px;
+  margin-left: -10px;
+  color: #999;
+}
+.dz-message {
+  background: none !important;
+  text-align: center;
 }
