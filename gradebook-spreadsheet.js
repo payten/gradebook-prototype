@@ -223,6 +223,9 @@ GradebookSpreadsheet.prototype.initStudentFilter = function() {
   $studentFilter.on("keyup", function() {
     self._applyStudentFilter($studentFilter.val());
   });
+  $studentFilter.siblings(".clearable-input-x").on("click", function() {
+    $studentFilter.val("").trigger("keyup");
+  });
 };
 
 

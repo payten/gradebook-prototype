@@ -36,7 +36,28 @@ html {
   padding: 6px;
   background-color: #FFF;
 }
-
+#studentFilter {
+  border-radius: 10px;
+  line-height: 1em;
+}
+.clearable-input {
+  display: inline-block;
+  position: relative;
+}
+.clearable-input-x:after {
+  display: inline-block;
+  font-family: 'nyu-classes-icons';
+  content: '\e608';
+  position: absolute;
+  right: 5px;
+  top: 10px;
+  font-size: 12px;
+  color: #AAA;
+  cursor: pointer;
+}
+.clearable-input-x:hover:after {
+  color: #2F7FAB;
+}
 .gradebook-table {
   overflow: hidden;
 }
