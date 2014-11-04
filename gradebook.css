@@ -1,3 +1,11 @@
+@font-face {
+    font-family:"gradebook-icons";
+    src:url(lib/fonts/gradebook-icons.eot);
+    src:url(lib/fonts/gradebook-icons.eot?#iefix) format("embedded-opentype"),url(lib/fonts/gradebook-icons.woff) format("woff"),url(lib/fonts/gradebook-icons.ttf) format("truetype"),url(lib/fonts/gradebook-icons.svg#gradebook-icons) format("svg");
+    font-weight:400;
+    font-style:normal
+}
+
 html {
   font-family: "Helvetica Neue", Helvetica, Arial;
   font-size: 14px;
@@ -382,8 +390,8 @@ html {
   position: relative;
 }
 .gradebook-cell-item-saving:after {
-  font-family: 'nyu-classes-icons';
-  content: '\e073';
+  font-family: 'gradebook-icons';
+  content: '\f0c7';
   color: #999;
   z-index: 1;
   position: absolute;
@@ -402,8 +410,8 @@ html {
   background-color: #efe !important;
 }
 .gradebook-cell-item-saved:after {
-  font-family: 'nyu-classes-icons';
-  content: '\e047';
+  font-family: 'gradebook-icons';
+  content: '\f058';
   color: #999;
   z-index: 1;
   position: absolute;
@@ -527,6 +535,9 @@ html {
 #gradeItemFilter .hide-me {
   display: none;
 }
+.hide-me {
+  visibility: hidden;
+}
 #gradeItemFilter input {
   float: right;
   margin-left: 20px;
@@ -642,7 +653,7 @@ html {
   transition: opacity 0.5s;
   overflow: hidden;
 }
-.gradebook-gradeitem-columns-header:hover {
+.gradebook-gradeitem-columns-header.show-details {
   transition: opacity 0.5s, box-shadow 0.5s;
   transition-delay: 0.25s;
   box-shadow: 0 1px 3px #AAA;
@@ -651,9 +662,9 @@ html {
 .gradebook-item-details small.point-value {
   margin: 0;
 }
-.gradebook-gradeitem-columns-header:hover .gradebook-item-details {
+.gradebook-gradeitem-columns-header.show-details .gradebook-item-details {
   transition: height 0.5s;
-  transition-delay: 0.2s;
+  transition-delay: 0.5s;
   height: 190px;
   font-size: 1em;
 }
@@ -661,8 +672,37 @@ html {
   transition: margin 0.5s;
   margin: 0 0 2px;
 }
-.gradebook-gradeitem-columns-header:hover .gradebook-item-details small {
+.gradebook-gradeitem-columns-header.show-details .gradebook-item-details small {
   transition: margin 0.5s;
   transition-delay: 0.2s;
   margin: 0 0 6px;
+}
+.sortable-placeholder {
+  background-color: #EAF6F5;
+}
+.gradebook-header-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.gradebook-header-list li {
+  margin: 0;
+  padding: 0;
+  float: left;
+  width: 120px;
+  height: 54px;
+}
+.gradebook-gradeitem-columns .gradebook-column input {
+  transition: opacity 0.5s;
+  opacity: 1;
+}
+.gradebook-gradeitem-columns.reordering .gradebook-column input {
+  transition: opacity 0.5s;
+  opacity: 0;
+}
+.gradebook-item-title {
+  cursor: move;
+}
+.disabled .gradebook-item-title {
+  cursor: default;
 }

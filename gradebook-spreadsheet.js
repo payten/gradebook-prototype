@@ -18,6 +18,8 @@ function GradebookSpreadsheet($spreadsheet) {
 
   this.initGradeItemDetails();
 
+  this.initDragAndDrop();
+
   this.addListeners();
 }
 
@@ -258,9 +260,52 @@ GradebookSpreadsheet.prototype.initCategories = function() {
   self.$spreadsheet.addClass("hide-categories");
   $("#gradebookCategoryToggle").on("change", function() {
     self.$spreadsheet.toggleClass("hide-categories")
+    if (self.$spreadsheet.hasClass("hide-categories")) {
+      self._sortableHeaderList.sortable("enable");
+      self._sortableHeaderList.removeClass("disabled");
+
+      $(".gradebook-header-list li").each(function() {
+        self._moveColumn($(this), $(this).data("my-index"));
+      });
+    } else {
+      self._sortableHeaderList.sortable("disable");
+      self._sortableHeaderList.addClass("disabled");
+
+      // reorder columns so they sit under the categories
+      $(".gradebook-header-list li").each(function() {
+        $(this).data("my-index", $(this).index());
+      });
+      var $header = self.$spreadsheet.find(".gradebook-header-list");
+      var $columns = $(".gradebook-gradeitem-columns");
+      var index = 0;
+      $(".gradebook-categories .gradebook-category").each(function(i) {
+        var $category = $(this);
+        $header.find(".gradebook-header-cell").each(function() {
+          var $headerCell = $(this);
+
+          if ($headerCell.data("category") == $category.data("category")) {
+            self._moveColumn($headerCell.parent(), index);
+            index++;
+          }
+        });
+      });
+    }
   });
 };
 
+GradebookSpreadsheet.prototype._moveColumn = function($header, index) {
+  var $headerList = this.$spreadsheet.find(".gradebook-header-list");
+  var $columns = $(".gradebook-gradeitem-columns");
+  var $column = $columns.find("#gradeitem-"+$header.data("index")+"-column");
+
+  if (index == 0) {
+    $headerList.prepend($header);
+    $columns.prepend($column);
+  } else {
+    $header.insertAfter($headerList.children().get(index - 1));
+    $column.insertAfter($columns.children().get(index-1));
+  }
+};
 
 GradebookSpreadsheet.prototype.initFixedTableHeader = function() {
   var self = this;
@@ -293,7 +338,11 @@ GradebookSpreadsheet.prototype.initFixedTableHeader = function() {
       $this.css("backgroundColor", $category.css("backgroundColor"));
     } else {
       lastCategory = $this.data("category");
-      var $category = $("<div>").addClass("gradebook-category").text(lastCategory).width($this.width());
+      var $category = $("<div>").
+                        addClass("gradebook-category").
+                        text(lastCategory).
+                        width($this.width()).
+                        data("category", lastCategory);
 
       $category.append($("<div>").addClass("gradebook-category-weighting").text($this.data("weighting")));
 
@@ -324,6 +373,12 @@ GradebookSpreadsheet.prototype.initFixedTableHeader = function() {
       $fixedHeaderLeft.css("top", $toolbar.outerHeight());
       $fixedHeaderRight.css("top", $toolbar.outerHeight());
     }
+  });
+
+  $fixedHeaderRight.find(".gradebook-item-details").hover(function() {
+    $fixedHeaderRight.addClass("show-details");
+  }, function() {
+    $fixedHeaderRight.removeClass("show-details");
   });
 };
 
@@ -456,12 +511,12 @@ GradebookSpreadsheet.prototype.initGradeItemToggle = function() {
         var $header = $("#"+$input.data("colidx").toString()+"-header");
         if ($input.is(":checked")) {
           // show
-          $header.show();
+          $header.parent().show();
           $(self.$gradeitemColumnContainer.find(".gradebook-column").
             get(parseInt($input.data("colidx")))).show();
         } else {
           //hide
-          $header.hide();
+          $header.parent().hide();
           $(self.$gradeitemColumnContainer.find(".gradebook-column").
             get(parseInt($input.data("colidx")))).hide();
         }
@@ -686,4 +741,46 @@ GradebookSpreadsheet.prototype.initGradeItemDetails = function() {
         //$(".cloned-and-popped").remove();
       }
     );
+};
+
+GradebookSpreadsheet.prototype.initDragAndDrop = function() {
+  var $header = this.$spreadsheet.find(".gradebook-gradeitem-columns-header");
+  var $headerList = $("<ul>").addClass("gradebook-header-list");
+  var $columns = $(".gradebook-gradeitem-columns");
+  
+  $header.find(".gradebook-header-cell").each(function(i) {
+    var $li = $("<li>").append($(this));
+    $li.attr("id", "gradeitem-"+i + "-header");
+    $li.data("index", i);
+    if ($(this).hasClass("hide-me")) {
+      $li.addClass("hide-me");
+    }
+    $($columns.find(".gradebook-column").get(i)).attr("id", "gradeitem-"+i+"-column");
+    $headerList.append($li);
+  });
+  $header.append($headerList);
+  this._sortableHeaderList = $headerList;
+  $headerList.sortable({
+    handle: '.gradebook-item-title'
+  });
+  $headerList.on("dragstart", function() {
+    $(".gradebook-gradeitem-columns").addClass("reordering");
+    $headerList.find("li").each(function() {
+      $(this).attr("id", "");
+    });
+  }).on("dragstop", function() {
+    $(".gradebook-gradeitem-columns").removeClass("reordering");    
+  }).on("sortupdate", function(event, sortdata) {
+      $headerList.find("li").each(function(i, li) {
+        var $li = $(li);
+        var $column = $columns.find("#gradeitem-"+$li.data("index")+"-column");
+        if ($li.data("index") != i) {
+          if (i == 0) {
+            $columns.prepend($column);
+          } else {
+            $column.insertAfter($columns.find(".gradebook-column").get(i - 1));
+          }          
+        }
+      });
+    });
 };

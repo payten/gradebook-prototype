@@ -4,8 +4,11 @@
   <link rel="stylesheet" type="text/css" href="lib/tool.css"/>
   <link rel="stylesheet" type="text/css" href="lib/jquery.qtip-latest.min.css"/>
   <link rel="stylesheet" type="text/css" href="gradebook.css"/>
+<!--  <link rel="stylesheet" type="text/css" href="lib/jquery-ui-1.11.2.custom/jquery-ui.min.css"/> -->
   <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <!-- script src="lib/jquery-ui-1.11.2.custom/jquery-ui.min.js"></script -->
   <script src="lib/jquery.qtip-latest.min.js"></script>
+  <script src="lib/jquery.sortable.js"></script>
   <script src="gradebook-cell.js"></script>
   <script src="gradebook-spreadsheet.js"></script>
   <script src="gradebook.js"></script>
@@ -263,7 +266,7 @@
         <div class="gradebook-column-group gradebook-gradeitem-columns">
           <div style="width:120px;" class="gradebook-column">
             <div class="gradebook-header-cell" data-category="Final" data-weighting="25%">
-              <span>Final</span><br>
+              <span class="gradebook-item-title">Final</span><br>
               <div class="gradebook-item-details">
                 <small class="point-value"><span>Point Value: </span><strong>100</strong></small>
                 <small class="average"><span>Average: </span><strong>70</strong></small>
@@ -455,7 +458,7 @@
               <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
           </div>
           <div style="width:120px;" class="gradebook-column">
-            <div class="gradebook-header-cell" data-category="Forums" data-weighting="20%"><span>Week 1 Discussion</span><br>
+            <div class="gradebook-header-cell" data-category="Forums" data-weighting="20%"><span class="gradebook-item-title">Week 1 Discussion</span><br>
               <div class="gradebook-item-details">
                 <small class="point-value"><span>Point Value: </span><strong>10</strong></small>
                 <small class="average"><span>Average: </span><strong>6.5</strong></small>
@@ -647,7 +650,7 @@
               <small class="gradebook-item-max"><span>/</span><span>10</span></small></div>
           </div>
           <div style="width:120px;" class="gradebook-column">
-            <div class="gradebook-header-cell" data-category="Forums"><span>Week 2 Discussion</span><br>
+            <div class="gradebook-header-cell" data-category="Forums"><span class="gradebook-item-title">Week 2 Discussion</span><br>
               <div class="gradebook-item-details">
                 <small class="point-value"><span>Point Value: </span><strong>10</strong></small>
                 <small class="average"><span>Average: </span><strong>5</strong></small>
@@ -839,7 +842,7 @@
               <small class="gradebook-item-max"><span>/</span><span>10</span></small></div>
           </div>
           <div style="width:120px;" class="gradebook-column">
-            <div class="gradebook-header-cell" data-category="Forums"><span>Week 3 Discussion</span><br>
+            <div class="gradebook-header-cell" data-category="Forums"><span class="gradebook-item-title">Week 3 Discussion</span><br>
               <div class="gradebook-item-details">
                 <small class="point-value"><span>Point Value: </span><strong>10</strong></small>
                 <small class="average"><span>Average: </span><strong>7</strong></small>
@@ -1031,7 +1034,7 @@
               <small class="gradebook-item-max"><span>/</span><span>10</span></small></div>
           </div>
           <div style="width:120px;" class="gradebook-column">
-            <div class="gradebook-header-cell" data-category="Homework" data-weighting="20%"><span>Week 1 Homework</span><br>
+            <div class="gradebook-header-cell" data-category="Homework" data-weighting="20%"><span class="gradebook-item-title">Week 1 Homework</span><br>
               <div class="gradebook-item-details">
                 <small class="point-value"><span>Point Value: </span><strong>100</strong></small>
                 <small class="average"><span>Average: </span><strong>61</strong></small>
@@ -1224,7 +1227,7 @@
               <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
           </div>
           <div style="width:120px;" class="gradebook-column">
-            <div class="gradebook-header-cell" data-category="Homework" data-weighting="20%"><span>Week 2 Homework</span><br>
+            <div class="gradebook-header-cell" data-category="Homework" data-weighting="20%"><span class="gradebook-item-title">Week 2 Homework</span><br>
               <div class="gradebook-item-details">
                 <small class="point-value"><span>Point Value: </span><strong>100</strong></small>
                 <small class="average"><span>Average: </span><strong>72</strong></small>
@@ -1417,7 +1420,7 @@
               <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
           </div>
           <div style="width:120px;" class="gradebook-column">
-            <div class="gradebook-header-cell" data-category="Homework" data-weighting="20%"><span>Week 3 Homework</span><br>
+            <div class="gradebook-header-cell" data-category="Homework" data-weighting="20%"><span class="gradebook-item-title">Week 3 Homework</span><br>
               <div class="gradebook-item-details">
                 <small class="point-value"><span>Point Value: </span><strong>100</strong></small>
                 <small class="average"><span>Average: </span><strong>66</strong></small>
@@ -1610,7 +1613,7 @@
               <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
           </div>
           <div style="width:120px;" class="gradebook-column">
-            <div class="gradebook-header-cell" data-category="Midterm" data-weighting="15%"><span>Midterm</span><br>
+            <div class="gradebook-header-cell" data-category="Midterm" data-weighting="15%"><span class="gradebook-item-title">Midterm</span><br>
               <div class="gradebook-item-details">
                 <small class="point-value"><span>Point Value: </span><strong>100</strong></small>
                 <small class="average"><span>Average: </span><strong>55</strong></small>
@@ -1803,7 +1806,7 @@
               <small class="gradebook-item-max"><span>/</span><span>100</span></small></div>
           </div>
           <div style="width:120px;" class="gradebook-column hide-me">
-            <div class="gradebook-header-cell hide-me" data-category="Quizzes" data-weighting="20%"><span>Class Quiz</span><br>
+            <div class="gradebook-header-cell hide-me" data-category="Quizzes" data-weighting="20%"><span class="gradebook-item-title">Class Quiz</span><br>
               <div class="gradebook-item-details">
                 <small class="point-value"><span>Point Value: </span><strong>20</strong></small>
                 <small class="average"><span>Average: </span><strong>14</strong></small>
