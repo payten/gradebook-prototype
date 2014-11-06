@@ -20,6 +20,8 @@ function GradebookSpreadsheet($spreadsheet) {
 
   this.initDragAndDrop();
 
+  this.initCommentNotifications();
+
   this.addListeners();
 }
 
@@ -398,8 +400,17 @@ GradebookSpreadsheet.prototype.refreshSummary = function() {
   var $summary = this.$spreadsheet.find(".gradebook-item-summary");
   var $filter = $("#gradeItemFilter");
 
-  $summary.find(".visible").html($filter.find(".gradebook-item-filter-group:not(.hide-me) .gradebook-item-filter :input:checked").length);
-  $summary.find(".total").html($filter.find(".gradebook-item-filter-group:not(.hide-me) .gradebook-item-filter :input").length);
+  var visible = $filter.find(".gradebook-item-filter-group:not(.hide-me) .gradebook-item-filter :input:checked").length;
+  var total = $filter.find(".gradebook-item-filter-group:not(.hide-me) .gradebook-item-filter :input").length
+
+  $summary.find(".visible").html(visible);
+  $summary.find(".total").html(total);
+
+  if (visible < total) {
+    $summary.addClass("warn-items-hidden");
+  } else {
+    $summary.removeClass("warn-items-hidden");
+  }
 };
 
 
@@ -783,4 +794,16 @@ GradebookSpreadsheet.prototype.initDragAndDrop = function() {
         }
       });
     });
+};
+
+
+GradebookSpreadsheet.prototype.initCommentNotifications = function() {
+  var $commentNotification = $("<span>").addClass("comment-notification");
+
+  for (var i = 0; i < 20; i++) {
+    var columnIndex = Math.floor(Math.random() * 8);
+    var rowIndex = Math.floor(Math.random() * 60);
+
+    $("#"+columnIndex+"-"+rowIndex).prepend($commentNotification.clone());
+  }
 };

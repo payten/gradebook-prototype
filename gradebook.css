@@ -17,7 +17,7 @@ html {
   margin-top: 20px;
   margin-left: 20px;
   padding: 0px 8px 0;
-  margin: 8px 0 4px;
+  margin: 8px 0;
   line-height: 24px;
 }
 
@@ -191,6 +191,7 @@ html {
   border: 3px solid #3698DB;
   padding: 2px;
   background-color: #FFF !important;
+  z-index: 1;
 }
 
 .gradebook-column.gradebook-column-highlight .gradebook-cell-active,
@@ -498,7 +499,7 @@ html {
 .gradebook-item-cell:hover {
   border-color: #F0f0f0;
 }
-#gradebookGradeItemToggle {
+.gradebook-filter .button {
   padding: 2px 8px;
   border-top-color: #CCC !important;
   border-left-color: #CCC !important;
@@ -512,8 +513,8 @@ html {
   content: '\e063';
   padding: 0 0 0 4px;
 }
-#gradebookGradeItemToggle:hover,
-#gradebookGradeItemToggle:focus {
+.gradebook-filter .button:hover,
+.gradebook-filter .button:focus {
   border-color: #BF3B3B !important;
   color: #BF3B3B !important;
   background-color: #FFF !important;
@@ -649,6 +650,10 @@ html {
   margin: 0 0 2px;
   line-height: 14px;
 }
+.gradebook-item-details small.average,
+.gradebook-item-details small.point-value {
+  display: inline-block;
+}
 .gradebook-gradeitem-columns-header {
   transition: opacity 0.5s;
   overflow: hidden;
@@ -665,7 +670,7 @@ html {
 .gradebook-gradeitem-columns-header.show-details .gradebook-item-details {
   transition: height 0.5s;
   transition-delay: 0.5s;
-  height: 190px;
+  height: 100px;
   font-size: 1em;
 }
 .gradebook-gradeitem-columns-header .gradebook-item-details small {
@@ -706,4 +711,42 @@ html {
 }
 .disabled .gradebook-item-title {
   cursor: default;
+}
+.comment-notification {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 0;
+  width:0;
+
+  border-top: 20px solid transparent;
+  border-left: 20px solid transparent;
+  border-right: 0px solid transparent;
+}
+.comment-notification:after {
+  font-family: 'gradebook-icons';
+  content: '\f075';
+  position: absolute;
+  top: -19px;
+  right: 1px;
+  font-size: 8px;
+  line-height: 8px;
+  color: #EEE;
+}
+.gradebook-item-cell:hover .comment-notification,
+.gradebook-cell.gradebook-item-cell:focus .comment-notification {
+  border-top-color: #F0F0F0;
+}
+.gradebook-item-cell:hover .comment-notification:after,
+.gradebook-cell.gradebook-item-cell:focus .comment-notification:after {
+  color: #F29C0F;
+}
+/*#viewGradeComments:before {
+  font-family: 'gradebook-icons';
+  content: '\f075';
+  margin-right: 4px;
+  color: #AAA;
+}*/
+.gradebook-item-summary.warn-items-hidden .visible {
+  color: #F29C0F;
 }

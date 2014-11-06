@@ -33,11 +33,13 @@
             Viewing <strong class="visible">-</strong> out of <strong class="total">-</strong> Grade Items
           </div>
           <div class="gradebook-filter">
-            <input id="gradebookCategoryToggle" type="checkbox"/> 
-            <label for="gradebookCategoryToggle">Grouped by Category</label>
+            <a href="javascript:void(0)" id="gradebookGradeItemToggle" class="button">Show/Hide Grade Items</a>
           </div>
           <div class="gradebook-filter">
-            <a href="javascript:void(0)" id="gradebookGradeItemToggle" class="button">Show/Hide Grade Items</a>
+            <label for="gradebookCategoryToggle" class="button">
+              <input id="gradebookCategoryToggle" type="checkbox"/> 
+              Grouped by Category
+            </label>
           </div>
         </div>
       </div>
@@ -268,10 +270,9 @@
             <div class="gradebook-header-cell" data-category="Final" data-weighting="25%">
               <span class="gradebook-item-title">Final</span><br>
               <div class="gradebook-item-details">
-                <small class="point-value"><span>Point Value: </span><strong>100</strong></small>
-                <small class="average"><span>Average: </span><strong>70</strong></small>
-                <small class="category-weighting"><span>Weight: </span><strong>25%</strong></small>
-                <small class="category-weighting"><span>Due Date: </span><strong>-</strong></small>
+                <small class="average"><span>Avg: </span><strong>70</strong></small>
+                <small class="point-value"><span> / </span><strong>100</strong></small>
+                <small class="due-date"><span>Due: </span><strong>-</strong></small>
                 <small class="released-to-students"><span>Released to Students: </span><strong>Yes</strong></small>
                 <small class="included-in-grade"><span>Included in Course Grade: </span><strong>Yes</strong></small>
               </div>
@@ -460,10 +461,9 @@
           <div style="width:120px;" class="gradebook-column">
             <div class="gradebook-header-cell" data-category="Forums" data-weighting="20%"><span class="gradebook-item-title">Week 1 Discussion</span><br>
               <div class="gradebook-item-details">
-                <small class="point-value"><span>Point Value: </span><strong>10</strong></small>
-                <small class="average"><span>Average: </span><strong>6.5</strong></small>
-                <small class="category-weighting"><span>Weight: </span><strong>20%</strong></small>
-                <small class="category-weighting"><span>Due Date: </span><strong>8/1/2014</strong></small>
+                <small class="average"><span>Avg: </span><strong>6.5</strong></small>
+                <small class="point-value"><span> / </span><strong>10</strong></small>
+                <small class="due-date"><span>Due: </span><strong>8/1/2014</strong></small>
                 <small class="released-to-students"><span>Released to Students: </span><strong>Yes</strong></small>
                 <small class="included-in-grade"><span>Included in Course Grade: </span><strong>Yes</strong></small>
               </div>
@@ -652,10 +652,9 @@
           <div style="width:120px;" class="gradebook-column">
             <div class="gradebook-header-cell" data-category="Forums"><span class="gradebook-item-title">Week 2 Discussion</span><br>
               <div class="gradebook-item-details">
-                <small class="point-value"><span>Point Value: </span><strong>10</strong></small>
-                <small class="average"><span>Average: </span><strong>5</strong></small>
-                <small class="category-weighting"><span>Weight: </span><strong>20%</strong></small>
-                <small class="category-weighting"><span>Due Date: </span><strong>8/8/2014</strong></small>
+                <small class="average"><span>Avg: </span><strong>5</strong></small>
+                <small class="point-value"><span> / </span><strong>10</strong></small>
+                <small class="due-date"><span>Due: </span><strong>8/8/2014</strong></small>
                 <small class="released-to-students"><span>Released to Students: </span><strong>Yes</strong></small>
                 <small class="included-in-grade"><span>Included in Course Grade: </span><strong>Yes</strong></small>
               </div>
@@ -844,10 +843,9 @@
           <div style="width:120px;" class="gradebook-column">
             <div class="gradebook-header-cell" data-category="Forums"><span class="gradebook-item-title">Week 3 Discussion</span><br>
               <div class="gradebook-item-details">
-                <small class="point-value"><span>Point Value: </span><strong>10</strong></small>
-                <small class="average"><span>Average: </span><strong>7</strong></small>
-                <small class="category-weighting"><span>Weight: </span><strong>20%</strong></small>
-                <small class="category-weighting"><span>Due Date: </span><strong>8/15/2014</strong></small>
+                <small class="average"><span>Avg: </span><strong>7</strong></small>
+                <small class="point-value"><span> / </span><strong>10</strong></small>
+                <small class="due-date"><span>Due: </span><strong>8/15/2014</strong></small>
                 <small class="released-to-students"><span>Released to Students: </span><strong>Yes</strong></small>
                 <small class="included-in-grade"><span>Included in Course Grade: </span><strong>Yes</strong></small>
               </div>
@@ -1036,13 +1034,11 @@
           <div style="width:120px;" class="gradebook-column">
             <div class="gradebook-header-cell" data-category="Homework" data-weighting="20%"><span class="gradebook-item-title">Week 1 Homework</span><br>
               <div class="gradebook-item-details">
-                <small class="point-value"><span>Point Value: </span><strong>100</strong></small>
-                <small class="average"><span>Average: </span><strong>61</strong></small>
-                <small class="category-weighting"><span>Weight: </span><strong>20%</strong></small>
-                <small class="category-weighting"><span>Due Date: </span><strong>8/7/2014</strong></small>
+                <small class="average"><span>Avg: </span><strong>61</strong></small>
+                <small class="point-value"><span> / </span><strong>100</strong></small>
+                <small class="due-date"><span>Due: </span><strong>8/7/2014</strong></small>
                 <small class="released-to-students"><span>Released to Students: </span><strong>Yes</strong></small>
                 <small class="included-in-grade"><span>Included in Course Grade: </span><strong>Yes</strong></small>
-                <small class="from-external"><span>External Tool: </span><strong>Assignments</strong></small>
               </div>
             </div>
             <div class="gradebook-cell gradebook-item-cell">
@@ -1229,13 +1225,11 @@
           <div style="width:120px;" class="gradebook-column">
             <div class="gradebook-header-cell" data-category="Homework" data-weighting="20%"><span class="gradebook-item-title">Week 2 Homework</span><br>
               <div class="gradebook-item-details">
-                <small class="point-value"><span>Point Value: </span><strong>100</strong></small>
-                <small class="average"><span>Average: </span><strong>72</strong></small>
-                <small class="category-weighting"><span>Weight: </span><strong>20%</strong></small>
-                <small class="category-weighting"><span>Due Date: </span><strong>8/14/2014</strong></small>
+                <small class="average"><span>Avg: </span><strong>72</strong></small>
+                <small class="point-value"><span> / </span><strong>100</strong></small>
+                <small class="due-date"><span>Due: </span><strong>8/14/2014</strong></small>
                 <small class="released-to-students"><span>Released to Students: </span><strong>Yes</strong></small>
                 <small class="included-in-grade"><span>Included in Course Grade: </span><strong>Yes</strong></small>
-                <small class="from-external"><span>External Tool: </span><strong>Assignments</strong></small>
               </div>
             </div>
             <div class="gradebook-cell gradebook-item-cell">
@@ -1422,13 +1416,11 @@
           <div style="width:120px;" class="gradebook-column">
             <div class="gradebook-header-cell" data-category="Homework" data-weighting="20%"><span class="gradebook-item-title">Week 3 Homework</span><br>
               <div class="gradebook-item-details">
-                <small class="point-value"><span>Point Value: </span><strong>100</strong></small>
-                <small class="average"><span>Average: </span><strong>66</strong></small>
-                <small class="category-weighting"><span>Weight: </span><strong>20%</strong></small>
-                <small class="category-weighting"><span>Due Date: </span><strong>8/21/2014</strong></small>
+                <small class="average"><span>Avg: </span><strong>66</strong></small>
+                <small class="point-value"><span> / </span><strong>100</strong></small>
+                <small class="due-date"><span>Due: </span><strong>8/21/2014</strong></small>
                 <small class="released-to-students"><span>Released to Students: </span><strong>Yes</strong></small>
                 <small class="included-in-grade"><span>Included in Course Grade: </span><strong>Yes</strong></small>
-                <small class="from-external"><span>External Tool: </span><strong>Assignments</strong></small>
               </div>
             </div>
             <div class="gradebook-cell gradebook-item-cell">
@@ -1615,13 +1607,11 @@
           <div style="width:120px;" class="gradebook-column">
             <div class="gradebook-header-cell" data-category="Midterm" data-weighting="15%"><span class="gradebook-item-title">Midterm</span><br>
               <div class="gradebook-item-details">
-                <small class="point-value"><span>Point Value: </span><strong>100</strong></small>
-                <small class="average"><span>Average: </span><strong>55</strong></small>
-                <small class="category-weighting"><span>Weight: </span><strong>15%</strong></small>
-                <small class="category-weighting"><span>Due Date: </span><strong>-</strong></small>
+                <small class="average"><span>Avg: </span><strong>55</strong></small>
+                <small class="point-value"><span> / </span><strong>100</strong></small>
+                <small class="due-date"><span>Due: </span><strong>-</strong></small>
                 <small class="released-to-students"><span>Released to Students: </span><strong>No</strong></small>
                 <small class="included-in-grade"><span>Included in Course Grade: </span><strong>Yes</strong></small>
-                <small class="from-external"><span>External Tool: </span><strong>Tests &amp; Quizzes</strong></small>
               </div>
             </div>
             <div class="gradebook-cell gradebook-item-cell">
@@ -1808,10 +1798,9 @@
           <div style="width:120px;" class="gradebook-column hide-me">
             <div class="gradebook-header-cell hide-me" data-category="Quizzes" data-weighting="20%"><span class="gradebook-item-title">Class Quiz</span><br>
               <div class="gradebook-item-details">
-                <small class="point-value"><span>Point Value: </span><strong>20</strong></small>
-                <small class="average"><span>Average: </span><strong>14</strong></small>
-                <small class="category-weighting"><span>Weight: </span><strong>20%</strong></small>
-                <small class="category-weighting"><span>Due Date: </span><strong>-</strong></small>
+                <small class="average"><span>Avg: </span><strong>14</strong></small>
+                <small class="point-value"><span> / </span><strong>20</strong></small>
+                <small class="due-date"><span>Due: </span><strong>-</strong></small>
                 <small class="released-to-students"><span>Released to Students: </span><strong>No</strong></small>
                 <small class="included-in-grade"><span>Included in Course Grade: </span><strong>No</strong></small>
               </div>
