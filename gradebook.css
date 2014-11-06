@@ -737,6 +737,10 @@ html {
 .gradebook-cell.gradebook-item-cell:focus .comment-notification:before {
   color: #F29C0F;
 }
+.gradebook-cell.gradebook-item-cell:focus .comment-notification:before {
+  top: 1px;
+  right: 1px;
+}
 /*#viewGradeComments:before {
   font-family: 'gradebook-icons';
   content: '\f075';
