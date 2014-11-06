@@ -92,7 +92,12 @@ html {
   cursor: pointer;
 }
 .gradebook-header-cell small {
-  color: #999;
+  transition: color 0.5s;
+  color: #AAA;
+}
+.gradebook-header-cell:hover small {
+  transition: color 0.5s;
+  color: #777;
 }
 .gradebook-cell {
   height: 2em;
@@ -638,12 +643,10 @@ html {
   color: #BF3B3B;
 }
 .gradebook-item-details {
-  transition: height 0.5s;
-  height: 18px;
   overflow: hidden;
-  padding: 2px 8px 11px;
+  padding: 1px 8px 12px;
   text-align: left;
-
+  height: 20px;
 }
 .gradebook-item-details small {
   display: block;
@@ -658,30 +661,30 @@ html {
   transition: opacity 0.5s;
   overflow: hidden;
 }
-.gradebook-gradeitem-columns-header.show-details {
+/*.gradebook-gradeitem-columns-header.show-details {
   transition: opacity 0.5s, box-shadow 0.5s;
   transition-delay: 0.25s;
   box-shadow: 0 1px 3px #AAA;
   opacity: 0.95;
-}
+}*/
 .gradebook-item-details small.point-value {
   margin: 0;
 }
-.gradebook-gradeitem-columns-header.show-details .gradebook-item-details {
+/*.gradebook-gradeitem-columns-header.show-details .gradebook-item-details {
   transition: height 0.5s;
   transition-delay: 0.5s;
   height: 100px;
   font-size: 1em;
-}
+}*/
 .gradebook-gradeitem-columns-header .gradebook-item-details small {
   transition: margin 0.5s;
   margin: 0 0 2px;
 }
-.gradebook-gradeitem-columns-header.show-details .gradebook-item-details small {
+/*.gradebook-gradeitem-columns-header.show-details .gradebook-item-details small {
   transition: margin 0.5s;
   transition-delay: 0.5s;
   margin: 0 0 6px;
-}
+}*/
 .sortable-placeholder {
   background-color: #EAF6F5;
 }
@@ -764,4 +767,44 @@ a.button {
 .gradebook-filter a.button {
   line-height: 1em;
   display: inline;
+}
+.released-to-students {
+  font-size: 0;
+}
+.released-to-students:before {
+  font-family: 'gradebook-icons';
+  content: '\f06e';
+  font-size: 10px;
+}
+.included-in-grade {
+  font-size: 0;
+}
+.included-in-grade:before {
+  font-family: 'nyu-classes-icons';
+  content: '\e049';
+  font-size: 10px;
+}
+.due-date span {
+  display: none;
+}
+.due-date:before {
+  font-family: 'nyu-classes-icons';
+  content: '\e028';
+  font-size: 10px;
+  margin-right: 4px;
+}
+small.released-to-students,
+small.included-in-grade,
+small.due-date {
+  display: inline-block;
+}
+#toggleVisibleToStudents:before {
+  font-family: 'nyu-classes-icons';
+  content: '\e607';
+  margin-right: 8px;
+}
+#toggleCalcInclusion:before {
+  font-family: 'nyu-classes-icons';
+  content: '\e049';
+  margin-right: 8px;
 }
