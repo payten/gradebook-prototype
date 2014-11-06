@@ -750,3 +750,14 @@ html {
 .gradebook-item-summary.warn-items-hidden .visible {
   color: #F29C0F;
 }
+
+.gradebook-step {
+  background-color: #EEE;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+a.button {
+  display: inline-block;
+  padding: 0 8px;
+  line-height: 24px;
+}

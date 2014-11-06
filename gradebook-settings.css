@@ -1,0 +1,22 @@
+#gradebookSetupTutorialLink:before {
+  font-family: 'gradebook-icons';
+  content: '\f05a';
+  margin-right: 8px;
+}
+.content-toggle {
+  font-size: 1.2em;
+  display: block;
+  padding: 10px;
+}
+.content-toggle:before {
+  font-family: 'gradebook-icons';
+  content: '\f054';
+  margin-right: 8px;
+}
+.content-toggle.on:before{
+  content: '\f078';
+}
+.togglable-content {
+  display: none;
+  padding: 10px;
+}
