@@ -712,7 +712,7 @@ html {
 .disabled .gradebook-item-title {
   cursor: default;
 }
-.comment-notification {
+/*.comment-notification {
   position: absolute;
   top: 0;
   right: 0;
@@ -722,23 +722,19 @@ html {
   border-top: 20px solid transparent;
   border-left: 20px solid transparent;
   border-right: 0px solid transparent;
-}
-.comment-notification:after {
+}*/
+.comment-notification:before {
   font-family: 'gradebook-icons';
   content: '\f075';
   position: absolute;
-  top: -19px;
-  right: 1px;
-  font-size: 8px;
+  top: 3px;
+  right: 3px;
+  font-size: 10px;
   line-height: 8px;
   color: #EEE;
 }
-.gradebook-item-cell:hover .comment-notification,
-.gradebook-cell.gradebook-item-cell:focus .comment-notification {
-  border-top-color: #F0F0F0;
-}
-.gradebook-item-cell:hover .comment-notification:after,
-.gradebook-cell.gradebook-item-cell:focus .comment-notification:after {
+.gradebook-item-cell:hover .comment-notification:before,
+.gradebook-cell.gradebook-item-cell:focus .comment-notification:before {
   color: #F29C0F;
 }
 /*#viewGradeComments:before {
