@@ -761,3 +761,7 @@ a.button {
   padding: 0 8px;
   line-height: 24px;
 }
+.gradebook-filter a.button {
+  line-height: 1em;
+  display: inline;
+}
