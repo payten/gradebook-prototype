@@ -2011,6 +2011,7 @@
       <div class="gradebook-item-category-filter">
         <label for="gradebook-item-category-filter-final">Final <span class="weighting">[25%]</span> <span class="gradebook-item-category-filter-signal"></span></label>
         <input type="checkbox" id="gradebook-item-category-filter-final" data-category="Final" checked />
+        <a class="context-menu-toggle" href="javascript:void(0);"></a>
       </div>
       <div class="gradebook-item-filter">
         <label for="gradebook-item-filter-final">Final <span class="gradebook-item-category-filter-signal"></span></label>
@@ -2022,6 +2023,7 @@
       <div class="gradebook-item-category-filter">
         <label for="gradebook-item-category-filter-forums">Forums <span class="weighting">[20%]</span> <span class="gradebook-item-category-filter-signal"></span></label>
         <input type="checkbox" id="gradebook-item-category-filter-forums" data-category="Forums" checked />
+        <a class="context-menu-toggle" href="javascript:void(0);"></a>
       </div>
       <div class="gradebook-item-filter">
         <label for="gradebook-item-filter-forums-1">Week 1 Discussion <span class="gradebook-item-category-filter-signal"></span></label>
@@ -2043,6 +2045,7 @@
       <div class="gradebook-item-category-filter">
         <label for="gradebook-item-category-filter-Homework">Homework <span class="weighting">[20%]</span> <span class="gradebook-item-category-filter-signal"></span></label>
         <input type="checkbox" id="gradebook-item-category-filter-Homework" data-category="Homework" checked />
+        <a class="context-menu-toggle" href="javascript:void(0);"></a>
       </div>
       <div class="gradebook-item-filter">
         <label for="gradebook-item-filter-Homework-1">Week 1 Homework <span class="gradebook-item-category-filter-signal"></span></label>
@@ -2064,6 +2067,7 @@
       <div class="gradebook-item-category-filter">
         <label for="gradebook-item-category-filter-Midterm">Midterm <span class="weighting">[15%]</span> <span class="gradebook-item-category-filter-signal"></span></label>
         <input type="checkbox" id="gradebook-item-category-filter-Midterm" data-category="Midterm" checked />
+        <a class="context-menu-toggle" href="javascript:void(0);"></a>
       </div>
       <div class="gradebook-item-filter">
         <label for="gradebook-item-filter-Midterm">Midterm <span class="gradebook-item-category-filter-signal"></span></label>
@@ -2075,6 +2079,7 @@
       <div class="gradebook-item-category-filter">
         <label for="gradebook-item-category-filter-Quizzes">Quizzes <span class="weighting">[20%]</span> <span class="gradebook-item-category-filter-signal"></span></label>
         <input type="checkbox" id="gradebook-item-category-filter-Quizzes" data-category="Quizzes" checked />
+        <a class="context-menu-toggle" href="javascript:void(0);"></a>
       </div>
       <div class="gradebook-item-filter">
         <label for="gradebook-item-filter-Quizzes-1">Class Quiz <span class="gradebook-item-category-filter-signal"></span></label>
@@ -2122,6 +2127,13 @@
   <div class="context-menu">
     <ul>
       <li><a id="showOnlyThisItem" href="javascript:void(0)">Show only this item</a></li>
+    </ul>
+  </div>
+</script>
+<script id="templateGradeItemCategoryFilterMenu" type="text/template">
+  <div class="context-menu">
+    <ul>
+      <li><a id="showOnlyThisCategory" href="javascript:void(0)">Show only this category</a></li>
     </ul>
   </div>
 </script>

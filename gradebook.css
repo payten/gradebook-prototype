@@ -581,8 +581,6 @@ html {
 .gradebook-item-category-filter,
 .gradebook-item-filter {
   clear: both;
-}
-.gradebook-item-filter  {
   margin-left: 10px;
   position: relative;
 }

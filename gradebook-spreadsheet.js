@@ -396,6 +396,15 @@ GradebookSpreadsheet.prototype.showOnlyThisGradeItem = function($itemFilter) {
 };
 
 
+GradebookSpreadsheet.prototype.showOnlyThisCategory = function($categoryFilter) {
+  var $input = $categoryFilter.find(":input");
+  var $label = $categoryFilter.find("label");
+
+  $("#hideAllGradeItems").trigger("click");
+  $label.trigger("click");
+};
+
+
 GradebookSpreadsheet.prototype.refreshSummary = function() {
   var $summary = this.$spreadsheet.find(".gradebook-item-summary");
   var $filter = $("#gradeItemFilter");
@@ -606,6 +615,11 @@ GradebookSpreadsheet.prototype.initContextSensitiveMenus = function() {
           });
         } else if ($toggle.closest(".gradebook-course-total").length > 0) {
           $menu = $($("#templateGradeTotalMenu").html());
+        } else if ($toggle.closest(".gradebook-item-category-filter").length > 0) {
+          $menu = $($("#templateGradeItemCategoryFilterMenu").html());
+          $menu.on("click", "#showOnlyThisCategory", function() {
+            self.showOnlyThisCategory($toggle.closest(".gradebook-item-category-filter"));
+          });
         } else {
           $menu = $($("#templateDummyContextMenuToggle").html());
         }
