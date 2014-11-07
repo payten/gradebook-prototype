@@ -85,8 +85,6 @@ html {
   text-align: center;
   /*background-image: linear-gradient(#F6F6F6, #E6E6E6); */
   text-shadow: 1px 1px 1px #FFF;
-  height: 52px;
-  line-height: 1.2em;
 }
 .gradebook-header-cell-selectable {
   cursor: pointer;
@@ -343,7 +341,7 @@ html {
   padding-top: 0;
 }
 .hide-categories .gradebook-column-group {
-  padding-top: 84px;
+  padding-top: 88px;
 }
 .gradebook-column-group {
   padding-top: 107px;
