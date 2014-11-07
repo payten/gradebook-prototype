@@ -570,7 +570,7 @@ GradebookSpreadsheet.prototype.toggleStudentNames = function() {
 GradebookSpreadsheet.prototype.initContextSensitiveMenus = function() {
   var self = this;
   var menuHTML = $("#templateContextMenuToggle").html();
-  $(".gradebook-header-cell, .gradebook-item-cell", self.$spreadsheet).append(menuHTML);
+  $(".gradebook-header-cell, .gradebook-item-cell, .gradebook-course-total", self.$spreadsheet).append(menuHTML);
 
   $(document.body).on("click", ".context-menu-toggle", function(event) {
     event.preventDefault();
@@ -600,6 +600,8 @@ GradebookSpreadsheet.prototype.initContextSensitiveMenus = function() {
           $menu.on("click", "#showOnlyThisItem", function() {
             self.showOnlyThisGradeItem($toggle.closest(".gradebook-item-filter"));
           });
+        } else if ($toggle.closest(".gradebook-course-total").length > 0) {
+          $menu = $($("#templateGradeTotalMenu").html());
         } else {
           $menu = $($("#templateDummyContextMenuToggle").html());
         }

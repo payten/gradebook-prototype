@@ -488,11 +488,11 @@ html {
 .gradebook-item-cell:hover .context-menu-toggle {
   background: #FAFAFA;
 }
-.gradebook-item-cell .context-menu-toggle {
+.gradebook-cell .context-menu-toggle {
   transition: opacity 0.25s;
   opacity: 0;
 }
-.gradebook-item-cell:hover .context-menu-toggle {
+.gradebook-cell:hover .context-menu-toggle {
   transition: opacity 0.25s;
   opacity: 1;
 }
