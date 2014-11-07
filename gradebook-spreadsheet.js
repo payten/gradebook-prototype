@@ -582,28 +582,36 @@ GradebookSpreadsheet.prototype.initContextSensitiveMenus = function() {
     var scrollEvent;
 
     if ($toggle.is(".on")) {
-      $menu = $(".context-menu");
-      $menu.remove();
-      $(document).off("scrol", scrollEvent);
+      $(".context-menu").hide();
+      $(document).off("scroll", scrollEvent);
     } else {
       // Hide all other menus
       $(document.body).find(".context-menu-toggle.on").trigger("click");
-      
-      if ($toggle.closest(".gradebook-column-students-header").length > 0) {
-        $menu = $($("#templateStudentColumnContextMenuToggle").html());
-      } else if ($toggle.closest(".gradebook-gradeitem-columns-header").length > 0) {
-        $menu = $($("#templateGradeItemContextMenuToggle").html());
-      } else if ($toggle.closest(".gradebook-item-cell").length > 0) {
-        $menu = $($("#templateGradeContextMenuToggle").html());
-      } else if ($toggle.closest(".gradebook-item-filter").length > 0) {
-        $menu = $($("#templateGradeItemFilterMenu").html());
-        $menu.on("click", "#showOnlyThisItem", function() {
-          self.showOnlyThisGradeItem($toggle.closest(".gradebook-item-filter"));
-        });
+
+      if ($toggle.data("menu") == null) {
+        if ($toggle.closest(".gradebook-column-students-header").length > 0) {
+          $menu = $($("#templateStudentColumnContextMenuToggle").html());
+        } else if ($toggle.closest(".gradebook-gradeitem-columns-header").length > 0) {
+          $menu = $($("#templateGradeItemContextMenuToggle").html());
+        } else if ($toggle.closest(".gradebook-item-cell").length > 0) {
+          $menu = $($("#templateGradeContextMenuToggle").html());
+        } else if ($toggle.closest(".gradebook-item-filter").length > 0) {
+          $menu = $($("#templateGradeItemFilterMenu").html());
+          $menu.on("click", "#showOnlyThisItem", function() {
+            self.showOnlyThisGradeItem($toggle.closest(".gradebook-item-filter"));
+          });
+        } else {
+          $menu = $($("#templateDummyContextMenuToggle").html());
+        }
+        $(document.body).append($menu);
+        $menu.data("header", $toggle.closest(".gradebook-header-cell"));
+        $menu.data("toggle", $toggle);
+        $toggle.data("menu", $menu[0]);
       } else {
-        $menu = $($("#templateDummyContextMenuToggle").html());
+        $menu = $($toggle.data("menu"));
+        $menu.show();
       }
-      $(document.body).append($menu);
+
       $menu.css({
         left: $toggle.offset().left + $toggle.outerWidth() - $menu.outerWidth() + "px",
         top: $toggle.offset().top + $toggle.outerHeight() - 1 + "px"
@@ -620,13 +628,25 @@ GradebookSpreadsheet.prototype.initContextSensitiveMenus = function() {
       });
     }
 
-    $toggle.toggleClass("on");
+    $toggle.toggleClass("on").trigger("visible");
   });
 
   $(document.body).on("click", "#toggleStudentNames", function() {
-    self.toggleStudentNames()
+    $(this).toggleClass("on");
+    self.toggleStudentNames();
   });
 
+  $(document.body).on("click", "#toggleVisibleToStudents", function() {
+    var $toggle = $(this).toggleClass("on");
+    var $header = $toggle.closest(".context-menu").data("header");
+    $header.find(".released-to-students").toggleClass("off");
+  });
+
+  $(document.body).on("click", "#toggleCalcInclusion", function() {
+    var $toggle = $(this).toggleClass("on");
+    var $header = $toggle.closest(".context-menu").data("header");
+    $header.find(".included-in-grade").toggleClass("off");
+  });
 };
 
 GradebookSpreadsheet.prototype._sort = ["netid", "last-name", "first-name"];

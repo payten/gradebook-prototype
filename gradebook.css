@@ -768,23 +768,17 @@ a.button {
   line-height: 1em;
   display: inline;
 }
-.released-to-students {
-  font-size: 0;
-}
-.released-to-students:before {
+/*.released-to-students:before {
   font-family: 'gradebook-icons';
   content: '\f06e';
   font-size: 10px;
-}
-.included-in-grade {
-  font-size: 0;
-}
-.included-in-grade:before {
+}*/
+/*.included-in-grade:before {
   font-family: 'nyu-classes-icons';
   content: '\e049';
   font-size: 10px;
-}
-.due-date span {
+}*/
+/*.due-date span {
   display: none;
 }
 .due-date:before {
@@ -792,19 +786,52 @@ a.button {
   content: '\e028';
   font-size: 10px;
   margin-right: 4px;
-}
+}*/
 small.released-to-students,
 small.included-in-grade,
 small.due-date {
   display: inline-block;
 }
-#toggleVisibleToStudents:before {
+small.released-to-students {
+  font-size: 0;
+  display: none;
+}
+
+small.included-in-grade {
+  font-size: 0;
+  display: none;
+}
+small.included-in-grade.off {
+  display: inline-block;
+}
+small.included-in-grade.off:before {
+  font-family: 'gradebook-icons';
+  content: '\e600';
+  font-size: 10px;
+}
+small.released-to-students.off {
+  display: inline-block;
+}
+small.released-to-students.off:before {
   font-family: 'nyu-classes-icons';
   content: '\e607';
-  margin-right: 8px;
+  font-size: 10px;
 }
 #toggleCalcInclusion:before {
-  font-family: 'nyu-classes-icons';
-  content: '\e049';
-  margin-right: 8px;
+  content: "Exclude from ";
+}
+#toggleCalcInclusion.on:before {
+  content: "Include in ";
+}
+#toggleStudentNames:before {
+  content: 'Hide ';
+}
+#toggleStudentNames.on:before {
+  content: 'Show ' !important;
+}
+#toggleVisibleToStudents:before {
+  content: 'Hide from ';
+}
+#toggleVisibleToStudents.on:before {
+  content: 'Release to ';
 }
