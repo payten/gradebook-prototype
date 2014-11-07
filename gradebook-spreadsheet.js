@@ -425,10 +425,14 @@ GradebookSpreadsheet.prototype.initGradeItemToggle = function() {
     $filter.find(".gradebook-item-filter :input:not(:checked)").trigger("click");
   });
 
+  $filter.on("click", "#hideAllGradeItems", function() {
+    $filter.find(".gradebook-item-filter :input:checked").trigger("click");
+  });
+
   // setup the colors
   $(".gradebook-item-category-filter", $filter).each(function() {
     var $categoryFilter = $(this);
-    var myColor = self._COLORS[$categoryFilter.text().trim()];
+    var myColor = self._COLORS[$categoryFilter.text().trim().split(" ")[0]];
     $categoryFilter.closest(".gradebook-item-filter-group").
                     find(".gradebook-item-category-filter-signal").
                     css("backgroundColor", myColor).
@@ -438,7 +442,7 @@ GradebookSpreadsheet.prototype.initGradeItemToggle = function() {
   var updateSignal = function($label, $input) {
     var $categoryGroup = $label.closest(".gradebook-item-filter-group");
     var $categoryFilter = $categoryGroup.find(".gradebook-item-category-filter");
-    var myColor = self._COLORS[$categoryFilter.text().trim()];
+    var myColor = self._COLORS[$categoryFilter.text().trim().split(" ")[0]];
     var $signal = $label.find(".gradebook-item-category-filter-signal");
 
     if ($input.is(":checked")) {

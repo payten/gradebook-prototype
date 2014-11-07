@@ -30,7 +30,7 @@
       <div id="gradebookToolbar">
         <div id="gradebookFilters">
           <div class="gradebook-filter gradebook-item-summary">
-            Viewing <strong class="visible">-</strong> out of <strong class="total">-</strong> Grade Items
+            Viewing <span class="counts"><strong class="visible">-</strong> out of <strong class="total">-</strong></span> Grade Items
           </div>
           <div class="gradebook-filter">
             <a href="javascript:void(0)" id="gradebookGradeItemToggle" class="button">Show/Hide Grade Items</a>
@@ -2005,10 +2005,11 @@
 </script>
 <script id="templateGradeItemFilter" type="text/template">
   <div id="gradeItemFilter">
+    <a href="javascript:void(0)" id="hideAllGradeItems">Hide All</a>
     <a href="javascript:void(0)" id="showAllGradeItems">Show All</a>
     <div class="gradebook-item-filter-group">
       <div class="gradebook-item-category-filter">
-        <label for="gradebook-item-category-filter-final">Final <span class="gradebook-item-category-filter-signal"></span></label>
+        <label for="gradebook-item-category-filter-final">Final <span class="weighting">[25%]</span> <span class="gradebook-item-category-filter-signal"></span></label>
         <input type="checkbox" id="gradebook-item-category-filter-final" data-category="Final" checked />
       </div>
       <div class="gradebook-item-filter">
@@ -2019,7 +2020,7 @@
     </div>
     <div class="gradebook-item-filter-group">
       <div class="gradebook-item-category-filter">
-        <label for="gradebook-item-category-filter-forums">Forums <span class="gradebook-item-category-filter-signal"></span></label>
+        <label for="gradebook-item-category-filter-forums">Forums <span class="weighting">[20%]</span> <span class="gradebook-item-category-filter-signal"></span></label>
         <input type="checkbox" id="gradebook-item-category-filter-forums" data-category="Forums" checked />
       </div>
       <div class="gradebook-item-filter">
@@ -2040,7 +2041,7 @@
     </div>
     <div class="gradebook-item-filter-group">
       <div class="gradebook-item-category-filter">
-        <label for="gradebook-item-category-filter-Homework">Homework <span class="gradebook-item-category-filter-signal"></span></label>
+        <label for="gradebook-item-category-filter-Homework">Homework <span class="weighting">[20%]</span> <span class="gradebook-item-category-filter-signal"></span></label>
         <input type="checkbox" id="gradebook-item-category-filter-Homework" data-category="Homework" checked />
       </div>
       <div class="gradebook-item-filter">
@@ -2061,7 +2062,7 @@
     </div>
     <div class="gradebook-item-filter-group">
       <div class="gradebook-item-category-filter">
-        <label for="gradebook-item-category-filter-Midterm">Midterm <span class="gradebook-item-category-filter-signal"></span></label>
+        <label for="gradebook-item-category-filter-Midterm">Midterm <span class="weighting">[15%]</span> <span class="gradebook-item-category-filter-signal"></span></label>
         <input type="checkbox" id="gradebook-item-category-filter-Midterm" data-category="Midterm" checked />
       </div>
       <div class="gradebook-item-filter">
@@ -2072,7 +2073,7 @@
     </div>
     <div class="gradebook-item-filter-group hide-me">
       <div class="gradebook-item-category-filter">
-        <label for="gradebook-item-category-filter-Quizzes">Quizzes <span class="gradebook-item-category-filter-signal"></span></label>
+        <label for="gradebook-item-category-filter-Quizzes">Quizzes <span class="weighting">[20%]</span> <span class="gradebook-item-category-filter-signal"></span></label>
         <input type="checkbox" id="gradebook-item-category-filter-Quizzes" data-category="Quizzes" checked />
       </div>
       <div class="gradebook-item-filter">
