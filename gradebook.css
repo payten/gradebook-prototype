@@ -388,7 +388,7 @@ html {
   cursor: pointer;
 }
 .gradebook-header-cell .gradebook-header-sort-toggle {
-  color: #444;
+  color: #2F7FAB;
 }
 .gradebook-header-cell .gradebook-header-sort-toggle:hover {
   color: #BF3B3B;
