@@ -107,7 +107,10 @@ html {
   border-right: 1px solid #FAFAFA;
   position: relative;
 }
-.gradebook-user-label {
+.gradebook-user-label .first-name,
+.gradebook-user-label .last-name,
+.gradebook-user-label .netid {
+  color: #2F7FAB;
 }
 .gradebook-user-label.gradebook-cell-highlight {
   box-shadow: none;
@@ -132,15 +135,15 @@ html {
 .hide-student-names .gradebook-user-label {
   text-align: center;
 }
+.gradebook-user-label .netid {
+  color: #999;
+}
 .hide-student-names .gradebook-user-label .netid {
-  color: #444;
+  color: #2F7FAB;
 }
 .hide-student-names .gradebook-user-label .netid:before,
 .hide-student-names .gradebook-user-label .netid:after {
   content: '';
-}
-.gradebook-user-label .netid {
-  color: #999;
 }
 .gradebook-item-cell {
   text-align: center;
